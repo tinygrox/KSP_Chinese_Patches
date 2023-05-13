@@ -15,7 +15,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 **安装 | Installation**
 
 - **到本页面右侧的 [release 页面](https://github.com/tinygrox/KSP_Chinese_Patches/releases) 下载` KSP_Chinese_Patches.zip`文件**| **Go to the [release](https://github.com/tinygrox/KSP_Chinese_Patches/releases) and download the file named `KSP_Chinese_Patches.zip`**
-- **将下载的文件解压到 KSP 游戏根目录下的 `GameData` 文件夹内** | **Open the *.zip and copy `Tinygrox_CNPatches` folder into `GameData` folder of your KSP installation**
+- **将下载的文件解压到 KSP 游戏根目录下的 `GameData` 文件夹内** | **Open the \*.zip and copy `Tinygrox_CNPatches` folder into `GameData` folder of your KSP installation**
 
 完整路径应该为`X:\...\Kerbal Space Program\GameData\Tinygrox_CNPatches`，X 为你的安装分区。
 
