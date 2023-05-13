@@ -8,14 +8,14 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 本 Mod 在 1.12.5 游戏版本、ModuleManager 4.2.2 环境下进行编写和测试，理论上兼容任意 KSP 版本，如在其他的 KSP 版本上发现没能正确应用翻译或是与某些 Mod 一同使用时发现问题，请直接在 GitHub 页面提交一个 issue 反馈。同时本人在 B 站专门有一篇专栏文集，专门记录了本人游玩 Mod 时遇到的问题及其解决方法。传送门：[B 站专栏链接](https://www.bilibili.com/read/readlist/rl702519)
 
-**前置 Mod**（要正常使用必须安装）：
+**前置 Mod** | **Required Mod**：
 
-- **Module Manager**：[**下载链接** ](https://ksp.sarbian.com/jenkins/job/ModuleManager/lastSuccessfulBuild/artifact/)| [**官方论坛发布页**](https://forum.kerbalspaceprogram.com/index.php?/topic/50533-18x-112x-module-manager-422-june-18th-2022-the-heatwave-edition/)  - CKAN 有下载，如已安装可忽略，如未安装请先安装，本项目的发布文件中不包含 MM 本体
+- **Module Manager**：[**下载链接 (Download)**](https://ksp.sarbian.com/jenkins/job/ModuleManager/lastSuccessfulBuild/artifact/)| [**官方论坛发布页(Homepage)**](https://forum.kerbalspaceprogram.com/index.php?/topic/50533-18x-112x-module-manager-422-june-18th-2022-the-heatwave-edition/)  - CKAN 有下载，如已安装可忽略，如未安装请先安装，本项目的发布文件中不包含 MM 本体
 
-**安装**
+**安装 | Installation**
 
-- 到本页面右侧的 [release 页面]() 下载`XXX.zip`文件
-- 将下载的文件解压到 KSP 游戏根目录下的 `GameData` 文件夹内
+- **到本页面右侧的 [release 页面](https://github.com/tinygrox/KSP_Chinese_Patches/releases) 下载` KSP_Chinese_Patches.zip`文件**| **Go to the [release](https://github.com/tinygrox/KSP_Chinese_Patches/releases) and download the file named `KSP_Chinese_Patches.zip`**
+- **将下载的文件解压到 KSP 游戏根目录下的 `GameData` 文件夹内** | **Open the *.zip and copy `Tinygrox_CNPatches` folder into `GameData` folder of your KSP installation**
 
 完整路径应该为`X:\...\Kerbal Space Program\GameData\Tinygrox_CNPatches`，X 为你的安装分区。
 
