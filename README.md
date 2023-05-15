@@ -48,7 +48,6 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Un Kerballed Start** - 本地化简中补充，附有 Kerbalism 新部件在科技节点位置修复 patch
 - **Real Solar System** - 本地化简中补充和一些 mod 如 RemoteTech 、realantennas 的地面站点翻译。注：该 mod 的翻译 patch 是完全手工编写，加上当时（5月11日）被坎巴拉太空计划吧官方贴吧的吧务气得不轻，可能会出现漏翻、错翻的问题，如有发现请反馈，然后等我有心情再改（碎碎念：这帮人意见不合就踢人，这我是没想到的，一句骂人的话没说就被踢了）| 如在之前已安装了 **RemoteTech** 则**需要重新载入设置**才会生效。
 
-好了目前在用的就这么多了，RSS 我目前是没有在用的，之所以出现在列表中只是因为发现又多了个几个新的地面站没有翻译，强迫症犯了而已。
 
 **福利：**
 
