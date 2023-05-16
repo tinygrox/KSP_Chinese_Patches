@@ -55,11 +55,9 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntennas/releases 
 
-还有 RealFuels 的本地化版本 => https://github.com/tinygrox/ModularFuelSystem/releases
+~~还有 RealFuels 的本地化版本 => https://github.com/tinygrox/ModularFuelSystem/releases~~ - Realfuels 已于5月14日被原作者合并
 
 注：RealAntennas 的本地化版本遵循和原作者 DRVey 相同的协议，原地址 https://github.com/DRVeyl/RealAntennas ，即 CC BY-SA 4.0
-
-Real Fuels 的本地化版本也一样遵循原作者 [NathanKell ](https://github.com/NathanKell) 相同的协议，原地址 https://github.com/NathanKell/ModularFuelSystem ，也是 CC BY-SA
 
 ## 一些预览图 | Previews 
 
@@ -118,7 +116,7 @@ Real Fuels 的本地化版本也一样遵循原作者 [NathanKell ](https://gith
 
 - **Q：这个 Mod 会不会有兼容性的问题？**
 
-  A：无。但如果你发现了任何由于安装了本翻译补丁而产生的兼容性问题，请提出。
+  A：理应无。但如果你发现了任何由于安装了本翻译补丁而产生的兼容性问题，请提出。
   
 - **Q：性能问题？**
 
@@ -126,15 +124,15 @@ Real Fuels 的本地化版本也一样遵循原作者 [NathanKell ](https://gith
   
 - **Q：如何保证 MM patch 语法的正确度？**
 
-  A：本 mod 大多数 Patch 都使用了工具自动生成，只有少数 Patch 是手动编写，虽然工具功能尚未成熟，但正确率应该……可以吧。在采用手动方式编写的 Patch 中，利用 VS Code 的 KSPCFG 插件和正则表达式来排错，例如，可以在 VS Code 搜索框输入`^[ ]*[^@][a-z]+`来匹配任意未以`@`操作符开头的字符串，定位到问题节点。
+  A：本 mod 大多数 Patch 都使用了工具自动生成，只有少数 Patch 是手动编写，虽然工具功能尚未成熟，但正确率应该……可以吧。在采用手动方式编写的 Patch 中，我通常利用 VS Code 的 KSPCFG 插件和正则表达式搜索来排错，例如，可以在 VS Code 搜索框输入`^[ ]*[^@][a-z]+`来匹配任意未以`@`操作符开头的字符串，定位到问题节点。
   
-- **Q：好像有些 Mod 翻译不完全啊？**
+- **Q：为什么有些 Mod 不能完全翻译？**
 
   A：有些 Mod 需要更改代码重新编译才能完全翻译，如强迫症需完整翻译，请到相应 Mod 的文件夹内查看说明文件，在`Tinygrox_CNPatches`文件夹内，对应的 Mod 名称按 CKAN 中的显示名称命名。
   
 - **Q：你这里的翻译好像不对啊？**
 
-  A：那我只能说个人能力有限，有很多地方实在是不知道怎么翻译，考虑到中英文化差异，再综合个人的当前水平，只能如此。
+  A：那我只能说个人能力有限，有很多地方实在是不知道怎么翻译，考虑到中英文化差异，再综合个人的当前水平，只能如此。如能提供更好更地道的翻译，欢迎来提 PR
 
 ## 贡献 | Contribute
 
