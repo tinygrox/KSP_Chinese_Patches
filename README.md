@@ -14,7 +14,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 **安装 | Installation**
 
-- **到本页面右侧的 [release 页面](https://github.com/tinygrox/KSP_Chinese_Patches/releases) 下载` KSP_Chinese_Patches.zip`文件**| **Go to the [release](https://github.com/tinygrox/KSP_Chinese_Patches/releases) and download the file named `KSP_Chinese_Patches.zip`**
+- **到本页面右侧的 [release 页面](https://github.com/tinygrox/KSP_Chinese_Patches/releases) 下载` *.zip`文件**| **Go to the [release](https://github.com/tinygrox/KSP_Chinese_Patches/releases) and download the *.zip file**
 - **将下载的文件解压到 KSP 游戏根目录下的 `GameData` 文件夹内** | **Open the \*.zip and copy `Tinygrox_CNPatches` folder into `GameData` folder of your KSP installation**
 
 完整路径应该为`X:\...\Kerbal Space Program\GameData\Tinygrox_CNPatches`，X 为你的安装分区。
@@ -26,7 +26,6 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 ---
 
 - **CommunityResourcePack** - 补充了 ResourceLode 、 Aerozine50 、avGas 和 Hydyne 的中文翻译；修复了将 氮气（ Nitrogen）翻译成液态氮的错误；将Hydrazine的原翻译【联氨】更为【联氨(肼)】 
-
 - **Benjee10 Suits\*** - 部件翻译和 2 个航天服的名称翻译
 - **Benjee10 sharedAssets** - 部件翻译
 - **ht Robotics** - 部件翻译
