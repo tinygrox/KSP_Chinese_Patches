@@ -25,9 +25,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 ---
 
-- **CommunityResourcePack** - 补充了 ResourceLode 、 Aerozine50 和 Hydyne 的中文翻译；修复了将 氮气（ Nitrogen）翻译成液态氮的错误；将Hydrazine的原翻译【联氨】更为【联氨(肼)】 
-
-  [无图]
+- **CommunityResourcePack** - 补充了 ResourceLode 、 Aerozine50 、avGas 和 Hydyne 的中文翻译；修复了将 氮气（ Nitrogen）翻译成液态氮的错误；将Hydrazine的原翻译【联氨】更为【联氨(肼)】 
 
 - **Benjee10 Suits\*** - 部件翻译和 2 个航天服的名称翻译
 - **Benjee10 sharedAssets** - 部件翻译
