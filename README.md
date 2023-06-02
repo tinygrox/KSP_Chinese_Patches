@@ -150,6 +150,8 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 ## 更新日志 | Changelog
 
+#### 0.2.0
+
 - 新增了对 **RealExoplanets** 行星包的支持
 - 新增了 **Realfuels** 支持，主要补全了原来本地化没有照顾到的内容
 #### 0.1.0
