@@ -1,0 +1,18 @@
+// 如已安装 Procedural Parts 或 RO Tanks 则该 patch 失效
+@PART[*]:HAS[@MODULE[ModuleFuelTanks]]:NEEDS[RealFuels,!ProceduralParts,!ROTanks]:FINAL
+{
+    @MODULE[ModuleFuelTanks]
+	{
+		// 可选项：燃料箱利用率，如不想使用可在前添加 "//" 注释掉
+		%utilizationTweakable = true
+		// 以下添加各类燃料箱类型
+		typeAvailable = Default
+		typeAvailable = Cryogenic
+		typeAvailable = ServiceModule
+		typeAvailable = Fuselage
+		typeAvailable = Balloon
+		typeAvailable = BalloonCryo
+		typeAvailable = Structural
+		typeAvailable = ElectricPropulsion
+	}
+}
