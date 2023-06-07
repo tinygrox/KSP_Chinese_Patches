@@ -149,6 +149,10 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 ## 更新日志 | Changelog
 
+#### 0.3.0
+
+- 对 **Advanced Jet Engine** 的补全
+- 新增了 **Rational Resources** 主 Mod 的支持
 #### 0.2.0
 
 - 新增了对 **RealExoplanets** 行星包的支持
