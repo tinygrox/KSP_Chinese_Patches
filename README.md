@@ -10,18 +10,27 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 **前置 Mod** | **Required Mod**：
 
-- **Module Manager**：[**下载链接 (Download)**](https://ksp.sarbian.com/jenkins/job/ModuleManager/lastSuccessfulBuild/artifact/)| [**官方论坛发布页(Homepage)**](https://forum.kerbalspaceprogram.com/index.php?/topic/50533-18x-112x-module-manager-422-june-18th-2022-the-heatwave-edition/)  - CKAN 有下载，如已安装可忽略，如未安装请先安装，本项目的发布文件中不包含 MM 本体
+- **Module Manager**：[**下载链接 (Download)**](https://ksp.sarbian.com/jenkins/job/ModuleManager/lastSuccessfulBuild/artifact/)| [**官方论坛发布页(Homepage)**](https://forum.kerbalspaceprogram.com/index.php?/topic/50533-18x-112x-module-manager-422-june-18th-2022-the-heatwave-edition/)  - CKAN 有下载，如已安装可忽略，如未安装请先安装，该前置是否安装决定了本汉化合集是否生效，本项目的发布文件中不包含 MM 本体
+- **Hamony**：[**下载链接 (Download)**](https://github.com/KSPModdingLibs/HarmonyKSP/releases)| [**GitHub发布页面(Homepage)**](https://github.com/KSPModdingLibs/HarmonyKSP)  - CKAN 直接搜索 **Harmony**，如已安装可忽略，如未安装请先安装。*该前置影响 Mod 硬编码文本的汉化
 
 **安装 | Installation**
+
+**手动安装：**
 
 - **到本页面右侧的 [release 页面](https://github.com/tinygrox/KSP_Chinese_Patches/releases) 下载` *.zip`文件**| **Go to the [release](https://github.com/tinygrox/KSP_Chinese_Patches/releases) and download the \*.zip file**
 - **将下载的文件解压到 KSP 游戏根目录下的 `GameData` 文件夹内** | **Open the \*.zip and copy `Tinygrox_CNPatches` folder into `GameData` folder of your KSP installation**
 
 完整路径应该为`X:\...\Kerbal Space Program\GameData\Tinygrox_CNPatches`，X 为你的安装分区。
 
+**CKAN 安装：**
+
+- **直接在 CKAN 搜索**【Chinese Mod Patches】然后选中安装即可
+
 ## 目前支持的 Mod | Mods Support
 
 带`*`意为在当前项目中**不能将其完全**翻译，请到本项目文件夹内对应文件夹内查看说明文件(如果有的话)
+
+列表采用 CKAN 内的显示名称
 
 ---
 
@@ -48,6 +57,9 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Realfuels** - 补全一些没有本地化到的地方（比如燃料箱的隔热描述）的简中翻译，附有一个可选的 patch 能够让原版的燃料箱解锁所有燃料箱类型，就像Procedural Parts 一样，详见内部【RealFuels/说明.txt】文件。
 - **Advanced Jet Engine** - 根据现有的翻译对未翻译部件的文本进行翻译补全。
 
+- **Mk2 Stockalike Expansion** - 全部件翻译，尚未进行充分校对
+- **Rational Resources**  - 主Mod翻译，未包含子 Mod
+- **\*Universal Storage II Finalized** - 提供了一个初步的不完全翻译，感谢由百度贴吧用户 @CQC_S ([贴吧原贴](https://tieba.baidu.com/p/8466511187)) 提供的翻译文本。
 
 **福利：**
 
@@ -150,10 +162,25 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 ## 更新日志 | Changelog
 
+#### 0.3.0
+
+新增：
+
+- 新增了对 **Advanced Jet Engine** 的翻译补全
+- 新增了对 **Mk2 Stockalike Expansion** 的支持 
+- 新增了对 **Rational Resources** 主 Mod 的支持
+- 新增了对 **Universal Storage II Finalized** 的**不完全**支持（意思是未完全汉化完毕），感谢由百度贴吧用户 @CQC_S ([贴吧原贴](https://tieba.baidu.com/p/8466511187)) 提供的翻译文本。该 Mod 目前尚未在本人的 Mod 使用列表中，发现任何错误、漏翻，建议请直接提交 PR 以改进。
+
+修改：
+
+- 将原本 **Solar Array** 的翻译 -  **太阳能阵列** 更改为与原版一致的 **太阳能电池板** - 涉及到更改的 Mod 为 **HabTech2** 与 **Planetside Exploration Technologies**
+- **Hab Tech 2** 中对 **SG-G1 Pointing Gimbal** 的原翻译 **SG-G1 朝向万向节** 修改为 **SG-G1 方向调节云台**
+
 #### 0.2.0
 
 - 新增了对 **RealExoplanets** 行星包的支持
 - 新增了 **Realfuels** 支持，主要补全了原来本地化没有照顾到的内容
+
 #### 0.1.0
 
 - Mod 的第一次上传
