@@ -56,7 +56,6 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **RealExoplanets** - 星球包翻译，南门二、巴纳德等各个星系中恒星、行星的名称、描述文字、生态群落的翻译，简单就是翻译了追踪站界面的右下角的信息菜单中的信息。
 - **Realfuels** - 补全一些没有本地化到的地方（比如燃料箱的隔热描述）的简中翻译，附有一个可选的 patch 能够让原版的燃料箱解锁所有燃料箱类型，就像Procedural Parts 一样，详见内部【RealFuels/说明.txt】文件。
 - **Advanced Jet Engine** - 根据现有的翻译对未翻译部件的文本进行翻译补全。
-
 - **Mk2 Stockalike Expansion** - 全部件翻译，尚未进行充分校对
 - **Rational Resources**  - 主Mod翻译，未包含子 Mod
 - **\*Universal Storage II Finalized** - 提供了一个初步的不完全翻译，感谢由百度贴吧用户 @CQC_S ([贴吧原贴](https://tieba.baidu.com/p/8466511187)) 提供的翻译文本。
