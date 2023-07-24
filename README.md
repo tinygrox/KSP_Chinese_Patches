@@ -18,7 +18,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 **手动安装：**
 
 - **到本页面右侧的 [release 页面](https://github.com/tinygrox/KSP_Chinese_Patches/releases) 下载` *.zip`文件**| **Go to the [release](https://github.com/tinygrox/KSP_Chinese_Patches/releases) and download the \*.zip file**
-- **将下载的文件解压到 KSP 游戏根目录下的 `GameData` 文件夹内** | **Open the \*.zip and copy `Tinygrox_CNPatches` folder into `GameData` folder of your KSP installation**
+- **将下载的文件解压到 KSP 游戏根目录下的 `GameData` 文件夹内** | **Open the \*.zip and copy ~~Tinygrox_CNPatches~~ 0000Tinygrox_CNPatches folder into `GameData` folder of your KSP installation**
 
 完整路径应该为`X:\...\Kerbal Space Program\GameData\Tinygrox_CNPatches`，X 为你的安装分区。
 
@@ -59,6 +59,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Mk2 Stockalike Expansion** - 全部件翻译，尚未进行充分校对
 - **Rational Resources**  - 主Mod翻译，未包含子 Mod
 - **\*Universal Storage II Finalized** - 提供了一个初步的不完全翻译，感谢由百度贴吧用户 @CQC_S ([贴吧原贴](https://tieba.baidu.com/p/8466511187)) 提供的翻译文本。
+- **AmpYear** - 翻译补充，Mod 涉及的造词 **Kraziness** 暂译为 **癫狂**，该词应该是 **Kraken** + **Craziness** 的结合，这个阶段没有细想到啥有趣的翻译，如果谁能想到更好的，直接提个 PR 就好，不过这个词是和另外一个Mod - [**Kabin Kraziness**](https://github.com/JPLRepo/KabinKraziness) 配套使用才会有的概念
 
 **福利：**
 
@@ -69,22 +70,6 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 ~~还有 RealFuels 的本地化版本 => https://github.com/tinygrox/ModularFuelSystem/releases~~ - Realfuels 已于5月14日被原作者合并
 
 注：RealAntennas 的本地化版本遵循和原作者 DRVey 相同的协议，原地址 https://github.com/DRVeyl/RealAntennas ，即 CC BY-SA 4.0
-
-## 一些预览图 | Previews 
-
-一些部件 Mod 的翻译：
-
-<img src="./assets/image-20230513195343073.png" alt="image-20230513195343073" style="zoom: 80%;" /><img src="./assets/image-20230513195400514.png" alt="image-20230513195400514" style="zoom:80%;" />
-
-<img src="./assets/image-20230513195457986.png" alt="image-20230513195457986" style="zoom:80%;" /><img src="./assets/image-20230513195545479.png" alt="image-20230513195545479" style="zoom:80%;" />
-
-<img src="./assets/image-20230513195633652.png" alt="image-20230513195633652" style="zoom:80%;" /><img src="./assets/image-20230513195655359.png" alt="image-20230513195655359" style="zoom:80%;" />
-
-**RSS + RealAntennas 下的地面站翻译**
-
-![image-20230513204501300](./assets/image-20230513204501300.png)
-
-![image-20230513204606879](./assets/image-20230513204606879.png)
 
 ## 许可协议 | License
 
@@ -161,6 +146,14 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 ## 更新日志 | Changelog
 
+#### 0.4.0
+
+此版本将变更目录名称，原目录名 **GameData\Tinygrox_CNPatches** 将变为 **GameData\0000Tinygrox_CNPatches**，为了保证 KSP 在载入本地化文件时，此项目的读取顺序能早于其他 Mod 的本地化文件。
+
+新增：
+
+- 新增了对 **AmpYear** 的支持
+
 #### 0.3.0
 
 新增：
@@ -183,3 +176,19 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 #### 0.1.0
 
 - Mod 的第一次上传
+
+## 一些预览 | Previews
+
+一些部件 Mod 的翻译：
+
+<img src="./assets/image-20230513195343073.png" alt="image-20230513195343073" style="zoom: 80%;" /><img src="./assets/image-20230513195400514.png" alt="image-20230513195400514" style="zoom:80%;" />
+
+<img src="./assets/image-20230513195457986.png" alt="image-20230513195457986" style="zoom:80%;" /><img src="./assets/image-20230513195545479.png" alt="image-20230513195545479" style="zoom:80%;" />
+
+<img src="./assets/image-20230513195633652.png" alt="image-20230513195633652" style="zoom:80%;" /><img src="./assets/image-20230513195655359.png" alt="image-20230513195655359" style="zoom:80%;" />
+
+**RSS + RealAntennas 下的地面站翻译**
+
+![image-20230513204501300](./assets/image-20230513204501300.png)
+
+![image-20230513204606879](./assets/image-20230513204606879.png)
