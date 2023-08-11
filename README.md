@@ -58,8 +58,9 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Advanced Jet Engine** - 根据现有的翻译对未翻译部件的文本进行翻译补全。
 - **Mk2 Stockalike Expansion** - 全部件翻译，尚未进行充分校对
 - **Rational Resources**  - 主Mod翻译，未包含子 Mod
-- **\*Universal Storage II Finalized** - 提供了一个初步的不完全翻译，感谢由百度贴吧用户 @CQC_S ([贴吧原贴](https://tieba.baidu.com/p/8466511187)) 提供的翻译文本。
+- **\*Universal Storage II Finalized** - 提供了一个初步的不完全翻译，感谢由百度贴吧用户 @CQC_S ([贴吧原贴](https://tieba.baidu.com/p/8466511187)) 提供的翻译文本，以及后续 [@yuanze31](https://github.com/yuanze31) 提供的一部分翻译修正。
 - **AmpYear** - 翻译补充，Mod 涉及的造词 **Kraziness** 暂译为 **癫狂**，该词应该是 **Kraken** + **Craziness** 的结合，这个阶段没有细想到啥有趣的翻译，如果谁能想到更好的，直接提个 PR 就好，不过这个词是和另外一个Mod - [**Kabin Kraziness**](https://github.com/JPLRepo/KabinKraziness) 配套使用才会有的概念
+- **DeepFreeze Continued** - 翻译修正。
 
 **福利：**
 
@@ -145,6 +146,16 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 翻译而已，能有啥问题。
 
 ## 更新日志 | Changelog
+
+#### 0.5.0
+
+新增：
+
+- 新增对 **DeepFreeze Continued** 的支持。该文本是本人于2022年9月份提交给作者的内容 https://github.com/JPLRepo/DeepFreeze/pull/111，不过很明显的，原作者已经不活跃了，所以汉化也就跟着遥遥无期了。这其实也是促成本项目创立的原因之一，之所以现在才加入是因为之前忘记加了。
+
+修改：
+
+- 感谢 [@yuanze31](https://github.com/yuanze31) 对 **Universal Storage II Finalized** 的翻译做出的改进。
 
 #### 0.4.0
 
