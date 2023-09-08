@@ -145,6 +145,10 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 翻译而已，能有啥问题。
 
+## 如何汉化坎巴拉的 Mod
+
+可查看我写的这篇大纲：https://github.com/tinygrox/KSP_Mod_Localization_Project
+
 ## 更新日志 | Changelog
 
 #### 0.5.0
