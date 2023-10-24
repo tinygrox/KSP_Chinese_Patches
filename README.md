@@ -67,6 +67,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **DeepFreeze Continued** - 翻译修正。
 - **Kerbalism** - 翻译补充，能翻译的应该都翻译了，强迫症使我这样做，目前仅翻译了原版内容，和极少量的联动 Mod 文本。0.6.0 版本开始提供了一个能翻译 Kerbalism 中的那些 Telemetry Report、Pod 等文本的 patch 文件，默认未开启，如果要体验完整的翻译请到本 mod 目录下\Kerbalism 找到 ZH_ConfiguresLoc.cfg.disable 文件，然后将后缀改为 .cfg 即可，但是开启会对旧存档的已有载具产生影响，建议**开启后新开存档**，具体说明在该文件中上方的注释处。具体翻译内容请进游戏体验，**未完全翻译**跟其他 Mod 联动的内容。
 - **\*Ferram Aerospace Research Continued(FAR)** - 2 年前自用的翻译，现加入进本项目，分享给大众，仍有部分文本未翻译，说实话就是纯粹凑数用。
+- **RemoteTech** - 由 [@yuanze31](https://github.com/yuanze31) 提供的翻译改进。 
 
 **福利：**
 
@@ -156,6 +157,18 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 可查看我写的这篇大纲：https://github.com/tinygrox/KSP_Mod_Localization_Project
 
 ## 更新日志 | Changelog
+
+#### 0.6.1
+
+小型更新：
+
+新增：
+
+- RemoteTech的翻译，感谢 [@yuanze31](https://github.com/yuanze31) 提供的改进翻译。
+
+修改：
+
+- 因为最新 Kerbalism 包含了对HabTech2的修复，特此删除了本项目对 Kerbalism 的 HabTech2 修复 Patch（其实就是改个文件名）
 
 #### 0.6.0
 
