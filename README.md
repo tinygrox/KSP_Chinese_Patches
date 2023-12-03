@@ -4,10 +4,6 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 这是一个非常简单的 Mod ，一个 KSP 社区 Mod 的中文翻译补丁合集。里面包含了一系列部件类 Mod 的简体中文翻译、补充或修正。多数利用 Module Manager 的功能机制对部件文件中的如 `title`、`description` 等文本进行直接替换，除了少量 Mod 需要动到原文件外（会有说明），大多数翻译无需动用到 Mod 原文件。
 
-[TOC]
-
-
-
 ## 下载及安装 | Download and Installation
 
 本 Mod 在 1.12.5 游戏版本、ModuleManager 4.2.2 环境下进行编写和测试，理论上兼容任意 KSP 版本，如在其他的 KSP 版本上发现没能正确应用翻译或是与某些 Mod 一同使用时发现问题，请直接在 GitHub 页面提交一个 issue 反馈。同时本人在 B 站专门有一篇专栏文集，专门记录了本人游玩 Mod 时遇到的问题及其解决方法。传送门：[B 站专栏链接](https://www.bilibili.com/read/readlist/rl702519)
@@ -62,12 +58,22 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Advanced Jet Engine** - 根据现有的翻译对未翻译部件的文本进行翻译补全。
 - **Mk2 Stockalike Expansion** - 全部件翻译，尚未进行充分校对
 - **Rational Resources**  - 主Mod翻译，未包含子 Mod
+  - **Rational Resources Nuclear Family(未完全)** - 一点小修饰。
+  - **Rational HydroDynamics** -  将所有的 "Buoyancy" -> "浮力"
 - **\*Universal Storage II Finalized** - 提供了一个初步的不完全翻译，感谢由百度贴吧用户 @CQC_S ([贴吧原贴](https://tieba.baidu.com/p/8466511187)) 提供的翻译文本，以及后续 [@yuanze31](https://github.com/yuanze31) 提供的一部分翻译修正。
 - **AmpYear** - 翻译补充，Mod 涉及的造词 **Kraziness** 暂译为 **癫狂**，该词应该是 **Kraken** + **Craziness** 的结合，这个阶段没有细想到啥有趣的翻译，如果谁能想到更好的，直接提个 PR 就好，不过这个词是和另外一个Mod - [**Kabin Kraziness**](https://github.com/JPLRepo/KabinKraziness) 配套使用才会有的概念
 - **DeepFreeze Continued** - 翻译修正。
 - **Kerbalism** - 翻译补充，能翻译的应该都翻译了，强迫症使我这样做，目前仅翻译了原版内容，和极少量的联动 Mod 文本。0.6.0 版本开始提供了一个能翻译 Kerbalism 中的那些 Telemetry Report、Pod 等文本的 patch 文件，默认未开启，如果要体验完整的翻译请到本 mod 目录下\Kerbalism 找到 ZH_ConfiguresLoc.cfg.disable 文件，然后将后缀改为 .cfg 即可，但是开启会对旧存档的已有载具产生影响，建议**开启后新开存档**，具体说明在该文件中上方的注释处。具体翻译内容请进游戏体验，**未完全翻译**跟其他 Mod 联动的内容。
 - **\*Ferram Aerospace Research Continued(FAR)** - 2 年前自用的翻译，现加入进本项目，分享给大众，仍有部分文本未翻译，说实话就是纯粹凑数用。
 - **RemoteTech** - 由 [@yuanze31](https://github.com/yuanze31) 提供的翻译改进。 
+- **RasterPropMonitor Core** - 2 个部件 JSI External Radial-mount Camera 和 JSI External Radial-mount Camera。
+- **Kerbal Foundries2** - 部件翻译，车轮部件存在的英文来源于依赖 KSPWheel
+- **Better Early Tree** - 一款科技树 Mod，在用，不能评价怎么样。
+- **Kronal Vessel Viewer Continued** - 翻自己文件时找到的以前的翻译，居然还在。
+- **Mk3 Stockalike Expansion** - 部件翻译。
+- **SCANsat** - 由 [@yuanze31](https://github.com/yuanze31) 提供的翻译改进。
+- **MechJeb2** - 一点小润
+- 
 
 **福利：**
 
@@ -152,11 +158,38 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 翻译而已，能有啥问题。
 
+- 本汉化会覆盖所涉及 Mod 的自带汉化(如果有的话)，对于那些想要手动修改 Mod 翻译文件的玩家，请注意这一点。
+
+
+
 ## 如何汉化坎巴拉的 Mod
 
 可查看我写的这篇大纲：https://github.com/tinygrox/KSP_Mod_Localization_Project
 
+
+
 ## 更新日志 | Changelog
+
+#### 0.7.0
+
+新增：
+
+- **Better Early Tree** 的支持
+- **Kerbal Foundries2** 的支持。车轮部件的英文来源于依赖  **KSPWheel**
+- **Kronal Vessel Viewer Continued** 的支持。一个蓝图生成Mod，功能有限。
+- **RasterPropMonitor Core** 的支持。2个镜头部件。
+
+- **Mk3 Stockalike Expansion** 的支持，我知道作者诈尸更新了一波，但是我先更新我的，以后再说
+- **Rational Resources Nuclear Family(未完全)** 和 **Rational HydroDynamics** 的极小部分支持。太多了，我其实后悔了。
+- **SCANSat** - 来自玩家 [@yuanze31](https://github.com/yuanze31) 提供的补全翻译。
+- **Far Future Technologies** - 突然发现有些小地方没翻译。
+- **MechJeb2** 的支持，发现这个最初的汉化已经被很多人调教过了，很好，补全了一些目标轨道数据信息相关的翻译。
+
+修改：
+
+- **AmpYear** - 修正了一下在使用 RemoteTech 失去控制时 AmpYear 的中文翻译导致界面错位问题。
+- **Mk2 Stockalike Expansion** 一点小更，但是忘记更了啥。
+- **RemoteTech** 研发科技节点【Probe Core Upgrade】翻译。
 
 #### 0.6.1
 
