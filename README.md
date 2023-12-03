@@ -4,10 +4,6 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 这是一个非常简单的 Mod ，一个 KSP 社区 Mod 的中文翻译补丁合集。里面包含了一系列部件类 Mod 的简体中文翻译、补充或修正。多数利用 Module Manager 的功能机制对部件文件中的如 `title`、`description` 等文本进行直接替换，除了少量 Mod 需要动到原文件外（会有说明），大多数翻译无需动用到 Mod 原文件。
 
-[TOC]
-
-
-
 ## 下载及安装 | Download and Installation
 
 本 Mod 在 1.12.5 游戏版本、ModuleManager 4.2.2 环境下进行编写和测试，理论上兼容任意 KSP 版本，如在其他的 KSP 版本上发现没能正确应用翻译或是与某些 Mod 一同使用时发现问题，请直接在 GitHub 页面提交一个 issue 反馈。同时本人在 B 站专门有一篇专栏文集，专门记录了本人游玩 Mod 时遇到的问题及其解决方法。传送门：[B 站专栏链接](https://www.bilibili.com/read/readlist/rl702519)
@@ -151,6 +147,8 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 ## 已知问题 | Known isuues
 
 翻译而已，能有啥问题。
+
+- 本汉化会覆盖涉及 Mod 的自带汉化(如果有的话)，如果那些手动修改过原翻译文件的玩家，请注意这一点。
 
 ## 如何汉化坎巴拉的 Mod
 
