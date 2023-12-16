@@ -73,7 +73,8 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Mk3 Stockalike Expansion** - 部件翻译。
 - **SCANsat** - 由 [@yuanze31](https://github.com/yuanze31) 提供的翻译改进。
 - **MechJeb2** - 一点小润
-- 
+- **MOAR Station Science** - 感谢来自玩家 [@1328411791](https://github.com/1328411791) 分享的翻译
+- **Squad** -  `#autoLOC_283371 = 让<<1>>摆脱重力` -> `#autoLOC_283371 = 让<<1>>过载昏迷`（英原文`Have <<1>> pass out from gee forces`）
 
 **福利：**
 
@@ -160,8 +161,6 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 - 本汉化会覆盖所涉及 Mod 的自带汉化(如果有的话)，对于那些想要手动修改 Mod 翻译文件的玩家，请注意这一点。
 
-
-
 ## 如何汉化坎巴拉的 Mod
 
 可查看我写的这篇大纲：https://github.com/tinygrox/KSP_Mod_Localization_Project
@@ -169,6 +168,15 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 
 ## 更新日志 | Changelog
+
+#### 0.7.1
+
+一次小更。
+
+新增：
+
+- **MOAR Station Science** 支持，感谢来自玩家 [@1328411791](https://github.com/1328411791) 分享的翻译
+- **Squad** - 原版一处错译修正。原版翻译 `#autoLOC_283371 = 让<<1>>摆脱重力` 英原文为 `Have <<1>> pass out from gee forces` ，修正为 `让<<1>>过载昏迷`
 
 #### 0.7.0
 
