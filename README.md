@@ -169,6 +169,15 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 ## 更新日志 | Changelog
 
+#### 0.8.0
+
+不算什么大更。
+
+新增：
+
+- **ResearchBodies** 支持。
+- **Squad** - 原版一处错译修正。原版翻译 `#autoLOC_8003261 = 动作绑定` 英原文为 `Axis Groups` ，修正为 `轴动作组`
+
 #### 0.7.1
 
 一次小更。
