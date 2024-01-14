@@ -1,3 +1,8 @@
+// 该 Patch 已弃用，Kerbalism 已于 v3.18 版本修复
+
+
+
+
 // Kerbalism 修正补丁 1 - HabTech2
 // HabTech2 和 Kerblism 一起使用时会导致 B9PartSwitch Fatal 错误，详见我在 Kerbalism 提出的issue：https://github.com/Kerbalism/Kerbalism/issues/861
 // 解决办法很简单，纵观 Kerbalism 的配置逻辑，搞清楚为什么 Kerbalism 要删除掉这个 ht2_02 以及删除掉之后还做了什么其他修改之后，那就可以进行仿写修复了
