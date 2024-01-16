@@ -1,0 +1,43 @@
+name: Zip and Publish
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - 'GameData/0000Tinygrox_CNPatches'  # 当根目录下的your_folder文件夹中的文件被更新时触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set version
+      id: set_version
+      run: echo "VERSION=0.0.$((github.run_number))" >> $GITHUB_ENV
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Zip files
+      run: |
+        zip -r pre_KSP_Chinese_Patches_${{ env.VERSION }}.zip GameData
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ env.VERSION }}
+        release_name: PreRelease ${{ env.VERSION }}
+        prerelease: true
+
+    - name: Publish
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: pre_KSP_Chinese_Patches_${{ env.VERSION }}.zip
+        asset_name: pre_KSP_Chinese_Patches_${{ env.VERSION }}.zip
+        asset_content_type: application/zip
+        token: ${{ secrets.MY_GITHUB_TOKEN }}
