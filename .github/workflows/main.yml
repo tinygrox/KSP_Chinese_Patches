@@ -5,7 +5,7 @@ on:
     branches:
       - dev
     paths:
-      - 'your_folder/**'  # 当根目录下的your_folder文件夹中的文件被更新时触发
+      - 'GameData/0000Tinygrox_CNPatches'  # 当根目录下的your_folder文件夹中的文件被更新时触发
 
 jobs:
   build:
@@ -21,8 +21,7 @@ jobs:
 
     - name: Zip files
       run: |
-        cd your_folder
-        zip -r files-${{ env.VERSION }}.zip .
+        zip -r pre_KSP_Chinese_Patches_${{ env.VERSION }}.zip GameData
 
     - name: Create Release
       id: create_release
@@ -31,14 +30,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       with:
         tag_name: v${{ env.VERSION }}
-        release_name: Release ${{ env.VERSION }}
+        release_name: PreRelease ${{ env.VERSION }}
         prerelease: true
 
     - name: Publish
       uses: actions/upload-release-asset@v1
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: your_folder/KSP_Chinese_Patches_${{ env.VERSION }}.zip
-        asset_name: KSP_Chinese_Patches_${{ env.VERSION }}.zip
+        asset_path: pre_KSP_Chinese_Patches_${{ env.VERSION }}.zip
+        asset_name: pre_KSP_Chinese_Patches_${{ env.VERSION }}.zip
         asset_content_type: application/zip
         token: ${{ secrets.MY_GITHUB_TOKEN }}
