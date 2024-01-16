@@ -1,0 +1,30 @@
+name: Zip and Publish
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - 'GameData'  # 当指定路径下的文件被更新时触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Zip files
+      run: |
+        cd GameData
+        zip -r files.zip .
+
+    - name: Publish
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ github.event.repository.releases[0].upload_url }}
+        asset_path: files.zip
+        asset_name: files.zip
+        asset_content_type: application/zip
+        token: ${{ secrets.GITHUB_TOKEN }}
