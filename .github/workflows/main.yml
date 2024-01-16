@@ -5,26 +5,40 @@ on:
     branches:
       - dev
     paths:
-      - 'GameData'  # 当指定路径下的文件被更新时触发
+      - 'your_folder/**'  # 当根目录下的your_folder文件夹中的文件被更新时触发
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Set version
+      id: set_version
+      run: echo "VERSION=0.0.$((github.run_number))" >> $GITHUB_ENV
+
     - name: Checkout code
       uses: actions/checkout@v2
 
     - name: Zip files
       run: |
-        cd GameData
-        zip -r files.zip .
+        cd your_folder
+        zip -r files-${{ env.VERSION }}.zip .
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ env.VERSION }}
+        release_name: Release ${{ env.VERSION }}
+        prerelease: true
 
     - name: Publish
       uses: actions/upload-release-asset@v1
       with:
-        upload_url: ${{ github.event.repository.releases[0].upload_url }}
-        asset_path: files.zip
-        asset_name: files.zip
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: your_folder/KSP_Chinese_Patches_${{ env.VERSION }}.zip
+        asset_name: KSP_Chinese_Patches_${{ env.VERSION }}.zip
         asset_content_type: application/zip
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.MY_GITHUB_TOKEN }}
