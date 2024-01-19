@@ -75,6 +75,22 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **MechJeb2** - 一点小润
 - **MOAR Station Science** - 感谢来自玩家 [@1328411791](https://github.com/1328411791) 分享的翻译
 - **Squad** -  `#autoLOC_283371 = 让<<1>>摆脱重力` -> `#autoLOC_283371 = 让<<1>>过载昏迷`（英原文`Have <<1>> pass out from gee forces`）
+- **JNSQ** - 星球包翻译 感谢来自玩家 [@zhangyuesai](https://github.com/zhangyuesai) 提供的翻译
+- **JNSQ Real Date** - JNSQ + Kronometer 配套使用的日期格式显示 Mod，默认使用为 日月年 格式
+- **Kronometer** - 用来修改日期显示格式的 Mod。
+- **Tarsier Space Technology** - 太空望远镜 Mod 的翻译 由玩家 [@zhangyuesai](https://github.com/zhangyuesai) 分享提供。 
+- **Quick 系列** - 该系列 Mod 的翻译均由玩家 [@zhangyuesai](https://github.com/zhangyuesai) 提供 。
+  - **QuickBrake** - 发射时自动启用刹车
+  - **QuickContracts**
+  - **QuickExit**
+  - **QuickGoTo**
+  - **QuickHide**
+  - **QuickIVA**
+  - **QuickMute**
+  - **QuickRevert**
+  - **QuickSAS**
+  - **QuickSearch** - 原版搜索功能改进 mod，支持科技树内按部件名搜索，这个很好用。
+  - **QuickStart**
 
 **福利：**
 
@@ -168,6 +184,16 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 
 ## 更新日志 | Changelog
+
+#### 0.9.0
+
+新增：
+
+- **JNSQ** - 一个原版扩展星球包的支持，感谢玩家 [@zhangyuesai](https://github.com/zhangyuesai) 的分享
+- **JNSQ Real Date** - JNSQ + Kronometer 搭配使用的真实日期显示 Mod，主要更改了左上角的日期现实格式，默认显示格式是 日 月 年，如果想要使用年月日，可以去本Mod目录下的 JNSQRealDate/ZH_JSNQRealDate.cfg 文件内查看方法。
+- **Kronometer** - 用来修改日期显示格式的 Mod。
+- **Tarsier Space Technology** - 一个太空望远镜 Mod，是可以用的那种望远镜部件。来自 [@zhangyuesai](https://github.com/zhangyuesai) 的分享
+- **Quick 系列** - 包括QuickBrake、QuickContracts、QuickExit、QuickGoTo、QuickHide、QuickIVA、QuickMute、QuickRevert、QuickSAS、QuickSearch、QuickStart  同样来自玩家 [@zhangyuesai](https://github.com/zhangyuesai) 的分享
 
 #### 0.8.0
 
