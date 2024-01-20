@@ -81,16 +81,16 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Tarsier Space Technology** - 太空望远镜 Mod 的翻译 由玩家 [@zhangyuesai](https://github.com/zhangyuesai) 分享提供。 
 - **Quick 系列** - 该系列 Mod 的翻译均由玩家 [@zhangyuesai](https://github.com/zhangyuesai) 提供 。
   - **QuickBrake** - 发射时自动启用刹车
-  - **QuickContracts**
-  - **QuickExit**
-  - **QuickGoTo**
-  - **QuickHide**
-  - **QuickIVA**
-  - **QuickMute**
-  - **QuickRevert**
-  - **QuickSAS**
+  - **QuickContracts** - 用键盘快捷键来接受/拒绝合同
+  - **QuickExit** - 一键（保存并）退出游戏（在KSP并未完全卡死但按Esc或F5均无响应时有奇效）
+  - **QuickGoTo** - 在任何场景时直接前往任何其他场景（无需回到太空中心中转）
+  - **QuickHide** - 自动隐藏原版工具栏和分级控制
+  - **QuickIVA** - 发射时自动进入舱内视角
+  - **QuickMute** - 将KSP静音，或调节KSP整体音量
+  - **QuickRevert** - 保存上次发射载具的回退点（发射后即使切换过场景也可回退）
+  - **QuickSAS** - 使用数字小键盘切换SAS模式（稳定、机动、顺向/逆向等）
   - **QuickSearch** - 原版搜索功能改进 mod，支持科技树内按部件名搜索，这个很好用。
-  - **QuickStart**
+  - **QuickStart** - KSP启动并加载完成后自动进入上次游玩的存档
 
 **福利：**
 
