@@ -84,7 +84,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
   - **QuickContracts** - 用键盘快捷键来接受/拒绝合同
   - **QuickExit** - 一键（保存并）退出游戏（在KSP并未完全卡死但按Esc或F5均无响应时有奇效）
   - **QuickGoTo** - 在任何场景时直接前往任何其他场景（无需回到太空中心中转）
-  - **QuickHide** - 自动隐藏原版工具栏和分级控制
+  - **QuickHide** - 自动隐藏原版工具栏和分级控制，也可以折叠原版工具栏中不常用的模组图标
   - **QuickIVA** - 发射时自动进入舱内视角
   - **QuickMute** - 将KSP静音，或调节KSP整体音量
   - **QuickRevert** - 保存上次发射载具的回退点（发射后即使切换过场景也可回退）
