@@ -185,6 +185,10 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 ## 更新日志 | Changelog
 
+#### 0.10.0
+
+本次的更新内容全部由玩家 [@zhangyuesai](https://github.com/zhangyuesai) 提供
+
 #### 0.9.0
 
 新增：
