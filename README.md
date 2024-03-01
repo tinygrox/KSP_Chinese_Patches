@@ -185,6 +185,34 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 ## 更新日志 | Changelog
 
+#### 0.11.0
+
+本次更新主要新增了合同包翻译：
+
+- Bases and Stations Reborn - 空间基地扩展合同 | 同时修改了合同包的最大活跃合同数为 3，即同一时间可出现的合同数量为 3
+
+- Clever Sats - 卫星合同
+
+- CommNet Relays - 尚未使用过，请玩家自行体验
+
+- Exploration Plus - 探索+，原版探索合同增强
+
+- Field Research - 增加了一系列科研合同
+
+- Rover Missions - 尚未使用过，请玩家自行体验
+
+- Tourism Plus - 原版旅客合同增强
+
+  (上述合同包由 @zhangyuesai 热心分享，感谢 @zhangyuesai ！)
+
+- Kerbal Academy - 完成合同 = 训练你的小绿人 = 小绿人等级升级
+
+修改：
+
+一系列小错误修正 + 原版翻译修正。
+
+详情请看 https://github.com/tinygrox/KSP_Chinese_Patches/pull/23
+
 #### 0.10.0
 
 本次的更新内容全部由玩家 [@zhangyuesai](https://github.com/zhangyuesai) 提供
