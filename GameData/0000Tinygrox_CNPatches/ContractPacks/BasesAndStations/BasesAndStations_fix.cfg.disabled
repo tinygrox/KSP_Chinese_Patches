@@ -1,8 +1,8 @@
+// 合同包原作者已合并我提交的修复，本汉化包中的相同修复已经没有必要，因此弃用。
+// 请将Bases and Stations Reborn合同包更新到版本3.7.3.3或以上。
+
 // 修复：原合同包在玩家安装了Kopernicus的情况下无法满足太阳能电池板要求的问题。
 // 该问题导致本合同包中最基本的几个合同不可用或无法完成，故不建议禁用此修复。
-
-// 此修复已向mod作者提交，但因为作者一直没有合并我的PR，所以在这里修复。在作者更新了mod后，应放弃此修复
-// （若不放弃，只会使太阳能电池板的相关要求多显示一行，但不会影响游戏正常游玩）
 
 @CONTRACT_TYPE[StationCoreCombined]:NEEDS[ContractPacks/KerbinSpaceStation]:FIRST
 {
