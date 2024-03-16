@@ -289,7 +289,7 @@ RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntenna
 
 新增：
 
-- 新增对 **DeepFreeze Continued** 的支持。该文本是本人于2022年9月份提交给作者的内容 https://github.com/JPLRepo/DeepFreeze/pull/111，不过很明显的，原作者已经不活跃了，所以汉化也就跟着遥遥无期了。这其实也是促成本项目创立的原因之一，之所以现在才加入是因为之前忘记加了。
+- 新增对 **DeepFreeze Continued** 的支持。该文本是本人于2022年9月份提交给作者的内容 https://github.com/JPLRepo/DeepFreeze/pull/111 不过很明显的，原作者已经不活跃了，所以汉化也就跟着遥遥无期了。这其实也是促成本项目创立的原因之一，之所以现在才加入是因为之前忘记加了。
 
 修改：
 
