@@ -1,3 +1,7 @@
-
 *.bat
 *.zip
+*.csproj
+.vs/
+bin/
+obj/
+Properties/
