@@ -1,5 +1,5 @@
 name: Create release
-run-name: ${{ github.actor }}的自动发布测试流
+run-name: ${{ github.actor }}的自动发布
 on:
   pull_request:
     # 当 PR 被关闭时触发 
@@ -11,8 +11,8 @@ on:
 
 jobs:
   mergedNrelease:
-    # 仅当 PR 被合并时执行
-    if: github.event.pull_request.merged == true
+    # 仅当 PR 被合并，且是 dev 分支合并至 main 分支时执行
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'dev'
     runs-on: ubuntu-latest
     steps:
       # 作用之一——将工作目录设置为当前仓库根目录
