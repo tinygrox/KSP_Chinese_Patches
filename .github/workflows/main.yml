@@ -1,24 +1,43 @@
-name: Create Archive
+name: Create release
+run-name: ${{ github.actor }}的自动发布测试流
 on:
-  push:
-    branches:
-      - dev
-    paths:
-      - "GameData"
   pull_request:
+    # 当 PR 被关闭时触发 
+    # 参见 https://docs.github.com/zh/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request
+    types: 
+      - closed
     branches:
       - main
 
 jobs:
-  build:
+  mergedNrelease:
+    # 仅当 PR 被合并时执行
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      # 从 version 文件读取版本号
+      - name: Read version from version
+        id: get_version
+        run: |
+          VERSION=$(cat version)
+          echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
+      
+      # 在工作目录中创建 zip 包
+      - name: Create ZIP
+        run: zip -r KSP_Chinese_Patches_{{ steps.get_version.outputs.VERSION }}.zip GameData
 
-      - name: Archive Release
-        uses: TheDoctor0/zip-release@0.7.6
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
-          type: "zip"
-          filename: "preRelease.zip"
-          exclusions: "*.git* /*node_modules/* .editorconfig"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          name: KSP_Chinese_Patches_{{ steps.get_version.outputs.VERSION }}.zip
+          path: KSP_Chinese_Patches_{{ steps.get_version.outputs.VERSION }}.zip
+      # 发布
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.get_version.outputs.VERSION }}
+          name:  KSP Mod 中文翻译补丁合集 | KSP Chinese Patches v{{ steps.get_version.outputs.VERSION }}
+          body: "由 GitHub 自动构建，版本：${{ steps.get_version.outputs.VERSION }}"
+          files: KSP_Chinese_Patches_{{ steps.get_version.outputs.VERSION }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
