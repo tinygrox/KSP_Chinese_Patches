@@ -24,7 +24,7 @@ jobs:
         id: get_ver_cl
         run: |
           LATEST_VERSION=$(awk '/^## \[/{print $2; exit}' CHANGELOG.MD | tr -d '[]')
-          CHANGELOG=$(awk -v version="${LATEST_VERSION}" '/^## \[/{if ($2 == "["version"]") {flag=1;next} else {flag = 0;}} flag==1 {print;}' CHANGELOG.md)
+          CHANGELOG=$(awk -v version="${LATEST_VERSION}" '/^## \[/{if ($2 == "["version"]") {flag=1;next} else {flag = 0;}} flag==1 {print;}' CHANGELOG.MD)
           echo "LATEST_VERSION=${LATEST_VERSION}" >> $GITHUB_OUTPUT
           printf "CHANGELOG<<EOF\n%s\nEOF\n" "$CHANGELOG" >> $GITHUB_OUTPUT
       
