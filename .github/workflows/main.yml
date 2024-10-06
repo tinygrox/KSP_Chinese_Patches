@@ -21,30 +21,34 @@ jobs:
 
       # 从 version 文件读取版本号
       - name: Read version from version
-        id: get_version
+        id: get_ver_cl
         run: |
           VERSION=$(cat version)
           echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
       
       # 在工作目录中创建 zip 包
       - name: Create ZIP
-        run: zip -r KSP_Chinese_Patches_${{ steps.get_version.outputs.VERSION }}.zip GameData
+        run: zip -r KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.VERSION }}.zip GameData
 
       # 文件准备
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: KSP_Chinese_Patches_${{ steps.get_version.outputs.VERSION }}.zip
-          path: KSP_Chinese_Patches_${{ steps.get_version.outputs.VERSION }}.zip
+          name: KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.VERSION }}.zip
+          path: KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.VERSION }}.zip
       
       # 创建发布页面
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ steps.get_version.outputs.VERSION }}
-          name:  KSP Mod 中文翻译补丁合集 | KSP Chinese Patches v${{ steps.get_version.outputs.VERSION }}
-          body: "由 GitHub 自动构建，版本：${{ steps.get_version.outputs.VERSION }}"
-          files: KSP_Chinese_Patches_${{ steps.get_version.outputs.VERSION }}.zip
+          tag_name: v${{ steps.get_ver_cl.outputs.LATEST_VERSION }}
+          name:  KSP Mod 中文翻译补丁合集 | KSP Chinese Patches v${{ steps.get_ver_cl.outputs.LATEST_VERSION }}
+          body: |
+            该发布由 GitHub 自动构建，当前项目版本：${{ steps.get_ver_cl.outputs.LATEST_VERSION }}
+            所属 PR：${{ github.event.pull_request.html_url }}
+            ## 更新内容：
+            ${{ steps.get_ver_cl.outputs.CHANGELOG }}
+          files: KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.LATEST_VERSION }}.zip
         env:
           # 注意去设置 Workflow permissions 为 Read and write permissions 否则会失败
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
