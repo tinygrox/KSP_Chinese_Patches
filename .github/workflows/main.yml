@@ -46,7 +46,7 @@ jobs:
           tag_name: v${{ steps.get_ver_cl.outputs.LATEST_VERSION }}
           name:  KSP Mod 中文翻译补丁合集 | KSP Chinese Patches v${{ steps.get_ver_cl.outputs.LATEST_VERSION }}
           body: |
-            该发布由 GitHub 自动构建，版本：${{ steps.get_ver_cl.outputs.LATEST_VERSION }}
+            该发布由 GitHub 自动构建，当前项目版本：${{ steps.get_ver_cl.outputs.LATEST_VERSION }}
             所属 PR：${{ github.event.pull_request.html_url }}
             ## 更新内容：
             ${{ steps.get_ver_cl.outputs.CHANGELOG }}
