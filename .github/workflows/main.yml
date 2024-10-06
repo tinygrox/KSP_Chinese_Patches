@@ -3,7 +3,7 @@ run-name: ${{ github.actor }}的自动发布
 on:
   pull_request:
     # 当 PR 被关闭时触发 
-    # 参见 https://docs.github.com/zh/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request
+    # 详见 https://docs.github.com/zh/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request
     types: 
       - closed
     branches:
@@ -19,25 +19,27 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 从 version 文件读取版本号
-      - name: Read version from version
+      # 读取版本号和更新日志 因为 runs on ubuntu 所以注意保持要读取文件行尾换行符为 LF
+      - name: Read version and changelog from CHANGELOG.MD
         id: get_ver_cl
         run: |
-          VERSION=$(cat version)
-          echo "VERSION=${VERSION}" >> $GITHUB_OUTPUT
+          LATEST_VERSION=$(awk '/^## \[/{print $2; exit}' CHANGELOG.MD | tr -d '[]')
+          CHANGELOG=$(awk -v version="${LATEST_VERSION}" '/^## \[/{if ($2 == "["version"]") {flag=1;next} else {flag = 0;}} flag==1 {print;}' CHANGELOG.MD)
+          echo "LATEST_VERSION=${LATEST_VERSION}" >> $GITHUB_OUTPUT
+          printf "CHANGELOG<<EOF\n%s\nEOF\n" "$CHANGELOG" >> $GITHUB_OUTPUT
       
       # 在工作目录中创建 zip 包
       - name: Create ZIP
-        run: zip -r KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.VERSION }}.zip GameData
+        run: zip -r KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.LATEST_VERSION }}.zip GameData
 
       # 文件准备
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.VERSION }}.zip
-          path: KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.VERSION }}.zip
+          name: KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.LATEST_VERSION }}.zip
+          path: KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.LATEST_VERSION }}.zip
       
-      # 创建发布页面
+      # 创建发布页面 详见 https://github.com/marketplace/actions/gh-release
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
@@ -50,5 +52,5 @@ jobs:
             ${{ steps.get_ver_cl.outputs.CHANGELOG }}
           files: KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.LATEST_VERSION }}.zip
         env:
-          # 注意去设置 Workflow permissions 为 Read and write permissions 否则会失败
+          # 注意去设置 Workflow permissions 为 Read and write permissions 否则会失败 或另新建一个专用的 token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
