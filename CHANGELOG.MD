@@ -1,14 +1,14 @@
 # 更新日志 | Changelog
 ## [1.0.0]
 
-几年测试期间无收到任何恶性问题反馈，测试阶段可以结束，进入正式版本。
-
-得益于 GitHub Action，现在项目可在 main 分支合并 dev 分支的 PR 时自动创建发布，欢迎各位尽情提 PR！
+几年测试期间无收到任何恶性问题反馈，测试阶段可以结束，进入正式版本。欢迎各位继续尽情提 PR！
 
 - 项目更新日志现在转存到 CHANGELOG.MD 文件，文件名全大写
-- 
+- 为项目添加了一个能够自动发布的 GitHub Action
 
+### 新增
 
+- **FASA** - 一个部件包
 
 ## [0.12.0]
 本次更新内容均由 @zhangyuesai 无私分享
@@ -17,7 +17,7 @@
 
 - **Astrogator** - 一个轨道窗口计算器
 - **SpaceY 系列** - SpaceYCorp、SpaceYLifters 和 SpaceYExpanded 的支持
-- **Speed Unit Annex** - 
+- **Speed Unit Annex** - 一个增强了速度指示的 Mod
 
 ### 修正
 
