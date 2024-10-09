@@ -13,15 +13,16 @@ namespace KSP_Chinese_Patches
     {
         public void Start()
         {
-            Harmony har = new Harmony("tinygrox.ChinesePatches");
-            List<AssemblyLoader.LoadedAssembly> assemblies = new List<AssemblyLoader.LoadedAssembly>();
-            foreach (AssemblyLoader.LoadedAssembly loadedAssembly in AssemblyLoader.loadedAssemblies)
+            if (!StaticMethods.IsAssemblyLoaded("0Harmony"))
             {
-                assemblies.Add(loadedAssembly);
+                Debug.Log("未发现安装有 0Harmony! DLL相关的汉化失效！");
+                return;
             }
-            if (AssemblyLoader.loadedAssemblies.Any(a => a.assembly.GetName().Name == "WhereCanIGo"))
+
+            Harmony har = new Harmony("tinygrox.ChinesePatches");
+            if (StaticMethods.IsAssemblyLoaded("WhereCanIGo"))
             {
-                Debug.Log("Found Where Can I Go!");
+                Debug.Log("[KSPCNPatches] 已找到 [Where Can I Go]! 应用翻译...");
                 har.Patch(
                     //original: AccessTools.TypeByName("WhereCanIGo.WhereCanIGoEditor").GetMethod("GenerateDialog", BindingFlags.NonPublic),
                     original: AccessTools.Method(AccessTools.TypeByName("WhereCanIGo.WhereCanIGoEditor"), "GenerateDialog"),
@@ -46,6 +47,42 @@ namespace KSP_Chinese_Patches
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("WhereCanIGo.Utilities"), "GetTextColor"),
                     transpiler: new HarmonyMethod(typeof(WhereCanIGoPatches), nameof(WhereCanIGoPatches.GenerateDialogLocPatch)));
+            }
+            if (StaticMethods.IsAssemblyLoaded("SmartStage"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [Smart Stage]! 应用翻译...");
+                har.Patch
+                    (
+                    original: AccessTools.Constructor(
+                        AccessTools.TypeByName("SmartStage.AscentPlot"),
+                        new[] {
+                            typeof(List<>).MakeGenericType(AccessTools.TypeByName("SmartStage.Sample")),
+                            typeof(List<>).MakeGenericType(AccessTools.TypeByName("SmartStage.StageDescription")),
+                            typeof(int),
+                            typeof(int)
+                        }),
+                    transpiler: new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.AscentPlotLocPatch))
+                    );
+
+                var SmartStageType = AccessTools.TypeByName("SmartStage.MainWindow");
+
+                har.Patch(
+                    original: AccessTools.Method(SmartStageType, "OnGUI"),
+                    transpiler: new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_OnGUILocPatch))
+                    );
+
+                har.Patch(
+                    original: AccessTools.Method(SmartStageType, "drawStagesWindow", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_drawStagesWindowLocPatch))
+                    );
+                har.Patch(
+                    original: AccessTools.Method(SmartStageType, "drawWindow", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_drawWindowLocPatch))
+                    );
+                har.Patch(
+                    original: AccessTools.Method(SmartStageType, "<planets>m__0", new[] { typeof(CelestialBody) }),
+                    transpiler: new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_PlanetDisplayNamePatch))
+                    );
             }
             Destroy(this);
         }
