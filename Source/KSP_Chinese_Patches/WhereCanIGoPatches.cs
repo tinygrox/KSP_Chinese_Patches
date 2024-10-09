@@ -26,6 +26,10 @@ namespace KSP_Chinese_Patches
             ["No Data Available. Achieve stable orbit around "] = Localizer.Format("#CNPatches_WCIG_NoData"),
             ["Where Can I Go"] = Localizer.Format("#CNPatches_WCIG_DialogTitle"),
             ["m/s short)"] = "m/s " + Localizer.Format("#CNPatches_WCIG_short") + ")",
+            ["YES"] = Localizer.Format("#CNPatches_WCIG_Yes"),
+            ["YES*"] = Localizer.Format("#CNPatches_WCIG_Yes") + "*",
+            ["NO"] = Localizer.Format("#CNPatches_WCIG_No"),
+            ["MARGINAL"] = Localizer.Format("#CNPatches_WCIG_Marginal"),
         };
         public static IEnumerable<CodeInstruction> GenerateDialogLocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
