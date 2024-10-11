@@ -32,7 +32,9 @@ namespace KSP_Chinese_Patches
         public static IEnumerable<CodeInstruction> MainWindow_PlanetDisplayNamePatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
-            matcher.MatchStartForward(new CodeMatch(OpCodes.Callvirt, AccessTools.Method(typeof(CelestialBody), nameof(CelestialBody.GetName)))).SetOperandAndAdvance(AccessTools.Method(typeof(CelestialBody), nameof(CelestialBody.GetDisplayName)));
+            matcher.MatchStartForward(new CodeMatch(OpCodes.Callvirt, AccessTools.Method(typeof(CelestialBody), nameof(CelestialBody.GetName))))
+                .SetOperandAndAdvance(AccessTools.Method(typeof(CelestialBody), nameof(CelestialBody.GetDisplayName)))
+                .InsertAndAdvance(new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(LingoonaGrammarExtensions), nameof(LingoonaGrammarExtensions.LocalizeRemoveGender))));
             return matcher.InstructionEnumeration();
         }
         public static IEnumerable<CodeInstruction> MainWindow_drawStagesWindowLocPatch(IEnumerable<CodeInstruction> codeInstructions)
