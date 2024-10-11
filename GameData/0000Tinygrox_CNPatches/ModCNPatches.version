@@ -1,0 +1,31 @@
+{
+    "NAME":"Chinese Mod Patches",
+    "URL":"https://github.com/tinygrox/KSP_Chinese_Patches/blob/main/GameData/0000Tinygrox_CNPatches/ModCNPatches.version",
+    "DOWNLOAD":"https://github.com/tinygrox/KSP_Chinese_Patches/releases",
+    "HOMEPAGE": "https://github.com/tinygrox/KSP_Chinese_Patches",
+    "GITHUB":
+    {
+        "USERNAME": "tinygrox",
+        "REPOSITORY": "KSP_Chinese_Patches",
+        "ALLOW_PRE_RELEASE": true
+    },
+    "VERSION":
+    {
+        "MAJOR":1,
+        "MINOR":0,
+        "PATCH":0,
+        "BUILD":0
+    },
+    "KSP_VERSION_MIN":
+    {
+        "MAJOR":1,
+        "MINOR":8,
+        "PATCH":0
+    },
+    "KSP_VERSION_MAX":
+    {
+        "MAJOR":1,
+        "MINOR":12,
+        "PATCH":99
+    }
+}
