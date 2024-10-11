@@ -91,16 +91,13 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
   - **QuickSAS** - 使用数字小键盘切换SAS模式（稳定、机动、顺向/逆向等）
   - **QuickSearch** - 原版搜索功能改进 mod，支持科技树内按部件名搜索，这个很好用。
   - **QuickStart** - KSP启动并加载完成后自动进入上次游玩的存档
-
-**福利：**
-
-略微分享一下经由本人本地化过的 mod ：
-
-RealAntennas 的本地化版本下载 => https://github.com/tinygrox/RealAntennas/releases 
-
-~~还有 RealFuels 的本地化版本 => https://github.com/tinygrox/ModularFuelSystem/releases~~ - Realfuels 已于5月14日被原作者合并
-
-注：RealAntennas 的本地化版本遵循和原作者 DRVey 相同的协议，原地址 https://github.com/DRVeyl/RealAntennas ，即 CC BY-SA 4.0
+- **Astrogator** - 一个轨道窗口计算器  [@zhangyuesai](https://github.com/zhangyuesai) 
+- **SpaceY 系列** - SpaceYCorp、SpaceYLifters 和 SpaceYExpanded 的支持 - [@zhangyuesai](https://github.com/zhangyuesai) 
+- **Speed Unit Annex** - 一个增强了速度指示的 Mod [@zhangyuesai](https://github.com/zhangyuesai) 
+- **FASA** - 一个部件包，一些仿 NASA 历代任务的航天部件，比如水星计划、探索者系列、双子座、阿波罗系列等。
+- **Where Can I Go(需要Harmony)** - 一个很简单的小 Mod，会读当前载具的dv，然后告诉你当前载具可以去到哪些地方，能不能入轨、飞掠等等。
+- **SmartStage(需要Harmony)** - 这个 Mod 可以自动帮你整理分级。示例场景：原版场景下，你创建了运载火箭 A 和载荷 B，分别设置好了分级，但是当你想要合并两者时，发现两者的分级顺序也自动合并了，但是合并后的分级并非以增加的方法进行，这导致了合并后分级顺序紊乱，当分级较多时，排列分级顺序将会成为一个折磨人的过程，而 SmartStage 就是为了处理了这一点，虽然不算很完美。
+- **RealAntenna(需要Harmony)** - 部分玩家心心念的真实天线 Mod，现在可以翻译为中文了。翻译尚不支持 RO 环境。
 
 ## 许可协议 | License
 
