@@ -91,118 +91,186 @@ namespace KSP_Chinese_Patches
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.ModuleRealAntenna"), "OnAwake"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.OnAwakePatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]OnAwake 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]OnAwake 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.ModuleRealAntenna"), "RecalculateFields"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.RecalculateFieldsLocPatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]RecalculateFields 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]RecalculateFields 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.ModuleRealAntenna"), "PermanentShutdownEvent"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PermanentShutdownEventLocPatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]PermanentShutdownEvent 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]PermanentShutdownEvent 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.ModuleRealAntenna"), "ApplyTLColoring"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.ApplyTLColoringLocPatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]ApplyTLColoring 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]ApplyTLColoring 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.ModuleRealAntenna"), "GetInfo"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.GetInfoLocPatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]GetInfo 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]GetInfo 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "OnGUI"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_OnGUILocPatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]OnGUI 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]OnGUI 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "GUIDisplay", new[] { typeof(int) }),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_GUIDisplayLocPatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]GUIDisplay 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]GUIDisplay 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI+<>c"), "<GUIDisplay>b__44_0", new[] { typeof(CelestialBody) }),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_GetDisplayNamePatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]<GUIDisplay>b__44_0 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]<GUIDisplay>b__44_0 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "RenderPanel"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_RenderPanelPatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]RenderPanel 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]RenderPanel 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "FireOnce"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_FireOncePatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]FireOnce 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]FireOnce 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.RACommNetScenario+<NotifyDisabled>d__35"), "MoveNext"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_NotifyDisabledPatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]NotifyDisabled 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]NotifyDisabled 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.RealAntennasUI"), "WindowGUI", new[] { typeof(int) }),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.RealAntennasUI_WindowGUIPatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]WindowGUI 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]WindowGUI 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.TechLevelInfo"), "ToString"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.TechLevelInfo_ToStringPatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]TechLevelInfo 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]TechLevelInfo 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.MapUI.NetUIConfigurationWindow"), "WindowGUI", new[] { typeof(int) }),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.NetUIConfigurationWindow_WindowGUIPatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]NetUIConfigurationWindow_WindowGUI 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]NetUIConfigurationWindow_WindowGUI 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.MapUI.SignalToolTipController"), "UpdateList"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.UpdateList_Patch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]UpdateList 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]UpdateList 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.Network.ConnectionDebugger"), "OnGUI"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.ConnectionDebugger_OnGUI_Patch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]ConnectionDebugger_OnGUI 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]ConnectionDebugger_OnGUI 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.Network.ConnectionDebugger"), "GUIDisplay", new[] { typeof(int) }),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.ConnectionDebugger_GUIDisplay_Patch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]ConnectionDebugger_GUIDisplay 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]ConnectionDebugger_GUIDisplay 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.Targeting.AntennaTargetGUI"), "OnGUI"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.AntennaTargetGUI_OnGUI_Patch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]AntennaTargetGUI_OnGUI 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]AntennaTargetGUI_OnGUI 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.Targeting.AntennaTargetGUI"), "GUIDisplay", new[] { typeof(int) }),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.AntennaTargetGUI_GUIDisplay_Patch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]AntennaTargetGUI_GUIDisplay 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]AntennaTargetGUI_GUIDisplay 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.Targeting.RemoteAntennaControlUI"), "OnGUI"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.RemoteAntennaControlUI_OnGUI_Patch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]RemoteAntennaControlUI_OnGUI 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]RemoteAntennaControlUI_OnGUI 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.Targeting.RemoteAntennaControlUI"), "GUIDisplay", new[] { typeof(int) }),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.RemoteAntennaControlUI_GUIDisplay_Patch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]RemoteAntennaControlUI_GUIDisplay 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]RemoteAntennaControlUI_GUIDisplay 已应用！");
 
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("RealAntennas.Antenna.Encoder"), "ToString"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.Encoder_ToStringPatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]Encoder_ToString 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]Encoder_ToString 已应用！");
 
                 har.Patch(
                     original: AccessTools.PropertyGetter(AccessTools.TypeByName("RealAntennas.RAParameters"), "Title"),
                     transpiler: new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.RA_SettingTitlePatch)));
-                Debug.Log("[KSPCNPatches] [RealAntennas]RealAntennas.RAParameters get_Title 已应用！");
+                Debug.Log("\t[KSPCNPatches] [RealAntennas]RealAntennas.RAParameters get_Title 已应用！");
 
+            }
+            if (StaticMethods.IsAssemblyLoaded("BetterBurnTime"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [BetterBurnTime]! 应用翻译...");
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.AtmosphereTracker"), "CalculateEntryTime", new[] { typeof(Vessel), typeof(string).MakeByRefType() }),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.AtmosphereTracker_CalculateEntryTime_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]AtmosphereTracker_CalculateEntryTime 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.AtmosphereTracker"), "CalculateExitTime", new[] { typeof(Vessel), typeof(string).MakeByRefType() }),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.AtmosphereTracker_CalculateExitTime_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]AtmosphereTracker_CalculateExitTime 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.AtmosphereTracker"), "Recalculate"),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.AtmosphereTracker_Recalculate_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]AtmosphereTracker_Recalculate 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.BetterBurnTime"), "LateUpdate"),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.BetterBurnTime_LateUpdate_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]BetterBurnTime_LateUpdate 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.ClosestApproachTracker"), "LateUpdate"),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.ClosestApproachTracker_LateUpdate_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]ClosestApproachTracker_LateUpdate 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.ImpactTracker"), "Recalculate"),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.ImpactTracker_Recalculate_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]ImpactTracker_Recalculate 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.ImpactTracker"), "CalculateTimeToImpact"),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.ImpactTracker_CalculateTimeToImpact_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]ImpactTracker_CalculateTimeToImpact 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.ModuleEngineBurnTime"), "OnStart"),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.ModuleEngineBurnTime_OnStart_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]ModuleEngineBurnTime_OnStart 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.ModuleEngineBurnTime"), "GetModuleTitle"),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.ModuleEngineBurnTime_GetModuleTitle_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]ModuleEngineBurnTime_GetModuleTitle 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.ModuleEngineBurnTime"), "GetPrimaryField"),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.ModuleEngineBurnTime_GetPrimaryField_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]ModuleEngineBurnTime_GetPrimaryField 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.SplashScreen"), "InsertTips", new[] { typeof(LoadingScreen.LoadingScreenState) }),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.SplashScreen_InsertTips_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]SplashScreen_InsertTips_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.GeosyncTracker"), "LateUpdate"),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.GeosyncTracker_LateUpdate_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]GeosyncTracker_LateUpdate 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.TimeFormatter"), "format", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.TimeFormatter_Patch)));
+                Debug.Log("\t[KSPCNPatches] [BetterBurnTime]TimeFormatter_format 已应用！");
             }
             Destroy(this);
         }
