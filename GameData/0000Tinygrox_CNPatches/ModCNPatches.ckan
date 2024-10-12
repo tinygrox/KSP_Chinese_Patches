@@ -1,9 +1,3 @@
-spec_version: v1.4
-identifier: ChineseModPatches
-name: Chinese Mod Patches
-abstract: A collection of Module Manager patches for translating KSP Mods (Part mods mostly) to Chinese (Simplified Chinese Only).
-license: CC-BY-4.0
 $vref: '#/ckan/ksp-avc'
 depends:
   - name: Harmony2
-  - name: ModuleManager
