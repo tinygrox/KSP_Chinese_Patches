@@ -15,7 +15,7 @@ namespace KSP_Chinese_Patches
         {
             if (!StaticMethods.IsAssemblyLoaded("0Harmony"))
             {
-                Debug.Log("未发现安装有 0Harmony! DLL相关的汉化失效！");
+                Debug.Log("[KSPCNPatches] 未发现安装有 Harmony2! DLL相关的汉化失效！");
                 return;
             }
 
@@ -271,6 +271,58 @@ namespace KSP_Chinese_Patches
                     original: AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.TimeFormatter"), "format", new[] { typeof(int) }),
                     transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.TimeFormatter_Patch)));
                 Debug.Log("\t[KSPCNPatches] [BetterBurnTime]TimeFormatter_format 已应用！");
+            }
+            if (StaticMethods.IsAssemblyLoaded("B9PartSwitch"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [B9PartSwitch]! 应用翻译...");
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("B9PartSwitch.ModuleB9PartInfo"), "SetupGUI"),
+                    transpiler: new HarmonyMethod(typeof(B9PartSwithPatches), nameof(B9PartSwithPatches.ModuleB9PartInfo_SetupGUI_Patch)));
+                Debug.Log("\t[KSPCNPatches] [B9PartSwitch]ModuleB9PartInfo_SetupGUI 已应用！");
+            }
+            if (StaticMethods.IsAssemblyLoaded("PhysicsRangeExtender"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [PhysicsRangeExtender]! 应用翻译...");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PhysicsRangeExtender.Gui"), "DisableMod", new[] { typeof(float) }),
+                    transpiler: new HarmonyMethod(typeof(PhysicsRangeExtenderPatches), nameof(PhysicsRangeExtenderPatches.Gui_DisableMod_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PhysicsRangeExtender]DisableMod已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PhysicsRangeExtender.Gui"), "DrawCamFixMultiplier", new[] { typeof(float) }),
+                    transpiler: new HarmonyMethod(typeof(PhysicsRangeExtenderPatches), nameof(PhysicsRangeExtenderPatches.Gui_DrawCamFixMultiplier_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PhysicsRangeExtender]DrawCamFixMultiplier已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PhysicsRangeExtender.Gui"), "DrawGlobalVesselRange", new[] { typeof(float) }),
+                    transpiler: new HarmonyMethod(typeof(PhysicsRangeExtenderPatches), nameof(PhysicsRangeExtenderPatches.Gui_DrawGlobalVesselRange_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PhysicsRangeExtender]DrawGlobalVesselRange已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PhysicsRangeExtender.Gui"), "DrawSaveButton", new[] { typeof(float) }),
+                    transpiler: new HarmonyMethod(typeof(PhysicsRangeExtenderPatches), nameof(PhysicsRangeExtenderPatches.Gui_DrawSaveButton_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PhysicsRangeExtender]DrawSaveButton已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PhysicsRangeExtender.Gui"), "DrawTitle"),
+                    transpiler: new HarmonyMethod(typeof(PhysicsRangeExtenderPatches), nameof(PhysicsRangeExtenderPatches.Gui_DrawTitle_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PhysicsRangeExtender]DrawTitle已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PhysicsRangeExtender.PhysicsRangeExtender"), "UpdateNearClipPlane"),
+                    transpiler: new HarmonyMethod(typeof(PhysicsRangeExtenderPatches), nameof(PhysicsRangeExtenderPatches.PhysicsRangeExtender_UpdateNearClipPlane_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PhysicsRangeExtender]UpdateNearClipPlane 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PhysicsRangeExtender.PhysicsRangeExtender"), "UnloadLandedVessels"),
+                    transpiler: new HarmonyMethod(typeof(PhysicsRangeExtenderPatches), nameof(PhysicsRangeExtenderPatches.PhysicsRangeExtender_UnloadLandedVessels_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PhysicsRangeExtender]UnloadLandedVessels 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PhysicsRangeExtender.TerrainExtender"), "ShowMessageTerrainStatus"),
+                    transpiler: new HarmonyMethod(typeof(PhysicsRangeExtenderPatches), nameof(PhysicsRangeExtenderPatches.TerrainExtender_ShowMessageTerrainStatus_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PhysicsRangeExtender]ShowMessageTerrainStatus 已应用！");
             }
             Destroy(this);
         }
