@@ -13,6 +13,13 @@ namespace KSP_Chinese_Patches
     {
         public void Start()
         {
+#if DEBUG
+            foreach (var a in AssemblyLoader.loadedAssemblies)
+            {
+                StaticMethods.sb.AppendLine("[KSPCNPatches]DLL: " + a.name + " |DLLName: " + a.dllName);
+            }
+            Debug.Log(StaticMethods.sb);
+#endif
             if (!StaticMethods.IsAssemblyLoaded("0Harmony"))
             {
                 Debug.Log("[KSPCNPatches] 未发现安装有 Harmony2! DLL相关的汉化失效！");
@@ -323,6 +330,95 @@ namespace KSP_Chinese_Patches
                     original: AccessTools.Method(AccessTools.TypeByName("PhysicsRangeExtender.TerrainExtender"), "ShowMessageTerrainStatus"),
                     transpiler: new HarmonyMethod(typeof(PhysicsRangeExtenderPatches), nameof(PhysicsRangeExtenderPatches.TerrainExtender_ShowMessageTerrainStatus_Patch)));
                 Debug.Log("\t[KSPCNPatches] [PhysicsRangeExtender]ShowMessageTerrainStatus 已应用！");
+            }
+            if (StaticMethods.IsAssemblyLoaded("[x]_Science!"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [[x] Science!]! 应用翻译...");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.Body"), "FigureOutType"),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.Body_FigureOutType_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]Body_FigureOutType_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.HelpWindow"), new[] { AccessTools.TypeByName("ScienceChecklist.ScienceChecklistAddon") }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.HelpWindow_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]HelpWindow_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.HelpWindow"), "DrawWindowContents", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.HelpWindow_DrawWindowContents_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]HelpWindow_DrawWindowContents_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.PropertyGetter(AccessTools.TypeByName("ScienceChecklist.ScienceInstance"), "Description"),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ScienceInstance_Description_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]ScienceInstance_Description_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ScienceWindow"), "Draw"),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ScienceWindow_Draw_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]ScienceWindow_Draw_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ScienceWindow"), "DrawControls", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ScienceWindow_DrawControls_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]ScienceWindow_DrawControls_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ScienceWindow"), "DrawTitleBarButtons", new[] { typeof(Rect), typeof(bool) }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ScienceWindow_DrawTitleBarButtons_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]ScienceWindow_DrawTitleBarButtons_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.SettingsWindow"), new[] { AccessTools.TypeByName("ScienceChecklist.ScienceChecklistAddon") }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.SettingsWindow_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]SettingsWindow_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.SettingsWindow"), "DrawWindowContents", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.SettingsWindow_DrawWindowContents_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]SettingsWindow_DrawWindowContents_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.ShipStateWindow"), new[] { AccessTools.TypeByName("ScienceChecklist.ScienceChecklistAddon") }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ShipStateWindow_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]ShipStateWindow_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ShipStateWindow"), "DrawBody"),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ShipStateWindow_DrawBody_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]ShipStateWindow_DrawBody_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ShipStateWindow"), "DrawVessel"),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ShipStateWindow_DrawVessel_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]ShipStateWindow_DrawVessel_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.Situation"), new[] { AccessTools.TypeByName("ScienceChecklist.Body"), typeof(ExperimentSituations), typeof(string), typeof(string) }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.Situation_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]ShipStateWindow_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.Situation"), "ToString", new[] { typeof(ExperimentSituations) }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.Situation_ToString_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]Situation_ToString_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), new[] { AccessTools.TypeByName("ScienceChecklist.ScienceChecklistAddon") }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]StatusWindow_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), "DrawExperiment", new[] { AccessTools.TypeByName("ScienceChecklist.ScienceInstance"), typeof(Rect) }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_DrawExperiment_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]StatusWindow_DrawExperiment_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), "DrawWindowContents", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_DrawWindowContents_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]StatusWindow_DrawWindowContents_Patch 已应用！");
             }
             Destroy(this);
         }
