@@ -1,4 +1,19 @@
 # 更新日志 | Changelog
+
+## [1.1.0]
+
+本次更新内容如下：(DLL 翻译暂不开放翻译接口)
+
+### 新增
+
+- **[x] Science! Continued(需要Harmony)** - 方便科学点数查漏补缺
+- **BetterBurnTime(需要Harmony)** - 一个速度指示扩展，感觉有点鸡肋
+- **Background Resources** - TAC LS 和 DeepFreeze Continued 的前置，翻译了设置文本
+- **Better SRBs** - 固推药柱的几种装法
+- **Docking Port Alignment Indicator(需要Harmony)** - 手动对接辅助，鉴定为不如 MechJeb2 一根
+- **Physics Range Extender(需要Harmony)** - 物理距离扩展
+- **B9 Part Switch(需要Harmony)** - 燃料箱上的硬编码 PartInfo 等文本
+
 ## [1.0.0]
 
 几年测试期间无收到任何恶性问题反馈，测试阶段可以结束，进入正式版本。欢迎各位继续尽情提 PR！
