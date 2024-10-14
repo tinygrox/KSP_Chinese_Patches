@@ -61,17 +61,17 @@ namespace KSP_Chinese_Patches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "The text filter"))
                 .SetOperandAndAdvance("文本筛选框")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "To narrow your search, you may enter text into the filter eg \"kerbin’s shores\""))
-                .SetOperandAndAdvance("要缩小搜索范围，你可以在筛选框中输入文本，例如\"kerbin的 海岸\"")
+                .SetOperandAndAdvance("要缩小搜索范围，你可以在搜索框中输入文本，例如\"kerbin 海岸\"")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Use – to mean NOT eg \"mun space -near\""))
-                .SetOperandAndAdvance("输入 - 意为 [排除] 比如 \"mun 太空 -附近\"")
+                .SetOperandAndAdvance("输入 - 意为 [排除] 例 \"mun 太空 -近地\"")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Use | to mean OR eg \"mun|minmus space\""))
                 .SetOperandAndAdvance("输入 | 意为 [或] 比如 \"mun|minmus 太空\"")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Hover the mouse over the \"123/456 completed\" text.  A pop-up will show more infromation."))
-                .SetOperandAndAdvance("鼠标移到 \"123/456 已完成\" 文本上. 能显示更多信息")
+                .SetOperandAndAdvance("鼠标移到已完成 \"123/456 \" 文本上. 能显示更多信息")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Press the X button to clear your text filter."))
                 .SetOperandAndAdvance("点击 X 按钮能够清空筛选条件。")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "The settings are"))
-                .SetOperandAndAdvance("这些设置是")
+                .SetOperandAndAdvance("相关设置是")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Hide complete experiments – Any science with a full green bar is hidden.  It just makes it easier to see what is left to do."))
                 .SetOperandAndAdvance("* 隐藏已完成实验 - 任何绿色条充满的科学实验都会隐藏。仅方便我们查看还有什么剩下实验没做。")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Complete without recovery – Consider science in your spaceships as if it has been recovered.  You still need to recover to get the points.  It just makes it easier to see what is left to do."))
@@ -83,7 +83,7 @@ namespace KSP_Chinese_Patches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Filter difficult science – Hide science that is practically impossible.  Flying at stars, that kinda thing."))
                 .SetOperandAndAdvance("* 过滤困难的科学实验 - 隐藏实际上无法进行实验。诸如在恒星上飞行，着陆之类的。")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Use blizzy78's toolbar – If you have blizzy78’s toolbar installed then place the [x] Science! button on that instead of the stock \"Launcher\" toolbar."))
-                .SetOperandAndAdvance("* 使用 blizzy78的工具栏 – 如果你安装了blizzy78's toolbar，那[x]Science!按钮将会出现在那里，而不是原版的侧边栏。")
+                .SetOperandAndAdvance("* 使用 blizzy78的工具栏 – 如果你安装了blizzy78的toolbar，那[x]Science!按钮将会出现在那里，而不是原版的侧边栏。")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Right click [x] icon – Choose to open the Here and Now window by right clicking.  Hides the second window.  Otherwise mute music."))
                 .SetOperandAndAdvance("* 右键 [x] 图标 - 右键点击行为可选择为打开\"此时此地\"窗口、隐藏窗口、还是禁用音乐。")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Music starts muted – Music is muted on load."))
@@ -99,11 +99,11 @@ namespace KSP_Chinese_Patches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "To run an experiment, click the button.  If the button is greyed-out then you may need to reset the experiment or recover or transmit the science."))
                 .SetOperandAndAdvance("要运行某个实验，请单击按钮。如果按钮不可点，那表示可能需要重置实验、回收或传输。")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "To perform an EVA report or surface sample, first EVA your Kerbal.  The window will react, allowing those buttons to be clicked."))
-                .SetOperandAndAdvance("要进行舱外报告或采集地表样本，先让你的坎巴拉人出舱。窗口会识别，按钮会变得可用。")
+                .SetOperandAndAdvance("要进行舱外报告或采集地表样本，先让你的坎巴拉人出舱。窗口会自动识别，按钮会变得可用。")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Did you know? (includes spoilers)"))
                 .SetOperandAndAdvance("你知道吗？(包含剧透)")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* In the VAB editor you can use the filter \"Show experiments available on this vessel\" to see what your vessel could collect before you launch it."))
-                .SetOperandAndAdvance("* 在VAB编辑器中，你可以点击\"显示载具上可用的实验\"来提前查看你的载具可以收集到什么实验。")
+                .SetOperandAndAdvance("*\u0020在VAB编辑器中，你可以点击\"显示载具上可用的实验\"来提前查看你的载具可以收集到什么实验。")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Does the filter \"mun space high\" show mun’s highlands?  – use \"mun space –near\" instead."))
                 .SetOperandAndAdvance("* 使用\"mun 远地太空\"筛选条件时是否会显示 mun 高地 - 改用\"mun 太空 -附近\"")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Need more science?  Go to Minmus.  It’s a little harder to get to but your fuel will last longer.  A single mission can collect thousands of science points before you have to come back."))
@@ -111,7 +111,7 @@ namespace KSP_Chinese_Patches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Generally moons are easier - it is more efficient to collect science from the surface of Ike or Gilly than from Duna or Eve.  That said - beware Tylo, it's big and you can't aerobrake."))
                 .SetOperandAndAdvance("* 一般来说，天然卫星会更容易 - 从 Ike 或 Gilly 的表面收集科学点数要比从 Duna 或 Eve 收集更容易。但话又说回来，去 Tylo 要小心，它很大，还不能大气制动.")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Most of Kerbin’s biomes include both splashed and landed situations.  Landed at Kerbin’s water?  First build an aircraft carrier."))
-                .SetOperandAndAdvance("* Kerbin的大部分生态群落包含了溅落和着陆的情况。要着陆在Kerbin的水上？首先建造一个能停飞行器的载具吧，比如航空母舰。")
+                .SetOperandAndAdvance("* Kerbin的大部分生态群落包含了溅落和着陆的情况。要着陆在 Kerbin 的水上？首先建造一个能停飞行器的载具吧，比如航空母舰。")
                 ;
             return matcher.InstructionEnumeration();
         }
@@ -141,9 +141,9 @@ namespace KSP_Chinese_Patches
 
             matcher
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "{0}/{1} complete."))
-                .SetOperandAndAdvance("{0}/{1} 完成.")
+                .SetOperandAndAdvance("完成度 {0}/{1}")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "{0} remaining\n{1:0.#} mits"))
-                .SetOperandAndAdvance("{0}剩余\n{1:0.#}米特")
+                .SetOperandAndAdvance("剩余{0}\n{1:0.#}米特")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Clear search"))
                 .SetOperandAndAdvance("清空搜索")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Show experiments available right now"))
@@ -179,7 +179,7 @@ namespace KSP_Chinese_Patches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Open settings window"))
                 .SetOperandAndAdvance("打开设置窗口")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Maximise window"))
-                .SetOperandAndAdvance("最大化窗口")
+                .SetOperandAndAdvance("放大窗口")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Compact window"))
                 .SetOperandAndAdvance("精简模式")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "S"))
@@ -296,7 +296,7 @@ namespace KSP_Chinese_Patches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "\nHas oxygen - jets work"))
                 .SetOperandAndAdvance("\n有氧环境 - 喷气引擎可工作")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "\nNo kind of atmosphere"))
-                .SetOperandAndAdvance("\n不是那种大气环境")
+                .SetOperandAndAdvance("\n无大气")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "\nHas oceans"))
                 .SetOperandAndAdvance("\n存在海洋")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "\nNo surface"))
@@ -322,10 +322,9 @@ namespace KSP_Chinese_Patches
         public static IEnumerable<CodeInstruction> Situation_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
-            // this._description = string.Format("{2}"((!string.IsNullOrEmpty(this._formattedSubBiome)) ? string.Format("'s {0} ({1})", this._formattedSubBiome, this._formattedBiome) : string.Format("'s {0}", this._formattedBiome)));
             matcher
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "{0} {1}{2}")) // {Situation.ToString()} {BodyDisplayName} {EXPERIMENT} -> {溅落} {Kerbin} #1生态群落#2实验名称
-                .SetOperandAndAdvance("{1} {0} {2}") // eg. Kerbin 高空飞行 海岸 舱外报告
+                .SetOperandAndAdvance("{1} {0} {2}") // eg. {Kerbin} {高空飞行} {海岸 舱外报告} -> ScienceInstance_Description_Patch
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "'s {0}"))
                 .SetOperandAndAdvance("{0}")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "'s {0} ({1})"))
@@ -373,6 +372,37 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
+        public static IEnumerable<CodeInstruction> StatusWindow_MakeSituationToolTip_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        {
+            CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
+
+            matcher
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Body: "))
+                .SetOperandAndAdvance("天体: ")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, " - Home!"))
+                .SetOperandAndAdvance(" - 家!")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Space high: "))
+                .SetOperandAndAdvance("远地太空: ")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Atmos depth: "))
+                .SetOperandAndAdvance("大气高度: ")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Flying high: "))
+                .SetOperandAndAdvance("高空飞行: ")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Has oxygen - jets work\n"))
+                .SetOperandAndAdvance("有氧环境 - 喷气引擎可工作\n")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "No kind of atmosphere\n"))
+                .SetOperandAndAdvance("无大气\n")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Has oceans\n"))
+                .SetOperandAndAdvance("存在海洋\n")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "No surface\n"))
+                .SetOperandAndAdvance("无地表\n")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Current vessel: "))
+                .SetOperandAndAdvance("当前载具: ")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, " stored experiments"))
+                .SetOperandAndAdvance(" 已存储实验数据")
+                ;
+            return matcher.InstructionEnumeration();
+        }
+
         public static IEnumerable<CodeInstruction> StatusWindow_DrawWindowContents_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -395,6 +425,31 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
+        public static IEnumerable<CodeInstruction> ResourcesName_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        {
+            CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
+            matcher
+                .MatchStartForward(
+                new CodeMatch(OpCodes.Ldarg_0),
+                new CodeMatch(OpCodes.Ldarg_1),
+                new CodeMatch(OpCodes.Stfld, AccessTools.Field(AccessTools.TypeByName("ScienceChecklist.xResourceData"), "name"))
+                )
+                .RemoveInstructions(3)
+                .MatchEndForward(
+                new CodeMatch(OpCodes.Ldarg_1),
+                new CodeMatch(OpCodes.Callvirt, AccessTools.Method(typeof(PartResourceLibrary), nameof(PartResourceLibrary.GetDefinition), new[] { typeof(string) })),
+                new CodeMatch(OpCodes.Stfld, AccessTools.Field(AccessTools.TypeByName("ScienceChecklist.xResourceData"), "def"))
+                ).Advance(1)
+                .InsertAndAdvance(
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(AccessTools.TypeByName("ScienceChecklist.xResourceData"), "def")),
+                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(PartResourceDefinition), nameof(PartResourceDefinition.displayName))),
+                new CodeInstruction(OpCodes.Stfld, AccessTools.Field(AccessTools.TypeByName("ScienceChecklist.xResourceData"), "name"))
+                )
+                ;
+            return matcher.InstructionEnumeration();
+        }
     }
 }

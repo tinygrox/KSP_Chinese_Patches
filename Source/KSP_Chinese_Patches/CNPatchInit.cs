@@ -14,9 +14,11 @@ namespace KSP_Chinese_Patches
         public void Start()
         {
 #if DEBUG
-            foreach (var a in AssemblyLoader.loadedAssemblies)
+            //foreach (var a in AssemblyLoader.loadedAssemblies)
+            foreach (var a in StaticMethods.AssemblyVersionMap)
             {
-                StaticMethods.sb.AppendLine("[KSPCNPatches]DLL: " + a.name + " |DLLName: " + a.dllName);
+                //StaticMethods.sb.AppendLine($"[KSPCNPatches] DLL: {a.name} | DLLName: {a.dllName} | Version: ({a.versionMajor}.{a.versionMinor}.{a.versionRevision})");
+                StaticMethods.sb.AppendLine($"[KSPCNPatches] DLLName: {a.Key} | Version: ({a.Value.Major}.{a.Value.Minor}.{a.Value.Build}.{a.Value.Revision})");
             }
             Debug.Log(StaticMethods.sb);
 #endif
@@ -91,7 +93,7 @@ namespace KSP_Chinese_Patches
                     transpiler: new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_PlanetDisplayNamePatch))
                     );
             }
-            if (StaticMethods.IsAssemblyLoaded("RealAntennas"))
+            if (StaticMethods.IsAssemblyLoaded("RealAntennas", new Version(2, 6, 0)))
             {
                 Debug.Log("[KSPCNPatches] 已找到 [RealAntennas]! 应用翻译...");
 
@@ -419,7 +421,94 @@ namespace KSP_Chinese_Patches
                     original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), "DrawWindowContents", new[] { typeof(int) }),
                     transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_DrawWindowContents_Patch)));
                 Debug.Log("\t[KSPCNPatches] [[x] Science!]StatusWindow_DrawWindowContents_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.xResourceData"), new[] { typeof(string) }),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ResourcesName_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]ResourcesName_Patch 已应用！");
             }
+
+            #region * DPAI 翻译相关
+            if (StaticMethods.IsAssemblyLoaded("DockingPortAlignmentIndicator"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [DockingPortAlignmentIndicator]! 应用翻译...");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "loadTextures"),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_loadTexturesPatches_Patch)));
+                Debug.Log("\t[KSPCNPatches] [DockingPortAlignmentIndicator]DPAI_loadTexturesPatches_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "drawIndicatorContentsToTexture"),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_drawIndicatorContentsToTexture_Patch)));
+                Debug.Log("\t[KSPCNPatches] [DockingPortAlignmentIndicator]DPAI_drawIndicatorContentsToTexture_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.BitmapFont"), "buildGlyphs"),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.Bitmap_FontbuildGlyphs_Patch)));
+                Debug.Log("\t[KSPCNPatches] [DockingPortAlignmentIndicator]Bitmap_FontbuildGlyphs_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.BitmapFont"), "getGlyphFromID", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.Bitmap_getGlyphFromID_Patch)));
+                Debug.Log("\t[KSPCNPatches] [DockingPortAlignmentIndicator]Bitmap_getGlyphFromID_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "createBlizzyButton"),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_createBlizzyButton_Patch)));
+                Debug.Log("\t[KSPCNPatches] [DockingPortAlignmentIndicator]DPAI_createBlizzyButton_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "determineTargetPortName"),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_determineTargetPortName_Patch)));
+                Debug.Log("\t[KSPCNPatches] [DockingPortAlignmentIndicator]DPAI_determineTargetPortName_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "drawRenderedGaugeTexture", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_drawRenderedGaugeTexture_Patch)));
+                Debug.Log("\t[KSPCNPatches] [DockingPortAlignmentIndicator]DPAI_drawRenderedGaugeTexture_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "drawRPMText", new[] { typeof(int), typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_drawRPMText_Patch)));
+                Debug.Log("\t[KSPCNPatches] [DockingPortAlignmentIndicator]DPAI_drawRPMText_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "drawSettingsWindowContents", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_drawSettingsWindowContents_Patch)));
+                Debug.Log("\t[KSPCNPatches] [DockingPortAlignmentIndicator]DPAI_drawSettingsWindowContents_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "getReferencePortName"),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_getReferencePortName_Patch)));
+                Debug.Log("\t[KSPCNPatches] [DockingPortAlignmentIndicator]DPAI_getReferencePortName_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "onGaugeDraw"),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_onGaugeDraw_Patch)));
+                Debug.Log("\t[KSPCNPatches] [DockingPortAlignmentIndicator]DPAI_onGaugeDraw_Patch 已应用！");
+            }
+            if (StaticMethods.IsAssemblyLoaded("moduledockingnodenamed"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [moduledockingnodenamed]! 应用翻译...");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.ModuleDockingNodeNamed"), "OnAwake"),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.ModuleDockingNodeNamed_OnAwake_Patch)));
+                Debug.Log("\t[KSPCNPatches] [moduledockingnodenamed]ModuleDockingNodeNamed_OnAwake_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.RenameWindow"), "DisplayForNode", new[] { AccessTools.TypeByName("NavyFish.ModuleDockingNodeNamed") }),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.ModuleDockingNodeNamed_DisplayForNode_Patch)));
+                Debug.Log("\t[KSPCNPatches] [moduledockingnodenamed]ModuleDockingNodeNamed_DisplayForNode_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("NavyFish.RenameWindow"), "onRenameDialogDraw", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.ModuleDockingNodeNamed_onRenameDialogDraw_Patch)));
+                Debug.Log("\t[KSPCNPatches] [moduledockingnodenamed]ModuleDockingNodeNamed_onRenameDialogDraw_Patch 已应用！");
+            }
+            #endregion
+
             Destroy(this);
         }
     }

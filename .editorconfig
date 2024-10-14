@@ -6,8 +6,13 @@ root = true
 [*]
 end_of_line = lf
 indent_style = space
-insert_final_newline = true
 
 [*.cfg]
 charset = utf-8
 indent_size = 4
+insert_final_newline = true
+
+[*.cs]
+charset = utf-8
+indent_size = 4
+insert_final_newline = true
