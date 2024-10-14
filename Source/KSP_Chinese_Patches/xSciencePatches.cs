@@ -425,6 +425,15 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
+        public static IEnumerable<CodeInstruction> StatusWindow_UpdateSituation_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        {
+            CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
+
+            matcher
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "New Situation: "))
+                .SetOperandAndAdvance("新的情况: ");
+            return matcher.InstructionEnumeration();
+        }
         public static IEnumerable<CodeInstruction> ResourcesName_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();

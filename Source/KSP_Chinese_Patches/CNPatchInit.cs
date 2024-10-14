@@ -428,6 +428,11 @@ namespace KSP_Chinese_Patches
                 Debug.Log("\t[KSPCNPatches] [[x] Science!]StatusWindow_MakeSituationToolTip_Patch 已应用！");
 
                 har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), "UpdateSituation"),
+                    transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_UpdateSituation_Patch)));
+                Debug.Log("\t[KSPCNPatches] [[x] Science!]StatusWindow_UpdateSituation_Patch 已应用！");
+
+                har.Patch(
                     original: AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.xResourceData"), new[] { typeof(string) }),
                     transpiler: new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ResourcesName_Patch)));
                 Debug.Log("\t[KSPCNPatches] [[x] Science!]ResourcesName_Patch 已应用！");
