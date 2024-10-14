@@ -98,6 +98,13 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Where Can I Go(需要Harmony)** - 一个很简单的小 Mod，会读当前载具的dv，然后告诉你当前载具可以去到哪些地方，能不能入轨、飞掠等等。
 - **SmartStage(需要Harmony)** - 这个 Mod 可以自动帮你整理分级。示例场景：原版场景下，你创建了运载火箭 A 和载荷 B，分别设置好了分级，但是当你想要合并两者时，发现两者的分级顺序也自动合并了，但是合并后的分级并非以增加的方法进行，这导致了合并后分级顺序紊乱，当分级较多时，排列分级顺序将会成为一个折磨人的过程，而 SmartStage 就是为了处理了这一点，虽然不算很完美。
 - **RealAntenna(需要Harmony)** - 部分玩家心心念的真实天线 Mod，现在可以翻译为中文了。翻译尚不支持 RO 环境。
+- **[x] Science! Continued(需要Harmony)** - 方便科学点数查漏补缺
+- **BetterBurnTime(需要Harmony)** - 一个速度指示扩展，感觉有点鸡肋
+- **Background Resources** - TAC LS 和 DeepFreeze Continued 的前置，翻译了设置文本
+- **Better SRBs** - 固推药柱的几种装法
+- **Docking Port Alignment Indicator(需要Harmony)** - 手动对接辅助，鉴定为不如 MechJeb2 一根
+- **Physics Range Extender(需要Harmony)** - 物理距离扩展
+- **B9 Part Switch(需要Harmony)** - 燃料箱上的硬编码 PartInfo 等文本
 
 ## 许可协议 | License
 
@@ -144,7 +151,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
   
 - **Q：性能问题？**
 
-  A：因为翻译的主要实现是通过 Patch，所以关于性能问题，理论上只会增加游戏开始时的加载时间（且这是由 MM 决定的），一旦加载完毕，进入游戏后**理应**不会产生任何性能问题。
+  A：~~因为翻译的主要实现是通过 Patch，所以关于性能问题，理论上只会增加游戏开始时的加载时间（且这是由 MM 决定的），一旦加载完毕，进入游戏后**理应**不会产生任何性能问题。~~自 1.0.0 版本本项目加入了 DLL 翻译功能(需要配合Harmony)，所以一定会增加游戏开始加载时间，且 DLL mod 安装的越多，时间越长，至于进入游戏后的性能问题，视 Mod 的代码情况而定，不能保证未来绝对不会出现性能问题，会尽可能避免性能问题。
   
 - **Q：如何保证 MM patch 语法的正确度？**
 
