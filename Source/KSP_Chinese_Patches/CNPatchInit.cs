@@ -570,6 +570,25 @@ namespace KSP_Chinese_Patches
                     transpiler: new HarmonyMethod(typeof(ThroughTheEyesPatches), nameof(ThroughTheEyesPatches.EVABoundFix_Hook_Patch)));
                 Debug.Log("\t[KSPCNPatches] [RasterPropMonitor]EVABoundFix_Hook_Patch 已应用！");
             }
+            if (StaticMethods.IsAssemblyLoaded("AvionicsSystems"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [AvionicsSystems]! 应用翻译...");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("AvionicsSystems.MASFlightComputerProxy"), "BodyBiome", new[] { typeof(object), typeof(double), typeof(double) }),
+                    transpiler: new HarmonyMethod(typeof(AvionicsSystemsPatches), nameof(AvionicsSystemsPatches.MASFlightComputerProxy_BodyBiome_Patch)));
+                Debug.Log("\t[KSPCNPatches] [AvionicsSystems]MASFlightComputerProxy_BodyBiome_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("AvionicsSystems.MASFlightComputerProxy"), "BodyName", new[] { typeof(object) }),
+                    transpiler: new HarmonyMethod(typeof(AvionicsSystemsPatches), nameof(AvionicsSystemsPatches.MASFlightComputerProxy_BodyName_Patch)));
+                Debug.Log("\t[KSPCNPatches] [AvionicsSystems]MASFlightComputerProxy_BodyName_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("AvionicsSystems.MASVesselComputer"), "UpdateTarget"),
+                    transpiler: new HarmonyMethod(typeof(AvionicsSystemsPatches), nameof(AvionicsSystemsPatches.MASVesselComputer_UpdateTarget_Patch)));
+                Debug.Log("\t[KSPCNPatches] [AvionicsSystems]MASVesselComputer_UpdateTarget_Patch 已应用！");
+            }
             Destroy(this);
         }
     }
