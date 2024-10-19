@@ -10,13 +10,27 @@ namespace KSP_Chinese_Patches
 {
     public class AvionicsSystemsPatches
     {
-        public static IEnumerable<CodeInstruction> MASFlightComputerProxy_BodyBiome_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        public static IEnumerable<CodeInstruction> MASFlightComputerProxy_BodyBiome_Patch(IEnumerable<CodeInstruction> codeInstructions, ILGenerator generator)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
-
+            Label label1 = generator.DefineLabel();
             matcher
-                .MatchStartForward(new CodeMatch(OpCodes.Call, AccessTools.Method(typeof(ScienceUtil), nameof(ScienceUtil.GetExperimentBiome))))
-                .SetOperandAndAdvance(AccessTools.Method(typeof(ScienceUtil), nameof(ScienceUtil.GetExperimentBiomeLocalized)));
+                .MatchStartForward(
+                    new CodeMatch(OpCodes.Ldloc_1),
+                    new CodeMatch(OpCodes.Ret))
+                .RemoveInstruction()
+                .Insert(
+                    new CodeInstruction(OpCodes.Ldloc_0),
+                    new CodeInstruction(OpCodes.Ldarg_2),
+                    new CodeInstruction(OpCodes.Ldarg_3),
+                    new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(ScienceUtil), nameof(ScienceUtil.GetExperimentBiomeLocalized), new[] { typeof(CelestialBody), typeof(double), typeof(double) }))
+                )
+                .AddLabels(new[] { label1 });
+            matcher
+                .MatchEndBackwards(new CodeMatch(OpCodes.Brfalse_S))
+                .SetOperandAndAdvance(label1);
+            //.MatchStartForward(new CodeMatch(OpCodes.Call, AccessTools.Method(typeof(ScienceUtil), nameof(ScienceUtil.GetExperimentBiome))))
+            //.SetOperandAndAdvance(AccessTools.Method(typeof(ScienceUtil), nameof(ScienceUtil.GetExperimentBiomeLocalized)));
             return matcher.InstructionEnumeration();
         }
         public static IEnumerable<CodeInstruction> MASFlightComputerProxy_BodyName_Patch(IEnumerable<CodeInstruction> codeInstructions)
