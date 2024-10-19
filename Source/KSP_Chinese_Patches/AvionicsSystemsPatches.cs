@@ -40,8 +40,7 @@ namespace KSP_Chinese_Patches
             matcher
                 .MatchStartForward(new CodeMatch(OpCodes.Ldfld, AccessTools.Field(typeof(CelestialBody), nameof(CelestialBody.bodyName))))
                 .SetOperandAndAdvance(AccessTools.Field(typeof(CelestialBody), nameof(CelestialBody.bodyDisplayName)))
-                .InsertAndAdvance(new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(LingoonaGrammarExtensions), nameof(LingoonaGrammarExtensions.LocalizeRemoveGender), new[] { typeof(string) })))
-                ;
+                .InsertAndAdvance(new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(LingoonaGrammarExtensions), nameof(LingoonaGrammarExtensions.LocalizeRemoveGender), new[] { typeof(string) })));
             return matcher.InstructionEnumeration();
         }
         public static IEnumerable<CodeInstruction> MASVesselComputer_UpdateTarget_Patch(IEnumerable<CodeInstruction> codeInstructions)
