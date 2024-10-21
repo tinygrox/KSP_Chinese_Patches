@@ -1,5 +1,17 @@
 # 更新日志 | Changelog
 
+## [1.2.0]
+
+本次更新内容：
+
+### 新增
+
+- **Avionics Systems** - 翻译了此Mod包含的舱内显示器的部分页面，注意未全部翻译，只翻译了涉及了 **DE_IVAExtension** 的内容，字体使用**微软雅黑**，请确保系统有此字体，一般来说 Win10 都是自带的。 
+- **ASET Consolidated Props Pack** - 翻译了部分 Prop (仪器的按钮文本等)的内容，字体同样设置为**微软雅黑**，请确保系统有安装该字体
+- **HullcamVDS Continued** - 对新的摄像机部件进行翻译，以及 DLL 硬编码的 guiName 的翻译(需要Harmony)
+- **Through The Eyes of a Kerbal** - 并未翻译，而是一个修复Patch，修复了一个因为这个 Mod 而导致的报错
+- **RasterPropMonitor Core(需要Harmony)** - 部分联动摄像机 Mod 的 guiName 相关的翻译
+
 ## [1.1.0]
 
 本次更新内容如下：(DLL 翻译暂不开放翻译接口)

@@ -1,11 +1,13 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
+
 namespace KSP_Chinese_Patches
 {
     [KSPAddon(KSPAddon.Startup.Instantly, once: true)]
@@ -13,6 +15,7 @@ namespace KSP_Chinese_Patches
     {
         public void Start()
         {
+            //Debug.Log(string.Join("，", Font.GetOSInstalledFontNames()));
 #if DEBUG
             //foreach (var a in AssemblyLoader.loadedAssemblies)
             foreach (var a in StaticMethods.AssemblyVersionMap)
@@ -519,6 +522,73 @@ namespace KSP_Chinese_Patches
             }
             #endregion
 
+            if (StaticMethods.IsAssemblyLoaded("HullcamVDSContinued"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [HullcamVDSContinued]! 应用翻译...");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterBlackAndWhiteFilm"), "OptionControls"),
+                    transpiler: new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterBlackAndWhiteFilm_OptionControls_Patch)));
+                Debug.Log("\t[KSPCNPatches] [HullcamVDSContinued]CameraFilterBlackAndWhiteFilm_OptionControls_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterColorFilm"), "OptionControls"),
+                    transpiler: new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterColorFilm_OptionControls_Patch)));
+                Debug.Log("\t[KSPCNPatches] [HullcamVDSContinued]CameraFilterColorFilm_OptionControls_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterColorHiResTV"), "OptionControls"),
+                    transpiler: new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterColorHiResTV_OptionControls_Patch)));
+                Debug.Log("\t[KSPCNPatches] [HullcamVDSContinued]CameraFilterColorHiResTV_OptionControls_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterColorLoResTV"), "OptionControls"),
+                    transpiler: new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterColorLoResTV_OptionControls_Patch)));
+                Debug.Log("\t[KSPCNPatches] [HullcamVDSContinued]CameraFilterColorLoResTV_OptionControls_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterNightVision"), "OptionControls"),
+                    transpiler: new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterNightVision_OptionControls_Patch)));
+                Debug.Log("\t[KSPCNPatches] [HullcamVDSContinued]CameraFilterNightVision_OptionControls_Patch 已应用！");
+            }
+
+            if (StaticMethods.IsAssemblyLoaded("RasterPropMonitor"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [RasterPropMonitor]! 应用翻译...");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("JSI.JSIExternalCameraSelector"), "OnAwake"),
+                    transpiler: new HarmonyMethod(typeof(RasterPropMonitorPatches), nameof(RasterPropMonitorPatches.JSIExternalCameraSelector_OnAwake_Patch)));
+                Debug.Log("\t[KSPCNPatches] [RasterPropMonitor]JSIExternalCameraSelector_OnAwake_Patch 已应用！");
+            }
+            if (StaticMethods.IsAssemblyLoaded("ThroughTheEyes", new Version(2, 0, 4)))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [ThroughTheEyes]! 执行修复 Patch...");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("FirstPerson.EVABoundFix"), "Hook"),
+                    transpiler: new HarmonyMethod(typeof(ThroughTheEyesPatches), nameof(ThroughTheEyesPatches.EVABoundFix_Hook_Patch)));
+                Debug.Log("\t[KSPCNPatches] [RasterPropMonitor]EVABoundFix_Hook_Patch 已应用！");
+            }
+            if (StaticMethods.IsAssemblyLoaded("AvionicsSystems"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [AvionicsSystems]! 应用翻译...");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("AvionicsSystems.MASFlightComputerProxy"), "BodyBiome", new[] { typeof(object), typeof(double), typeof(double) }),
+                    transpiler: new HarmonyMethod(typeof(AvionicsSystemsPatches), nameof(AvionicsSystemsPatches.MASFlightComputerProxy_BodyBiome_Patch)));
+                Debug.Log("\t[KSPCNPatches] [AvionicsSystems]MASFlightComputerProxy_BodyBiome_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("AvionicsSystems.MASFlightComputerProxy"), "BodyName", new[] { typeof(object) }),
+                    transpiler: new HarmonyMethod(typeof(AvionicsSystemsPatches), nameof(AvionicsSystemsPatches.MASFlightComputerProxy_BodyName_Patch)));
+                Debug.Log("\t[KSPCNPatches] [AvionicsSystems]MASFlightComputerProxy_BodyName_Patch 已应用！");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("AvionicsSystems.MASVesselComputer"), "UpdateTarget"),
+                    transpiler: new HarmonyMethod(typeof(AvionicsSystemsPatches), nameof(AvionicsSystemsPatches.MASVesselComputer_UpdateTarget_Patch)));
+                Debug.Log("\t[KSPCNPatches] [AvionicsSystems]MASVesselComputer_UpdateTarget_Patch 已应用！");
+            }
             Destroy(this);
         }
     }

@@ -105,6 +105,11 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Docking Port Alignment Indicator(需要Harmony)** - 手动对接辅助，鉴定为不如 MechJeb2 一根
 - **Physics Range Extender(需要Harmony)** - 物理距离扩展
 - **B9 Part Switch(需要Harmony)** - 燃料箱上的硬编码 PartInfo 等文本
+- **Avionics Systems** - 翻译了此Mod包含的舱内显示器的部分页面，注意未全部翻译，只翻译了涉及了 **DE_IVAExtension** 的内容，字体使用**微软雅黑**，请确保系统有此字体，一般来说 Win10 都是自带的。 
+- **ASET Consolidated Props Pack** - 翻译了部分 Prop (仪器的按钮文本等)的内容，字体同样设置为**微软雅黑**，请确保系统有安装该字体
+- **HullcamVDS Continued** - 对新的摄像机部件进行翻译，以及 DLL 硬编码的 guiName 的翻译(需要Harmony)
+- **Through The Eyes of a Kerbal** - 并未翻译，而是一个修复Patch，修复了一个因为这个 Mod 而导致的报错
+- **RasterPropMonitor Core(需要Harmony)** - 部分联动摄像机 Mod 的 guiName 相关的翻译
 
 ## 许可协议 | License
 
