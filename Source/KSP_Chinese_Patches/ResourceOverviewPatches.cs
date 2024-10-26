@@ -18,7 +18,7 @@ namespace KSP_Chinese_Patches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "No command pod"))
                 .SetOperandAndAdvance("无指令舱")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Has command seat"))
-                .SetOperandAndAdvance("有指令椅")
+                .SetOperandAndAdvance("指令座椅")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "ProbeCore"))
                 .SetOperandAndAdvance("探测器核心")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Resource Overview"))
