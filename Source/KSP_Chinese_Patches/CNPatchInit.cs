@@ -568,7 +568,7 @@ namespace KSP_Chinese_Patches
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("FirstPerson.EVABoundFix"), "Hook"),
                     transpiler: new HarmonyMethod(typeof(ThroughTheEyesPatches), nameof(ThroughTheEyesPatches.EVABoundFix_Hook_Patch)));
-                Debug.Log("\t[KSPCNPatches] [RasterPropMonitor]EVABoundFix_Hook_Patch 已应用！");
+                Debug.Log("\t[KSPCNPatches] [ThroughTheEyes]EVABoundFix_Hook_Patch 已应用！");
             }
             if (StaticMethods.IsAssemblyLoaded("AvionicsSystems"))
             {
@@ -588,6 +588,32 @@ namespace KSP_Chinese_Patches
                     original: AccessTools.Method(AccessTools.TypeByName("AvionicsSystems.MASVesselComputer"), "UpdateTarget"),
                     transpiler: new HarmonyMethod(typeof(AvionicsSystemsPatches), nameof(AvionicsSystemsPatches.MASVesselComputer_UpdateTarget_Patch)));
                 Debug.Log("\t[KSPCNPatches] [AvionicsSystems]MASVesselComputer_UpdateTarget_Patch 已应用！");
+            }
+
+            if (StaticMethods.IsAssemblyLoaded("ResourceOverview"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [ResourceOverview]! 应用翻译...");
+                har.Patch(
+                    original: AccessTools.Constructor(AccessTools.TypeByName("ResourceOverview.ResourceOverview")),
+                    transpiler: new HarmonyMethod(typeof(ResourceOverviewPatches), nameof(ResourceOverviewPatches.ResourceOverview_Patch)));
+                Debug.Log("\t[KSPCNPatches] [ResourceOverview]ResourceOverview_Patch 已应用！");
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ResourceOverview.ResourceOverview"), "drawGui", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(ResourceOverviewPatches), nameof(ResourceOverviewPatches.ResourceOverview_drawGui_Patch)));
+                Debug.Log("\t[KSPCNPatches] [ResourceOverview]ResourceOverview_drawGui_Patch 已应用！");
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ResourceOverview.SettingsWindow"), "drawGui", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(ResourceOverviewPatches), nameof(ResourceOverviewPatches.SettingWindow_drawGui_Patch)));
+                Debug.Log("\t[KSPCNPatches] [ResourceOverview]SettingWindow_drawGui_Patch 已应用！");
+
+            }
+            if (StaticMethods.IsAssemblyLoaded("ResearchBodies"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [ResearchBodies]! 应用翻译...");
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("ResearchBodies.ResearchBodiesController"), "FoundBody", new[] { typeof(int), typeof(CelestialBody), typeof(bool).MakeByRefType(), typeof(CelestialBody).MakeByRefType() }),
+                    transpiler: new HarmonyMethod(typeof(ResearchBodiesPatches), nameof(ResearchBodiesPatches.ResearchBodies_FoundBody_Patch)));
+                Debug.Log("\t[KSPCNPatches] [ResearchBodies]ResearchBodies_FoundBody_Patch 已应用！");
             }
             Destroy(this);
         }
