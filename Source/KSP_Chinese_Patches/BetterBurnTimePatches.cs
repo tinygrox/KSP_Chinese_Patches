@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using KSP.Localization;
 using System;
 using System.Collections.Generic;
@@ -103,7 +103,7 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
                 new CodeInstruction(OpCodes.Ldstr, "burnTimeDisplay"),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "启动加速时间"),
+                new CodeInstruction(OpCodes.Ldstr, "燃烧时间"),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName)))
                 );
             return matcher.InstructionEnumeration();
