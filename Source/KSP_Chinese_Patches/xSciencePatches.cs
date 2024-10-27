@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,7 +67,7 @@ namespace KSP_Chinese_Patches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Use | to mean OR eg \"mun|minmus space\""))
                 .SetOperandAndAdvance("输入 | 意为 [或] 比如 \"mun|minmus 太空\"")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Hover the mouse over the \"123/456 completed\" text.  A pop-up will show more infromation."))
-                .SetOperandAndAdvance("鼠标移到已完成 \"123/456 \" 文本上. 能显示更多信息")
+                .SetOperandAndAdvance("鼠标移到 完成度 \"123/456 \" 文本上. 能显示更多信息")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Press the X button to clear your text filter."))
                 .SetOperandAndAdvance("点击 X 按钮能够清空筛选条件。")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "The settings are"))
