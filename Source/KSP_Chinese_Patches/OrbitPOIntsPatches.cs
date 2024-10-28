@@ -32,7 +32,7 @@ namespace KSP_Chinese_Patches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Show POI Max Terrain Altitude On Atmospheric Bodies"))
                 .SetOperandAndAdvance(Localizer.Format("#OrbitPOInts_ShowPOIMaxTerrainAltitudeOnAtmoBodies"))
             #region ControlWrapperInteractionLogger.WrapButton("Reset POIs for " + this._selectedBodyName + " to defaults", null, null);
-                // WrapButton(Localizer.Fomat("#OrbitPOInts_RestPOIforBodies", this._selectedBodyName), null, null)
+                // ControlWrapperInteractionLogger.WrapButton(Localizer.Fomat("#OrbitPOInts_RestPOIforBodies", this._selectedBodyName), null, null)
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Reset POIs for "))
                 .SetOperandAndAdvance("#OrbitPOInts_RestPOIforBodies")
                 .InsertAndAdvance(
