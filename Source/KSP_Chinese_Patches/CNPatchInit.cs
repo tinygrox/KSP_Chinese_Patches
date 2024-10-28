@@ -60,6 +60,7 @@ namespace KSP_Chinese_Patches
                     original: AccessTools.Method(AccessTools.TypeByName("WhereCanIGo.Utilities"), "GetTextColor"),
                     transpiler: new HarmonyMethod(typeof(WhereCanIGoPatches), nameof(WhereCanIGoPatches.GenerateDialogLocPatch)));
             }
+
             if (StaticMethods.IsAssemblyLoaded("SmartStage"))
             {
                 Debug.Log("[KSPCNPatches] 已找到 [Smart Stage]! 应用翻译...");
@@ -96,6 +97,7 @@ namespace KSP_Chinese_Patches
                     transpiler: new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_PlanetDisplayNamePatch))
                     );
             }
+
             if (StaticMethods.IsAssemblyLoaded("RealAntennas", new Version(2, 6, 0)))
             {
                 Debug.Log("[KSPCNPatches] 已找到 [RealAntennas]! 应用翻译...");
@@ -216,6 +218,7 @@ namespace KSP_Chinese_Patches
                 Debug.Log("\t[KSPCNPatches] [RealAntennas]RealAntennas.RAParameters get_Title 已应用！");
 
             }
+
             if (StaticMethods.IsAssemblyLoaded("BetterBurnTime"))
             {
                 Debug.Log("[KSPCNPatches] 已找到 [BetterBurnTime]! 应用翻译...");
@@ -284,6 +287,7 @@ namespace KSP_Chinese_Patches
                     transpiler: new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.TimeFormatter_Patch)));
                 Debug.Log("\t[KSPCNPatches] [BetterBurnTime]TimeFormatter_format 已应用！");
             }
+
             if (StaticMethods.IsAssemblyLoaded("B9PartSwitch"))
             {
                 Debug.Log("[KSPCNPatches] 已找到 [B9PartSwitch]! 应用翻译...");
@@ -292,6 +296,7 @@ namespace KSP_Chinese_Patches
                     transpiler: new HarmonyMethod(typeof(B9PartSwithPatches), nameof(B9PartSwithPatches.ModuleB9PartInfo_SetupGUI_Patch)));
                 Debug.Log("\t[KSPCNPatches] [B9PartSwitch]ModuleB9PartInfo_SetupGUI 已应用！");
             }
+
             if (StaticMethods.IsAssemblyLoaded("PhysicsRangeExtender"))
             {
                 Debug.Log("[KSPCNPatches] 已找到 [PhysicsRangeExtender]! 应用翻译...");
@@ -336,6 +341,7 @@ namespace KSP_Chinese_Patches
                     transpiler: new HarmonyMethod(typeof(PhysicsRangeExtenderPatches), nameof(PhysicsRangeExtenderPatches.TerrainExtender_ShowMessageTerrainStatus_Patch)));
                 Debug.Log("\t[KSPCNPatches] [PhysicsRangeExtender]ShowMessageTerrainStatus 已应用！");
             }
+
             if (StaticMethods.IsAssemblyLoaded("[x]_Science!"))
             {
                 Debug.Log("[KSPCNPatches] 已找到 [[x] Science!]! 应用翻译...");
@@ -561,6 +567,7 @@ namespace KSP_Chinese_Patches
                     transpiler: new HarmonyMethod(typeof(RasterPropMonitorPatches), nameof(RasterPropMonitorPatches.JSIExternalCameraSelector_OnAwake_Patch)));
                 Debug.Log("\t[KSPCNPatches] [RasterPropMonitor]JSIExternalCameraSelector_OnAwake_Patch 已应用！");
             }
+
             if (StaticMethods.IsAssemblyLoaded("ThroughTheEyes", new Version(2, 0, 4)))
             {
                 Debug.Log("[KSPCNPatches] 已找到 [ThroughTheEyes]! 执行修复 Patch...");
@@ -570,6 +577,7 @@ namespace KSP_Chinese_Patches
                     transpiler: new HarmonyMethod(typeof(ThroughTheEyesPatches), nameof(ThroughTheEyesPatches.EVABoundFix_Hook_Patch)));
                 Debug.Log("\t[KSPCNPatches] [ThroughTheEyes]EVABoundFix_Hook_Patch 已应用！");
             }
+
             if (StaticMethods.IsAssemblyLoaded("AvionicsSystems"))
             {
                 Debug.Log("[KSPCNPatches] 已找到 [AvionicsSystems]! 应用翻译...");
@@ -607,6 +615,7 @@ namespace KSP_Chinese_Patches
                 Debug.Log("\t[KSPCNPatches] [ResourceOverview]SettingWindow_drawGui_Patch 已应用！");
 
             }
+
             if (StaticMethods.IsAssemblyLoaded("ResearchBodies"))
             {
                 Debug.Log("[KSPCNPatches] 已找到 [ResearchBodies]! 应用翻译...");
@@ -615,6 +624,32 @@ namespace KSP_Chinese_Patches
                     transpiler: new HarmonyMethod(typeof(ResearchBodiesPatches), nameof(ResearchBodiesPatches.ResearchBodies_FoundBody_Patch)));
                 Debug.Log("\t[KSPCNPatches] [ResearchBodies]ResearchBodies_FoundBody_Patch 已应用！");
             }
+
+            if (StaticMethods.IsAssemblyLoaded("OrbitPOInts"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [OrbitPOInts]! 应用翻译...");
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.ToolbarUI"), "DrawUI", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.ToolbarUI_DrawUI_Patch)));
+                Debug.Log("\t[KSPCNPatches] [OrbitPOInts] ToolbarUI_DrawUI_Patch已应用!");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.ToolbarUI"), "FixState"),
+                    transpiler: new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.ToolbarUI_FixState_Patch)));
+                Debug.Log("\t[KSPCNPatches] [OrbitPOInts] ToolbarUI_FixState_Patch已应用!");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.Data.POI.POI"), "_resolveLabel"),
+                    postfix: new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.POILabelPosfix)));
+                Debug.Log("\t[KSPCNPatches] [OrbitPOInts] POILabelPosfix已应用!");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.OptionsPopup"), "DrawUI", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.OptionsPopup_DrawUI_Patch)));
+                Debug.Log("\t[KSPCNPatches] [OrbitPOInts] OptionsPopup_DrawUI_Patch已应用!");
+            }
+
+
             Destroy(this);
         }
     }
