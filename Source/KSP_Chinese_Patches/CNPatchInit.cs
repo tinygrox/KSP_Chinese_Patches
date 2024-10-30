@@ -628,6 +628,7 @@ namespace KSP_Chinese_Patches
             if (StaticMethods.IsAssemblyLoaded("OrbitPOInts"))
             {
                 Debug.Log("[KSPCNPatches] 已找到 [OrbitPOInts]! 应用翻译...");
+
                 har.Patch(
                     original: AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.ToolbarUI"), "DrawUI", new[] { typeof(int) }),
                     transpiler: new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.ToolbarUI_DrawUI_Patch)));
@@ -647,8 +648,57 @@ namespace KSP_Chinese_Patches
                     original: AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.OptionsPopup"), "DrawUI", new[] { typeof(int) }),
                     transpiler: new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.OptionsPopup_DrawUI_Patch)));
                 Debug.Log("\t[KSPCNPatches] [OrbitPOInts] OptionsPopup_DrawUI_Patch已应用!");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.SimpleColorPicker"), "DrawUI", new[] { typeof(int) }),
+                    transpiler: new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.SimpleColorPicker_DrawUI_Patch)));
+                Debug.Log("\t[KSPCNPatches] [OrbitPOInts] SimpleColorPicker_DrawUI_Patch已应用!");
             }
 
+            if (StaticMethods.IsAssemblyLoaded("PlanetsideExplorationTechnologies"))
+            {
+                Debug.Log("[KSPCNPatches] 已找到 [PlanetsideExplorationTechnologies]! 应用翻译...");
+
+                har.Patch(
+                    original: AccessTools.Constructor(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation")),
+                    transpiler: new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PlanetsideExplorationTechnologies] ModulePETAnimation_Patch已应用!");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "OnStart", new[] { typeof(PartModule.StartState) }),
+                    transpiler: new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_OnStart_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PlanetsideExplorationTechnologies] ModulePETAnimation_OnStart_Patch已应用!");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "UpdateFSM"),
+                    transpiler: new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_UpdateFSM_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PlanetsideExplorationTechnologies] ModulePETAnimation_UpdateFSM_Patch 已应用!");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "Repair"),
+                    transpiler: new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_Repair_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PlanetsideExplorationTechnologies] ModulePETAnimation_Repair_Patch 已应用!");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "OnCollisionEnter", new[] { typeof(Collision) }),
+                    transpiler: new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_OnCollisionEnter_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PlanetsideExplorationTechnologies] ModulePETAnimation_OnCollisionEnter_Patch 已应用!");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "Destroy"),
+                    transpiler: new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_Destroy_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PlanetsideExplorationTechnologies] ModulePETAnimation_Destroy_Patch 已应用!");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "OnAwake"),
+                    transpiler: new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_OnAwake_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PlanetsideExplorationTechnologies] ModulePETTurbine_OnAwake_Patch 已应用!");
+
+                har.Patch(
+                    original: AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "UpdateTurbine"),
+                    transpiler: new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_UpdateTurbine_Patch)));
+                Debug.Log("\t[KSPCNPatches] [PlanetsideExplorationTechnologies] ModulePETTurbine_UpdateTurbine_Patch 已应用!");
+            }
 
             Destroy(this);
         }
