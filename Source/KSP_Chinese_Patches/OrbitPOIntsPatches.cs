@@ -94,6 +94,27 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
+        public static IEnumerable<CodeInstruction> SimpleColorPicker_DrawUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        {
+            CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
+
+            matcher
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Red"))
+                .SetOperandAndAdvance(Localizer.Format("#OrbitPOInts_ColorPicker_Red"))
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Green"))
+                .SetOperandAndAdvance(Localizer.Format("#OrbitPOInts_ColorPicker_Green"))
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Blue"))
+                .SetOperandAndAdvance(Localizer.Format("#OrbitPOInts_ColorPicker_Blue"))
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Cancel"))
+                .SetOperandAndAdvance(Localizer.Format("#OrbitPOInts_ColorPicker_Cancel"))
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Default"))
+                .SetOperandAndAdvance(Localizer.Format("#OrbitPOInts_ColorPicker_Default"))
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Save"))
+                .SetOperandAndAdvance(Localizer.Format("#OrbitPOInts_ColorPicker_Save"))
+                ;
+            return matcher.InstructionEnumeration();
+        }
+
         public static void POILabelPosfix(ref string __result)
         {
             if (string.IsNullOrEmpty(__result))
