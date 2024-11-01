@@ -1,5 +1,16 @@
 # 更新日志 | Changelog
 
+## [1.3.1]
+
+该版本是一次紧急修复
+
+### 更新内容
+
+- 修复了一处会导致 PlanetsideExplorationTechnologies 风电工作不正常的 Bug
+- 修复了一处 B9PartSwith 文本缺失括号的问题
+
+- 部分 Patch 的代码重构
+
 ## [1.3.0]
 
 本次更新内容：
