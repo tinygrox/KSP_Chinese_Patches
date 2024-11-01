@@ -1,15 +1,21 @@
 using HarmonyLib;
+using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace KSP_Chinese_Patches
 {
-    public class AvionicsSystemsPatches
+    public class AvionicsSystemsPatches : AbstractPatchBase
     {
+        public override string PatchName => "Avionics Systems";
+
+        public override string PatchDLLName => "AvionicsSystems";
+
         public static IEnumerable<CodeInstruction> MASFlightComputerProxy_BodyBiome_Patch(IEnumerable<CodeInstruction> codeInstructions, ILGenerator generator)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -53,6 +59,31 @@ namespace KSP_Chinese_Patches
                 .InsertAndAdvance(new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(LingoonaGrammarExtensions), nameof(LingoonaGrammarExtensions.LocalizeRemoveGender), new[] { typeof(string) })))
                 ;
             return matcher.InstructionEnumeration();
+        }
+
+        public override void LoadAllPatchInfo()
+        {
+            Patches = new HashSet<HarPatchInfo>
+            {
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("AvionicsSystems.MASFlightComputerProxy"), "BodyBiome", new[] { typeof(object), typeof(double), typeof(double) }),
+                    new HarmonyMethod(typeof(AvionicsSystemsPatches), nameof(AvionicsSystemsPatches.MASFlightComputerProxy_BodyBiome_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("AvionicsSystems.MASFlightComputerProxy"), "BodyName", new[] { typeof(object) }),
+                    new HarmonyMethod(typeof(AvionicsSystemsPatches), nameof(AvionicsSystemsPatches.MASFlightComputerProxy_BodyName_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("AvionicsSystems.MASVesselComputer"), "UpdateTarget"),
+                    new HarmonyMethod(typeof(AvionicsSystemsPatches), nameof(AvionicsSystemsPatches.MASVesselComputer_UpdateTarget_Patch)),
+                    PatchType.Transpiler
+                )
+            };
         }
     }
 }

@@ -12,6 +12,7 @@ namespace KSP_Chinese_Patches
 {
     public static class StaticMethods
     {
+        public static int PatchedModCount = 0;
         public static Dictionary<string, Version> AssemblyVersionMap => AssemblyLoader.loadedAssemblies.ToDictionary(a => a.dllName.ToLowerInvariant(), a => new Version(a.versionMajor, a.versionMinor, a.versionRevision));
 
         public static StringBuilder sb = new StringBuilder();
@@ -51,7 +52,7 @@ namespace KSP_Chinese_Patches
             return AssemblyVersionMap.TryGetValue(assemblyName.ToLowerInvariant(), out Version v) && v.Equals(_version);
         }
 
-        public static CodeInstruction[] Field_GuiName_Instructions(string targetField, string transText)
+        public static CodeInstruction[] Field_GuiName_Instructions(string targetField, string guiName)
         {
             return new CodeInstruction[]
             {
@@ -59,11 +60,11 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
                 new CodeInstruction(OpCodes.Ldstr, targetField),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, transText),
+                new CodeInstruction(OpCodes.Ldstr, guiName),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
             };
         }
-        public static CodeInstruction[] Field_groupDisplayName_Instructions(string targetField, string transText)
+        public static CodeInstruction[] Field_groupDisplayName_Instructions(string targetField, string guiName)
         {
             return new CodeInstruction[]
             {
@@ -72,7 +73,7 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Ldstr, targetField),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
                 new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(BaseField), nameof(BaseField.group))),
-                new CodeInstruction(OpCodes.Ldstr, transText),
+                new CodeInstruction(OpCodes.Ldstr, guiName),
                 new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(BasePAWGroup), nameof(BasePAWGroup.displayName))),
             };
         }
@@ -118,7 +119,7 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(UI_Toggle), nameof(UI_Toggle.enabledText))),
             };
         }
-        public static CodeInstruction[] Event_GuiName_Instructions(string targetEvent, string transText)
+        public static CodeInstruction[] Event_GuiName_Instructions(string targetEvent, string guiName)
         {
             return new CodeInstruction[]
             {
@@ -126,11 +127,11 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Events))),
                 new CodeInstruction(OpCodes.Ldstr, targetEvent),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseEventList), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, transText),
+                new CodeInstruction(OpCodes.Ldstr, guiName),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseEvent), nameof(BaseEvent.guiName)))
             };
         }
-        public static CodeInstruction[] Action_GuiName_Instructions(string targetAction, string transText)
+        public static CodeInstruction[] Action_GuiName_Instructions(string targetAction, string guiName)
         {
             return new CodeInstruction[]
             {
@@ -138,7 +139,7 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Actions))),
                 new CodeInstruction(OpCodes.Ldstr, targetAction),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseActionList), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, transText),
+                new CodeInstruction(OpCodes.Ldstr, guiName),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseAction), nameof(BaseEvent.guiName)))
             };
         }

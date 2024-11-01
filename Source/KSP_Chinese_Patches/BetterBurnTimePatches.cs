@@ -1,5 +1,6 @@
 using HarmonyLib;
 using KSP.Localization;
+using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace KSP_Chinese_Patches
 {
-    public class BetterBurnTimePatches
+    public class BetterBurnTimePatches : AbstractPatchBase
     {
         private static readonly string[] NEW_TIPS = new string[] { "正在计算更好的启动加速时间...", "正在预测撞击时间...", "正在预测接近时间...", "正在添加倒计时指示器..." };
         private static readonly string GeosyncLabel = "同步轨道";// "gsync";
@@ -19,6 +20,11 @@ namespace KSP_Chinese_Patches
         private static readonly string FormatHoursMinutesSeconds = "{0}时{1}分{2}秒"; // "{0}h{1}m{2}s";
         private static readonly string FormatHoursMinutes = "{0}时{1}分"; // "{0}h{1}m";
         private static readonly string FormatHours = "{0}时"; // "{0}h";
+
+        public override string PatchName => "BetterBurnTime";
+
+        public override string PatchDLLName => "BetterBurnTime";
+
         public static IEnumerable<CodeInstruction> AtmosphereTracker_CalculateEntryTime_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -171,6 +177,78 @@ namespace KSP_Chinese_Patches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldsfld, AccessTools.Field(AccessTools.TypeByName("BetterBurnTime.TimeFormatter"), "formatHours")))
                 .SetOperandAndAdvance(AccessTools.Field(typeof(BetterBurnTimePatches), nameof(FormatHours)));
             return matcher.InstructionEnumeration();
+        }
+
+        public override void LoadAllPatchInfo()
+        {
+            Patches = new HashSet<HarPatchInfo>
+            {
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.AtmosphereTracker"), "CalculateEntryTime", new[] { typeof(Vessel), typeof(string).MakeByRefType() }),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.AtmosphereTracker_CalculateEntryTime_Patch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.AtmosphereTracker"), "CalculateExitTime", new[] { typeof(Vessel), typeof(string).MakeByRefType() }),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.AtmosphereTracker_CalculateExitTime_Patch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.AtmosphereTracker"), "Recalculate"),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.AtmosphereTracker_Recalculate_Patch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.BetterBurnTime"), "LateUpdate"),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.BetterBurnTime_LateUpdate_Patch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.ClosestApproachTracker"), "LateUpdate"),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.ClosestApproachTracker_LateUpdate_Patch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.ImpactTracker"), "Recalculate"),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.ImpactTracker_Recalculate_Patch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.ImpactTracker"), "CalculateTimeToImpact"),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.ImpactTracker_CalculateTimeToImpact_Patch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.ModuleEngineBurnTime"), "OnStart"),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.ModuleEngineBurnTime_OnStart_Patch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.ModuleEngineBurnTime"), "GetModuleTitle"),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.ModuleEngineBurnTime_GetModuleTitle_Patch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.ModuleEngineBurnTime"), "GetPrimaryField"),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.ModuleEngineBurnTime_GetPrimaryField_Patch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.SplashScreen"), "InsertTips", new[] { typeof(LoadingScreen.LoadingScreenState) }),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.SplashScreen_InsertTips_Patch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.GeosyncTracker"), "LateUpdate"),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.GeosyncTracker_LateUpdate_Patch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("BetterBurnTime.TimeFormatter"), "format", new[] { typeof(int) }),
+                    new HarmonyMethod(typeof(BetterBurnTimePatches), nameof(BetterBurnTimePatches.TimeFormatter_Patch)),
+                    PatchType.Transpiler
+                 )
+            };
         }
     }
 }

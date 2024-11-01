@@ -1,5 +1,6 @@
 using HarmonyLib;
 using KSP.Localization;
+using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,12 @@ using System.Threading.Tasks;
 
 namespace KSP_Chinese_Patches
 {
-    public class OrbitPOIntsPatches
+    public class OrbitPOIntsPatches : AbstractPatchBase
     {
+        public override string PatchName => "OrbitPOInts";
+
+        public override string PatchDLLName => "OrbitPOInts";
+
         public static IEnumerable<CodeInstruction> ToolbarUI_DrawUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             // 原文太傻逼，只能先做个接口以防改来改去
@@ -124,6 +129,43 @@ namespace KSP_Chinese_Patches
                 __result = _v;
             }
             //__result = __result == Localizer.Format($"#OrbitPOInts_{__result}") ? __result : Localizer.Format($"#OrbitPOInts_{__result}");
+        }
+
+        public override void LoadAllPatchInfo()
+        {
+            Patches = new HashSet<HarPatchInfo>
+            {
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.ToolbarUI"), "DrawUI", new[] { typeof(int) }),
+                    new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.ToolbarUI_DrawUI_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.ToolbarUI"), "FixState"),
+                    new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.ToolbarUI_FixState_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.Data.POI.POI"), "_resolveLabel"),
+                    new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.POILabelPosfix)),
+                    PatchType.Postfix
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.OptionsPopup"), "DrawUI", new[] { typeof(int) }),
+                    new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.OptionsPopup_DrawUI_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.SimpleColorPicker"), "DrawUI", new[] { typeof(int) }),
+                    new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.SimpleColorPicker_DrawUI_Patch)),
+                    PatchType.Transpiler
+                )
+            };
         }
     }
 }

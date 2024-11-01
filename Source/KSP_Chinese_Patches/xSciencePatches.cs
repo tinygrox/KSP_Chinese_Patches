@@ -1,15 +1,21 @@
 using HarmonyLib;
+using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace KSP_Chinese_Patches
 {
-    public class xSciencePatches
+    public class xSciencePatches : AbstractPatchBase
     {
+        public override string PatchName => "[x] Science! Continued";
+
+        public override string PatchDLLName => "[x]_Science!";
+
         public static IEnumerable<CodeInstruction> Body_FigureOutType_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -109,9 +115,9 @@ namespace KSP_Chinese_Patches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Need more science?  Go to Minmus.  It’s a little harder to get to but your fuel will last longer.  A single mission can collect thousands of science points before you have to come back."))
                 .SetOperandAndAdvance("* 还需要更多的科学点数？去 Minmus 吧。它有点难去，但你的燃料能用的时间会更长。单次任务就能收集数千个科学点数。")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Generally moons are easier - it is more efficient to collect science from the surface of Ike or Gilly than from Duna or Eve.  That said - beware Tylo, it's big and you can't aerobrake."))
-                .SetOperandAndAdvance("* 一般来说，天然卫星会更容易 - 从 Ike 或 Gilly 的表面收集科学点数要比从 Duna 或 Eve 收集更容易。但话又说回来，去 Tylo 要小心，它很大，还不能大气制动.")
+                .SetOperandAndAdvance("* 一般来说，天然卫星会更容易 - 从 Ike 或 Gilly 的表面收集科学点数要比从 Duna 或 Eve 收集更容易。但话又说回来，去 Tylo要小心，它很大，还不能利用大气制动.")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "* Most of Kerbin’s biomes include both splashed and landed situations.  Landed at Kerbin’s water?  First build an aircraft carrier."))
-                .SetOperandAndAdvance("* Kerbin的大部分生态群落包含了溅落和着陆的情况。要着陆在 Kerbin 的水上？首先建造一个能停飞行器的载具吧，比如航空母舰。")
+                .SetOperandAndAdvance("* Kerbin的大部分生态群落包含了溅落和着陆的情况。要着陆在 Kerbin的水上？首先建造一个能停飞行器的载具吧，比如航空母舰。")
                 ;
             return matcher.InstructionEnumeration();
         }
@@ -459,6 +465,133 @@ namespace KSP_Chinese_Patches
                 )
                 ;
             return matcher.InstructionEnumeration();
+        }
+
+        public override void LoadAllPatchInfo()
+        {
+            Patches = new HashSet<HarPatchInfo>
+            {
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.Body"), "FigureOutType"),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.Body_FigureOutType_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.HelpWindow"), new[] { AccessTools.TypeByName("ScienceChecklist.ScienceChecklistAddon") }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.HelpWindow_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.HelpWindow"), "DrawWindowContents", new[] { typeof(int) }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.HelpWindow_DrawWindowContents_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.PropertyGetter(AccessTools.TypeByName("ScienceChecklist.ScienceInstance"), "Description"),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ScienceInstance_Description_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ScienceWindow"), "Draw"),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ScienceWindow_Draw_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ScienceWindow"), "DrawControls", new[] { typeof(int) }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ScienceWindow_DrawControls_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ScienceWindow"), "DrawTitleBarButtons", new[] { typeof(Rect), typeof(bool) }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ScienceWindow_DrawTitleBarButtons_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.SettingsWindow"), new[] { AccessTools.TypeByName("ScienceChecklist.ScienceChecklistAddon") }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.SettingsWindow_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.SettingsWindow"), "DrawWindowContents", new[] { typeof(int) }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.SettingsWindow_DrawWindowContents_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.ShipStateWindow"), new[] { AccessTools.TypeByName("ScienceChecklist.ScienceChecklistAddon") }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ShipStateWindow_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ShipStateWindow"), "DrawBody"),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ShipStateWindow_DrawBody_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ShipStateWindow"), "DrawVessel"),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ShipStateWindow_DrawVessel_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.Situation"), new[] { AccessTools.TypeByName("ScienceChecklist.Body"), typeof(ExperimentSituations), typeof(string), typeof(string) }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.Situation_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.Situation"), "ToString", new[] { typeof(ExperimentSituations) }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.Situation_ToString_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), new[] { AccessTools.TypeByName("ScienceChecklist.ScienceChecklistAddon") }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), "DrawExperiment", new[] { AccessTools.TypeByName("ScienceChecklist.ScienceInstance"), typeof(Rect) }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_DrawExperiment_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), "DrawWindowContents", new[] { typeof(int) }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_DrawWindowContents_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), "MakeSituationToolTip"),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_MakeSituationToolTip_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), "UpdateSituation"),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_UpdateSituation_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.xResourceData"), new[] { typeof(string) }),
+                    new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ResourcesName_Patch)),
+                    PatchType.Transpiler
+                )
+            };
         }
     }
 }

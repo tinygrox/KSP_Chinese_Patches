@@ -1,16 +1,22 @@
 using HarmonyLib;
 using KSP.Localization;
+using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace KSP_Chinese_Patches
 {
-    public class PlanetsideExplorationTechnologiesPatches
+    public class PlanetsideExplorationTechnologiesPatches : AbstractPatchBase
     {
+        public override string PatchName => "Planetside Exploration Technologies";
+
+        public override string PatchDLLName => "PlanetsideExplorationTechnologies";
+
         public static IEnumerable<CodeInstruction> ModulePETAnimation_OnStart_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -139,6 +145,61 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("闲置 - 未在发电")
                 ;
             return matcher.InstructionEnumeration();
+        }
+
+        public override void LoadAllPatchInfo()
+        {
+            Patches = new HashSet<HarPatchInfo>
+            {
+                new HarPatchInfo
+                (
+                    AccessTools.Constructor(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation")),
+                    new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "OnStart", new[] { typeof(PartModule.StartState) }),
+                    new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_OnStart_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "UpdateFSM"),
+                    new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_UpdateFSM_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "Repair"),
+                    new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_Repair_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "OnCollisionEnter", new[] { typeof(Collision) }),
+                    new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_OnCollisionEnter_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "Destroy"),
+                    new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_Destroy_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "OnAwake"),
+                    new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_OnAwake_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "UpdateTurbine"),
+                    new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_UpdateTurbine_Patch)),
+                    PatchType.Transpiler
+                )
+            };
         }
     }
 }

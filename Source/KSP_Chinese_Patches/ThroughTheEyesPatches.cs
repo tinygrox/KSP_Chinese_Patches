@@ -1,4 +1,5 @@
 using HarmonyLib;
+using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,12 @@ using System.Threading.Tasks;
 
 namespace KSP_Chinese_Patches
 {
-    public class ThroughTheEyesPatches
+    public class ThroughTheEyesPatches : AbstractPatchBase
     {
+        public override string PatchName => "Through The Eyes of a Kerbal";
+
+        public override string PatchDLLName => "ThroughTheEyes";
+
         public static IEnumerable<CodeInstruction> EVABoundFix_Hook_Patch(IEnumerable<CodeInstruction> codeInstructions, ILGenerator generator)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -34,6 +39,29 @@ namespace KSP_Chinese_Patches
                 )
                 ;
             return matcher.InstructionEnumeration();
+        }
+
+        public override bool IsModLoaded
+        {
+            get
+            {
+                if (!StaticMethods.IsAssemblyLoaded("ThroughTheEyes", new Version(2, 0, 4)))
+                    return false;
+                return true;
+            }
+        }
+
+        public override void LoadAllPatchInfo()
+        {
+            Patches = new HashSet<HarPatchInfo>
+            {
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("FirstPerson.EVABoundFix"), "Hook"),
+                    new HarmonyMethod(typeof(ThroughTheEyesPatches), nameof(ThroughTheEyesPatches.EVABoundFix_Hook_Patch)),
+                    PatchType.Transpiler
+                )
+            };
         }
     }
 }

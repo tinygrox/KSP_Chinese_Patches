@@ -1,4 +1,5 @@
 using HarmonyLib;
+using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,12 @@ using System.Threading.Tasks;
 
 namespace KSP_Chinese_Patches
 {
-    public class ResourceOverviewPatches
+    public class ResourceOverviewPatches : AbstractPatchBase
     {
+        public override string PatchName => "Resource Overview";
+
+        public override string PatchDLLName => "ResourceOverview";
+
         public static IEnumerable<CodeInstruction> ResourceOverview_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -81,6 +86,31 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("关闭")
                 ;
             return matcher.InstructionEnumeration();
+        }
+
+        public override void LoadAllPatchInfo()
+        {
+            Patches = new HashSet<HarPatchInfo>
+            {
+                new HarPatchInfo
+                (
+                    AccessTools.Constructor(AccessTools.TypeByName("ResourceOverview.ResourceOverview")),
+                    new HarmonyMethod(typeof(ResourceOverviewPatches), nameof(ResourceOverviewPatches.ResourceOverview_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ResourceOverview.ResourceOverview"), "drawGui", new[] { typeof(int) }),
+                    new HarmonyMethod(typeof(ResourceOverviewPatches), nameof(ResourceOverviewPatches.ResourceOverview_drawGui_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ResourceOverview.SettingsWindow"), "drawGui", new[] { typeof(int) }),
+                    new HarmonyMethod(typeof(ResourceOverviewPatches), nameof(ResourceOverviewPatches.SettingWindow_drawGui_Patch)),
+                    PatchType.Transpiler
+                )
+            };
         }
     }
 }
