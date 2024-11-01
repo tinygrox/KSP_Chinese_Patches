@@ -1,5 +1,6 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using KSP.Localization;
+using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using UnityEngine;
 
 namespace KSP_Chinese_Patches
 {
-    public class WhereCanIGoPatches
+    public class WhereCanIGoPatches : AbstractPatchBase
     {
         static Dictionary<string, string> loc = new Dictionary<string, string>()
         {
@@ -31,6 +32,11 @@ namespace KSP_Chinese_Patches
             ["NO"] = Localizer.Format("#CNPatches_WCIG_No"),
             ["MARGINAL"] = Localizer.Format("#CNPatches_WCIG_Marginal"),
         };
+
+        public override string PatchName => "Where Can I Go";
+
+        public override string PatchDLLName => "WhereCanIGo";
+
         public static IEnumerable<CodeInstruction> GenerateDialogLocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -57,6 +63,55 @@ namespace KSP_Chinese_Patches
                 }
             }
             return matcher.InstructionEnumeration();
+        }
+
+        public override void LoadAllPatchInfo()
+        {
+            Patches = new HashSet<HarPatchInfo>()
+            {
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("WhereCanIGo.WhereCanIGoEditor"), "GenerateDialog"),
+                    new HarmonyMethod(typeof(WhereCanIGoPatches), nameof(WhereCanIGoPatches.GenerateDialogLocPatch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("WhereCanIGo.WhereCanIGoEditor"), "GetDeltaVString"),
+                    new HarmonyMethod(typeof(WhereCanIGoPatches), nameof(WhereCanIGoPatches.GenerateDialogLocPatch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("WhereCanIGo.WhereCanIGoFlight"), "GenerateDialog"),
+                    new HarmonyMethod(typeof(WhereCanIGoPatches), nameof(WhereCanIGoPatches.GenerateDialogLocPatch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("WhereCanIGo.WhereCanIGoFlight"), "GetDeltaVString"),
+                    new HarmonyMethod(typeof(WhereCanIGoPatches), nameof(WhereCanIGoPatches.GenerateDialogLocPatch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("WhereCanIGo.Utilities"), "SituationValid"),
+                    new HarmonyMethod(typeof(WhereCanIGoPatches), nameof(WhereCanIGoPatches.GenerateDialogLocPatch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("WhereCanIGo.Utilities"), "VesselStatus"),
+                    new HarmonyMethod(typeof(WhereCanIGoPatches), nameof(WhereCanIGoPatches.GenerateDialogLocPatch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("WhereCanIGo.Utilities"), "GetTextColor"),
+                    new HarmonyMethod(typeof(WhereCanIGoPatches), nameof(WhereCanIGoPatches.GenerateDialogLocPatch)),
+                    PatchType.Transpiler
+                ),
+            };
         }
     }
 }

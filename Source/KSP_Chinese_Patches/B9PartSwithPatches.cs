@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+using HarmonyLib;
+using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,12 @@ using System.Threading.Tasks;
 
 namespace KSP_Chinese_Patches
 {
-    public class B9PartSwithPatches
+    public class B9PartSwithPatches : AbstractPatchBase
     {
+        public override string PatchName => "B9 Part Switch";
+
+        public override string PatchDLLName => "B9PartSwitch";
+
         public static IEnumerable<CodeInstruction> ModuleB9PartInfo_SetupGUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -109,6 +114,17 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName)))
                 );
             return matcher.InstructionEnumeration();
+        }
+        public override void LoadAllPatchInfo()
+        {
+            Patches = new HashSet<HarPatchInfo>
+            {
+                new HarPatchInfo(
+                    AccessTools.Method(AccessTools.TypeByName("B9PartSwitch.ModuleB9PartInfo"), "SetupGUI"),
+                    new HarmonyMethod(typeof(B9PartSwithPatches), nameof(B9PartSwithPatches.ModuleB9PartInfo_SetupGUI_Patch)),
+                    PatchType.Transpiler
+                 )
+            };
         }
     }
 }

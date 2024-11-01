@@ -1,4 +1,5 @@
 using HarmonyLib;
+using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,12 @@ using System.Threading.Tasks;
 
 namespace KSP_Chinese_Patches
 {
-    public class HullcamVDSContinuedPatches
+    public class HullcamVDSContinuedPatches : AbstractPatchBase
     {
+        public override string PatchName => "HullcamVDS Continued";
+
+        public override string PatchDLLName => "HullcamVDSContinued";
+
         public static IEnumerable<CodeInstruction> CameraFilterBlackAndWhiteFilm_OptionControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -104,6 +109,43 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("雪花噪点:")
                 ;
             return matcher.InstructionEnumeration();
+        }
+
+        public override void LoadAllPatchInfo()
+        {
+            Patches = new HashSet<HarPatchInfo>
+            {
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterBlackAndWhiteFilm"), "OptionControls"),
+                    new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterBlackAndWhiteFilm_OptionControls_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterColorFilm"), "OptionControls"),
+                    new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterColorFilm_OptionControls_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterColorHiResTV"), "OptionControls"),
+                    new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterColorHiResTV_OptionControls_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterColorLoResTV"), "OptionControls"),
+                    new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterColorLoResTV_OptionControls_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterNightVision"), "OptionControls"),
+                    new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterNightVision_OptionControls_Patch)),
+                    PatchType.Transpiler
+                ),
+            };
         }
     }
 }

@@ -1,5 +1,6 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using KSP.Localization;
+using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,12 @@ using static PartModule;
 
 namespace KSP_Chinese_Patches
 {
-    public class SmartStagePatches
+    public class SmartStagePatches : AbstractPatchBase
     {
+        public override string PatchName => "SmartStage";
+
+        public override string PatchDLLName => "SmartStage";
+
         public static IEnumerable<CodeInstruction> AscentPlotLocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -56,6 +61,46 @@ namespace KSP_Chinese_Patches
             matcher.MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Limit max acceleration to (m/sec): ")).SetOperandAndAdvance(Localizer.Format("#CNPatches_SmartStage_LimitMaxAcceleration"));
             matcher.MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Show icon in flight")).SetOperandAndAdvance(Localizer.Format("#CNPatches_SmartStage_ShowIconInFlight"));
             return matcher.InstructionEnumeration();
+        }
+
+        public override void LoadAllPatchInfo()
+        {
+            Type SmartStageType = AccessTools.TypeByName("SmartStage.MainWindow");
+            Patches = new HashSet<HarPatchInfo>
+            {
+                new HarPatchInfo(
+                    AccessTools.Constructor(
+                            AccessTools.TypeByName("SmartStage.AscentPlot"),
+                            new[] {
+                                typeof(List<>).MakeGenericType(AccessTools.TypeByName("SmartStage.Sample")),
+                                typeof(List<>).MakeGenericType(AccessTools.TypeByName("SmartStage.StageDescription")),
+                                typeof(int),
+                                typeof(int)
+                            }),
+                    new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.AscentPlotLocPatch)),
+                    PatchType.Transpiler
+                 ),
+                new HarPatchInfo(
+                    AccessTools.Method(SmartStageType, "OnGUI"),
+                    new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_OnGUILocPatch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo(
+                    AccessTools.Method(SmartStageType, "drawStagesWindow", new[] { typeof(int) }),
+                    new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_drawStagesWindowLocPatch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo(
+                    AccessTools.Method(SmartStageType, "drawWindow", new[] { typeof(int) }),
+                    new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_drawWindowLocPatch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo(
+                    AccessTools.Method(SmartStageType, "<planets>m__0", new[] { typeof(CelestialBody) }),
+                    new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_PlanetDisplayNamePatch)),
+                    PatchType.Transpiler
+                )
+            };
         }
     }
 }

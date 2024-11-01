@@ -1,5 +1,6 @@
 using HarmonyLib;
 using KSP.Localization;
+using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,12 @@ using System.Threading.Tasks;
 
 namespace KSP_Chinese_Patches
 {
-    public class RasterPropMonitorPatches
+    public class RasterPropMonitorPatches : AbstractPatchBase
     {
+        public override string PatchName => "RasterPropMonitor Core";
+
+        public override string PatchDLLName => "RasterPropMonitor";
+
         public static IEnumerable<CodeInstruction> JSIExternalCameraSelector_OnAwake_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -50,6 +55,19 @@ namespace KSP_Chinese_Patches
                 )
                 ;
             return matcher.InstructionEnumeration();
+        }
+
+        public override void LoadAllPatchInfo()
+        {
+            Patches = new HashSet<HarPatchInfo>
+            {
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("JSI.JSIExternalCameraSelector"), "OnAwake"),
+                    new HarmonyMethod(typeof(RasterPropMonitorPatches), nameof(RasterPropMonitorPatches.JSIExternalCameraSelector_OnAwake_Patch)),
+                    PatchType.Transpiler
+                )
+            };
         }
     }
 }
