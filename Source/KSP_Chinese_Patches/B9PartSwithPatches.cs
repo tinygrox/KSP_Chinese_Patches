@@ -19,51 +19,24 @@ namespace KSP_Chinese_Patches
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
-            matcher.InsertAndAdvance(
+            matcher
                 // (base.Fields["showInfo"].uiControlEditor as UI_Toggle).disabledText = "隐藏"
                 // (base.Fields["showInfo"].uiControlEditor as UI_Toggle).enabledText = "显示"
                 // (base.Fields["showInfo"].uiControlFlight as UI_Toggle).disabledText = "隐藏"
                 // (base.Fields["showInfo"].uiControlFlight as UI_Toggle).enabledText = "显示"
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "showInfo"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(BaseField), nameof(BaseField.uiControlEditor))),
-                new CodeInstruction(OpCodes.Isinst, typeof(UI_Toggle)),
-                new CodeInstruction(OpCodes.Ldstr, "隐藏"), // Hidden
-                new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(UI_Toggle), nameof(UI_Toggle.disabledText))),
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "showInfo"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(BaseField), nameof(BaseField.uiControlEditor))),
-                new CodeInstruction(OpCodes.Isinst, typeof(UI_Toggle)),
-                new CodeInstruction(OpCodes.Ldstr, "显示"), // Enabled
-                new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(UI_Toggle), nameof(UI_Toggle.enabledText))),
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "showInfo"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(BaseField), nameof(BaseField.uiControlFlight))),
-                new CodeInstruction(OpCodes.Isinst, typeof(UI_Toggle)),
-                new CodeInstruction(OpCodes.Ldstr, "隐藏"), // Hidden
-                new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(UI_Toggle), nameof(UI_Toggle.disabledText))),
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "showInfo"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(BaseField), nameof(BaseField.uiControlFlight))),
-                new CodeInstruction(OpCodes.Isinst, typeof(UI_Toggle)),
-                new CodeInstruction(OpCodes.Ldstr, "显示"), // Enabled
-                new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(UI_Toggle), nameof(UI_Toggle.enabledText))),
+                .InsertAndAdvance(StaticMethods.Field_UIToggle_Instructions("showInfo", "隐藏", "显示"))
                 // base.Fields["showInfo"].guiName = "部件信息"
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "showInfo"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "部件信息"), // Part Info
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName)))
-                )
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("showInfo", "部件信息"))
+                // base.Fields["wetMass"].guiName = "质量(湿)"
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("wetMass", "质量(湿)"))
+                // base.Fields["wetCost"].guiName = "成本(湿)"
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("wetCost", "成本(湿)"))
+                // base.Fields["maxTemp"].guiName = "最高温度"
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("maxTemp", "最高温度"))
+                // base.Fields["skinMaxTemp"].guiName = "表面最高温度"
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("skinMaxTemp", "表面最高温度"))
+                // base.Fields["crashTolerance"].guiName = "撞击可承受"
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("crashTolerance", "撞击可承受"))
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Mass"))
                 .SetOperandAndAdvance("质量")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Mass (Dry)"))
@@ -71,48 +44,8 @@ namespace KSP_Chinese_Patches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Cost"))
                 .SetOperandAndAdvance("成本")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Cost (Dry)"))
-                .SetOperandAndAdvance("成本(干")
-                .InsertAndAdvance(
-                // base.Fields["wetMass"].guiName = "质量(湿)"
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "wetMass"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "质量(湿)"), // Mass (Wet)
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                // base.Fields["wetCost"].guiName = "成本(湿)"
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "wetCost"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "成本(湿)"), // Cost (Wet)
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                // base.Fields["maxTemp"].guiName = "最高温度"
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "maxTemp"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "最高温度"), // Max Temp
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                // base.Fields["skinMaxTemp"].guiName = "表面最高温度"
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "skinMaxTemp"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "表面最高温度"), // Max Skin Temp
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                // base.Fields["crashTolerance"].guiName = "撞击可承受"
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "crashTolerance"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "撞击可承受"), // Crash Tolerance
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName)))
-                );
+                .SetOperandAndAdvance("成本(干)")
+                ;
             return matcher.InstructionEnumeration();
         }
         public override void LoadAllPatchInfo()

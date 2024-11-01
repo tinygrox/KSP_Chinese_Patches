@@ -99,7 +99,7 @@ namespace KSP_Chinese_Patches
             matcher
                 .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("isActive", "开关风轮")) // Toggle Turbine
                 .InsertAndAdvance(StaticMethods.Field_groupDisplayName_Instructions("isActive", "风力发电")) // Wind Turbine
-                .InsertAndAdvance(StaticMethods.Field_UIToggle_Instructions("isActive", "关", "开"))
+                .InsertAndAdvance(StaticMethods.Field_UIToggle_Instructions("isActive", "关", "开", flightOnly: true))
 
                 .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("flowRateDisplay", "产出电力")) // EC Output
                 .InsertAndAdvance(StaticMethods.Field_groupDisplayName_Instructions("flowRateDisplay", "风力发电")) // Wind Turbine
@@ -115,7 +115,7 @@ namespace KSP_Chinese_Patches
 
                 .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("toggleLines", "显示风向")) // Show Wind Direction
                 .InsertAndAdvance(StaticMethods.Field_groupDisplayName_Instructions("toggleLines", "风力发电")) // Wind Turbine
-                .InsertAndAdvance(StaticMethods.Field_UIToggle_Instructions("toggleLines", "关", "开"))
+                .InsertAndAdvance(StaticMethods.Field_UIToggle_Instructions("toggleLines", "关", "开", flightOnly: true))
 
                 .InsertAndAdvance(StaticMethods.Event_GuiName_Instructions("ToggleEVATurbine", "开关风轮")) // Toggle Turbine
 
