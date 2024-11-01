@@ -50,132 +50,27 @@ namespace KSP_Chinese_Patches
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
-            matcher.InsertAndAdvance(
+            matcher.
                 // base.Fields["_enabled"].guiName = Localizer.Format("");
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "_enabled"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "天线"),
-                //new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Localizer), nameof(Localizer.Format), new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
+                InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("_enabled", "天线"))
                 // 	(base.Fields["_enabled"].uiControlEditor as UI_Toggle).disabledText = "禁用";
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "_enabled"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(BaseField), nameof(BaseField.uiControlEditor))),
-                new CodeInstruction(OpCodes.Isinst, typeof(UI_Toggle)),
-                new CodeInstruction(OpCodes.Ldstr, "<color=red><b>禁用</b></color>"),
-                new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(UI_Toggle), nameof(UI_Toggle.disabledText))),
                 // 	(base.Fields["_enabled"].uiControlEditor as UI_Toggle).enabledText = "启用";
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "_enabled"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(BaseField), nameof(BaseField.uiControlEditor))),
-                new CodeInstruction(OpCodes.Isinst, typeof(UI_Toggle)),
-                new CodeInstruction(OpCodes.Ldstr, "<color=green>启用</color>"),
-                new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(UI_Toggle), nameof(UI_Toggle.enabledText))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "Condition"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "状态"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "Gain"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "增益"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "TxPower"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "传输功率 (dBm)"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "TechLevel"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "科技等级"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "RFBand"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "射频基带"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "sActivePowerConsumed"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "功率 (传输)"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "sIdlePowerConsumed"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "功率 (闲置)"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "sAntennaTarget"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "天线指向"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
-                new CodeInstruction(OpCodes.Ldstr, "plannerActiveTxTime"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "传输时间"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Events))),
-                new CodeInstruction(OpCodes.Ldstr, "AntennaTargetGUI"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseEventList), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "天线指向"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseEvent), nameof(BaseEvent.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Events))),
-                new CodeInstruction(OpCodes.Ldstr, "AntennaPlanningGUI"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseEventList), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "天线规划"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseEvent), nameof(BaseEvent.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Events))),
-                new CodeInstruction(OpCodes.Ldstr, "DebugAntenna"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseEventList), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "天线调试信息"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseEvent), nameof(BaseEvent.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Events))),
-                new CodeInstruction(OpCodes.Ldstr, "PermanentShutdownEvent"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseEventList), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "永久关停天线"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseEvent), nameof(BaseEvent.guiName))),
-
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Actions))),
-                new CodeInstruction(OpCodes.Ldstr, "PermanentShutdownAction"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseActionList), "get_Item", new[] { typeof(string) })),
-                new CodeInstruction(OpCodes.Ldstr, "永久关停天线"),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseAction), nameof(BaseEvent.guiName)))
-                );
+                .InsertAndAdvance(StaticMethods.Field_UIToggle_Instructions("_enabled", "<color=red><b>禁用</b></color>", "<color=green>启用</color>", editorOnly: true))
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("Condition", "状态")) // Condition
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("Gain", "增益")) // Gain
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("TxPower", "传输功率 (dBm)")) // Transmit Power (dBm)
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("TechLevel", "科技等级")) // Tech Level
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("RFBand", "射频基带")) // RF Band
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("sActivePowerConsumed", "功率 (传输)")) // Power (Active)
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("sIdlePowerConsumed", "功率 (闲置)")) // Power (Idle)
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("sAntennaTarget", "天线指向")) // Antenna Target
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("plannerActiveTxTime", "传输时间")) // Active Transmission Time
+                .InsertAndAdvance(StaticMethods.Event_GuiName_Instructions("AntennaTargetGUI", "天线指向")) // Antenna Targeting
+                .InsertAndAdvance(StaticMethods.Event_GuiName_Instructions("AntennaPlanningGUI", "天线规划")) // Antenna Planning
+                .InsertAndAdvance(StaticMethods.Event_GuiName_Instructions("DebugAntenna", "天线调试信息")) // Debug Antenna
+                .InsertAndAdvance(StaticMethods.Event_GuiName_Instructions("PermanentShutdownEvent", "永久关停天线")) // Disable antenna permanently
+                .InsertAndAdvance(StaticMethods.Action_GuiName_Instructions("PermanentShutdownAction", "永久关停天线")) // Disable antenna permanently
+                ;
 
             return matcher.InstructionEnumeration();
         }

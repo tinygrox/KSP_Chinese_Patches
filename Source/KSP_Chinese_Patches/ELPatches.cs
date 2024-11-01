@@ -15,6 +15,7 @@ namespace KSP_Chinese_Patches
     {
         public override string PatchName => "Extraplanetary Launchpads";
         public override string PatchDLLName => "Launchpad";
+        // 资源显示翻译
         public static IEnumerable<CodeInstruction> ELResourceLine_Resource_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -501,6 +502,22 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
+        public static IEnumerable<CodeInstruction> ELShipInfoWindow_SetResource_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        {
+            CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
+
+            matcher
+                .MatchStartForward
+                (
+                    new CodeMatch(OpCodes.Ldfld, AccessTools.Field(AccessTools.TypeByName("ExtraplanetaryLaunchpads.BuildResource"), "name"))
+                )
+                .Advance(1)
+                .InsertAndAdvance(
+                    new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(ELPatches), nameof(ELPatches.getResourceName), new[] { typeof(string) }))
+                )
+                ;
+            return matcher.InstructionEnumeration();
+        }
 
         static string[] time_formats = new[] { "{0:F0}年{1:000}天{2:00}时{3:00}分{4:00}秒", "{1:F0}天{2:00}时{3:00}分{4:00}秒", "{2:F0}时{3:00}分{4:00}秒", "{3:F0}分{4:00}秒", "{4:F0}秒" };
 
@@ -753,6 +770,12 @@ namespace KSP_Chinese_Patches
                 (
                     AccessTools.PropertyGetter(AccessTools.TypeByName("RecyclerFSM"), "CurrentState"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.RecyclerFSM_get_CurrentState_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELShipInfoWindow"), "SetResource",new[] { AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELTextInfoLine"), AccessTools.TypeByName("ExtraplanetaryLaunchpads.BuildResource") }),
+                    new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELShipInfoWindow_SetResource_Patch)),
                     PatchType.Transpiler
                 ),
             };

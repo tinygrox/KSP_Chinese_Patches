@@ -78,9 +78,9 @@ namespace KSP_Chinese_Patches
             };
         }
 
-        public static CodeInstruction[] Field_UIToggle_Instructions(string targetField, string disabledText, string enabledText)
+        public static CodeInstruction[] Field_UIToggle_Instructions(string targetField, string disabledText, string enabledText, bool editorOnly = false, bool flightOnly = false)
         {
-            return new CodeInstruction[]
+            var uiControlEditor = new CodeInstruction[]
             {
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
@@ -99,7 +99,9 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Isinst, typeof(UI_Toggle)),
                 new CodeInstruction(OpCodes.Ldstr, enabledText),
                 new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(UI_Toggle), nameof(UI_Toggle.enabledText))),
-
+            };
+            var uiControlFlight = new CodeInstruction[]
+            {
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(PartModule), nameof(PartModule.Fields))),
                 new CodeInstruction(OpCodes.Ldstr, targetField),
@@ -118,6 +120,15 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Ldstr, enabledText),
                 new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(UI_Toggle), nameof(UI_Toggle.enabledText))),
             };
+            List<CodeInstruction> res = new List<CodeInstruction>();
+
+            if (!flightOnly)
+                res.AddRange(uiControlEditor);
+
+            if (!editorOnly)
+                res.AddRange(uiControlFlight);
+
+            return res.ToArray();
         }
         public static CodeInstruction[] Event_GuiName_Instructions(string targetEvent, string guiName)
         {
