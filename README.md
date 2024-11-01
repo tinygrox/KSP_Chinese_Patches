@@ -38,7 +38,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Benjee10 Suits\*** - 部件翻译和 2 个航天服的名称翻译
 - **Benjee10 sharedAssets** - 部件翻译
 - **ht Robotics** - 部件翻译
-- **Planetside Exploration Technologies\*** - 部件翻译 + 设置菜单翻译，看说明文件
+- **Planetside Exploration Technologies** - 部件翻译 + 设置菜单翻译，~~看说明文件~~ 硬编码文本已翻译(需要 Harmony)
 - **HabTech2** - 部件翻译
 - **Moldavite Machines** - 本地化简中补充
 - **Extraplanetary Launchpads\**** - 简中补充
@@ -110,6 +110,10 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **HullcamVDS Continued** - 对新的摄像机部件进行翻译，以及 DLL 硬编码的 guiName 的翻译(需要Harmony)
 - **Through The Eyes of a Kerbal** - 并未翻译，而是一个修复Patch，修复了一个因为这个 Mod 而导致的报错
 - **RasterPropMonitor Core(需要Harmony)** - 部分联动摄像机 Mod 的 guiName 相关的翻译
+- **Extraplanetary Launchpads(需要Harmony)** - 可以在其他星球搭建发射台建造火箭的Mod，Mod 很不错，但是我选择【SimpleConstruction!】。添加了内置硬编码文本的翻译
+- **OrbitPOInts(需要Harmony)** - 一个能在地图界面可视化星球的引力范围、大气高度等信息的Mod
+- **Resource Overview(需要Harmony)** - 轻量型资源显示器。
+- **Near Future Electrical** - 补充新增的部件翻译
 
 ## 许可协议 | License
 

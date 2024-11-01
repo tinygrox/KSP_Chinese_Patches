@@ -1,5 +1,29 @@
 # 更新日志 | Changelog
 
+## [1.3.0]
+
+本次更新内容：
+
+### 新增
+
+- **Extraplanetary Launchpads(需要Harmony)** - 可以在其他星球搭建发射台建造火箭的Mod，Mod 很不错，但是我选择【SimpleConstruction!】添加了内置硬编码文本的翻译
+- **OrbitPOInts(需要Harmony)** - 一个能在地图界面可视化星球的引力范围、大气高度等信息的Mod
+- **Planetside Exploration Technologies(需要Harmony)** - 硬编码内容的翻译，现在翻译应该完整了。
+- **Resource Overview(需要Harmony)** - 轻量型资源显示器。
+- **Near Future Electrical** - 补充新增的部件翻译
+- **Community Resource Pack** - 为每个资源定义添加了 abbreviation 字段，适配 KSPCF 的改动 https://github.com/KSPModdingLibs/KSPCommunityFixes/pull/235，同时将`联氨(肼)`改为单字翻译`肼`、 `鉛者` 改为单字翻译 `铅` 。这是 1.2 的更新内容，忘记写了，这里补上。
+
+### 修正
+
+- **James Webb For Kerbal** - 将原来的翻译“詹姆斯·**韦伯**”修改为“詹姆斯·**韦布**”，遵循全国科学技术名词审定委员会发布的译名
+- **Squad** - 将原版中文翻译的 `在<<1>>表面建造一辆探测车` 更正为`在<<1>>表面完成探测车的组装` （英原文 `Finish construction of a Rover on the surface of <<1>>`）
+- **Benjee10 sharedAssets** - 修复了一处导致**C-100 异体同构对接装置**的动作按钮仍是英文的错误
+- **Far Future Technologies** - 补充新增的部件翻译
+
+### 其他
+
+- 代码整体进行重构，输出日志现在包含每个 Mod 的翻译 Patch 的执行时间，更加直观的知道是翻译哪个Mod拖慢了速度
+
 ## [1.2.0]
 
 本次更新内容：
