@@ -17,7 +17,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "PlanetsideExplorationTechnologies";
 
-        public static IEnumerable<CodeInstruction> ModulePETAnimation_OnStart_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModulePETAnimation_OnStart_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -32,7 +32,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> ModulePETAnimation_UpdateFSM_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModulePETAnimation_UpdateFSM_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -50,8 +50,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-
-        public static IEnumerable<CodeInstruction> ModulePETAnimation_Repair_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModulePETAnimation_Repair_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -61,8 +60,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-
-        public static IEnumerable<CodeInstruction> ModulePETAnimation_OnCollisionEnter_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModulePETAnimation_OnCollisionEnter_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -72,7 +70,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> ModulePETAnimation_Destroy_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModulePETAnimation_Destroy_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -82,7 +80,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> ModulePETAnimation_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModulePETAnimation_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -92,7 +90,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> ModulePETTurbine_OnAwake_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModulePETTurbine_OnAwake_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -130,7 +128,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ModulePETTurbine_UpdateTurbine_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModulePETTurbine_UpdateTurbine_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -146,8 +144,40 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
+        private static IEnumerable<CodeInstruction> ModulePETTurbine_GetInfo_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        {
+            CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
-        public override void LoadAllPatchInfo()
+            matcher
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Minimum Wind Speed: {0} % \n"))
+                .SetOperandAndAdvance("最低风速: {0} % \n")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Rated for: max. {0} % \n"))
+                .SetOperandAndAdvance("风速范围: 最高{0} % \n")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Turbine Type: "))
+                .SetOperandAndAdvance("风电类型: ")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Turbine Type: Tracking \n"))
+                .SetOperandAndAdvance("风电类型: 追踪 \n")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Turbine Type: Static \n"))
+                .SetOperandAndAdvance("风电类型: 固定 \n")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "<color=orange>Can be repaired with {0} repair kits"))
+                .SetOperandAndAdvance("<color=orange>维修需消耗{0}个维修工具")
+                ;
+            return matcher.InstructionEnumeration();
+        }
+        private static IEnumerable<CodeInstruction> ModulePETTurbine_GetModuleDisplayName_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        {
+            CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
+
+            matcher
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Deployable Wind Turbine"))
+                .SetOperandAndAdvance("可展开风力发电机")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Wind Turbine"))
+                .SetOperandAndAdvance("风力发电机")
+                ;
+            return matcher.InstructionEnumeration();
+        }
+
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {
@@ -197,6 +227,18 @@ namespace KSP_Chinese_Patches
                 (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "UpdateTurbine"),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_UpdateTurbine_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "GetInfo"),
+                    new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_GetInfo_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "GetModuleDisplayName"),
+                    new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_GetModuleDisplayName_Patch)),
                     PatchType.Transpiler
                 )
             };

@@ -37,7 +37,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "WhereCanIGo";
 
-        public static IEnumerable<CodeInstruction> GenerateDialogLocPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> GenerateDialogLocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             CodeMatcher matcher2 = new CodeMatcher(codeInstructions).Start();
@@ -65,7 +65,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>()
             {

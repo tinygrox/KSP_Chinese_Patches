@@ -16,7 +16,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "[x]_Science!";
 
-        public static IEnumerable<CodeInstruction> Body_FigureOutType_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> Body_FigureOutType_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -33,7 +33,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("未知");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> HelpWindow_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> HelpWindow_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -43,7 +43,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> HelpWindow_DrawWindowContents_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> HelpWindow_DrawWindowContents_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -122,7 +122,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ScienceInstance_Description_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ScienceInstance_Description_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -132,7 +132,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ScienceWindow_Draw_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ScienceWindow_Draw_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -141,7 +141,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("[x] 科学!");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> ScienceWindow_DrawControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ScienceWindow_DrawControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -165,7 +165,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ScienceWindow_DrawTitleBarButtons_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ScienceWindow_DrawTitleBarButtons_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -195,7 +195,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> SettingsWindow_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> SettingsWindow_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -206,7 +206,7 @@ namespace KSP_Chinese_Patches
         }
 
 
-        public static IEnumerable<CodeInstruction> SettingsWindow_DrawWindowContents_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> SettingsWindow_DrawWindowContents_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -274,7 +274,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> ShipStateWindow_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ShipStateWindow_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -284,7 +284,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ShipStateWindow_DrawBody_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ShipStateWindow_DrawBody_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -310,7 +310,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ShipStateWindow_DrawVessel_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ShipStateWindow_DrawVessel_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -325,7 +325,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("存在指令舱座位");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> Situation_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> Situation_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -337,7 +337,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("{0} ({1})");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> Situation_ToString_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> Situation_ToString_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -357,7 +357,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> StatusWindow_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> StatusWindow_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -366,7 +366,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("[x] 科学! 此时此地");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> StatusWindow_DrawExperiment_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> StatusWindow_DrawExperiment_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -378,7 +378,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> StatusWindow_MakeSituationToolTip_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> StatusWindow_MakeSituationToolTip_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -409,7 +409,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> StatusWindow_DrawWindowContents_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> StatusWindow_DrawWindowContents_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -431,7 +431,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> StatusWindow_UpdateSituation_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> StatusWindow_UpdateSituation_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -440,7 +440,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("新的情况: ");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> ResourcesName_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ResourcesName_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -467,7 +467,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {

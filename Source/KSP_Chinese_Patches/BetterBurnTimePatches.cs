@@ -25,7 +25,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "BetterBurnTime";
 
-        public static IEnumerable<CodeInstruction> AtmosphereTracker_CalculateEntryTime_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> AtmosphereTracker_CalculateEntryTime_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -35,7 +35,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> AtmosphereTracker_CalculateExitTime_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> AtmosphereTracker_CalculateExitTime_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -45,7 +45,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> AtmosphereTracker_Recalculate_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> AtmosphereTracker_Recalculate_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -55,7 +55,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> BetterBurnTime_LateUpdate_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> BetterBurnTime_LateUpdate_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -67,7 +67,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ClosestApproachTracker_LateUpdate_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ClosestApproachTracker_LateUpdate_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -77,7 +77,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ImpactTracker_Recalculate_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ImpactTracker_Recalculate_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -86,7 +86,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("{1}后{0}");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> ImpactTracker_CalculateTimeToImpact_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ImpactTracker_CalculateTimeToImpact_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -100,7 +100,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ModuleEngineBurnTime_OnStart_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModuleEngineBurnTime_OnStart_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -115,7 +115,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ModuleEngineBurnTime_GetModuleTitle_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModuleEngineBurnTime_GetModuleTitle_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -125,7 +125,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ModuleEngineBurnTime_GetPrimaryField_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModuleEngineBurnTime_GetPrimaryField_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -135,7 +135,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> SplashScreen_InsertTips_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> SplashScreen_InsertTips_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -147,7 +147,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> GeosyncTracker_LateUpdate_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> GeosyncTracker_LateUpdate_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -159,7 +159,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> TimeFormatter_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> TimeFormatter_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -179,7 +179,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {

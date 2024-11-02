@@ -15,7 +15,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "HullcamVDSContinued";
 
-        public static IEnumerable<CodeInstruction> CameraFilterBlackAndWhiteFilm_OptionControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> CameraFilterBlackAndWhiteFilm_OptionControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -33,7 +33,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> CameraFilterColorFilm_OptionControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> CameraFilterColorFilm_OptionControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -50,7 +50,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> CameraFilterColorHiResTV_OptionControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> CameraFilterColorHiResTV_OptionControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -71,7 +71,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> CameraFilterColorLoResTV_OptionControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> CameraFilterColorLoResTV_OptionControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -92,7 +92,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> CameraFilterNightVision_OptionControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> CameraFilterNightVision_OptionControls_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -111,7 +111,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {

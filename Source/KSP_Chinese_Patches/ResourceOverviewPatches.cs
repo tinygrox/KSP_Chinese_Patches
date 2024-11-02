@@ -15,7 +15,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "ResourceOverview";
 
-        public static IEnumerable<CodeInstruction> ResourceOverview_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ResourceOverview_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -31,7 +31,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> ResourceOverview_drawGui_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ResourceOverview_drawGui_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -53,7 +53,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> SettingWindow_drawGui_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> SettingWindow_drawGui_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -88,7 +88,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {

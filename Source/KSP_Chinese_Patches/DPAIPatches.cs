@@ -20,7 +20,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "DockingPortAlignmentIndicator";
 
-        public static IEnumerable<CodeInstruction> DPAI_loadTexturesPatches_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> DPAI_loadTexturesPatches_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             //CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             CodeMatcher matcher = new CodeMatcher(codeInstructions);
@@ -49,8 +49,7 @@ namespace KSP_Chinese_Patches
             }
             return matcher.InstructionEnumeration();
         }
-
-        public static IEnumerable<CodeInstruction> DPAI_drawIndicatorContentsToTexture_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> DPAI_drawIndicatorContentsToTexture_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -63,13 +62,12 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-
-        #region >>>> 这些 Patches 用于修改 DPAI 的 Glyph 数组长度
+        #region >>>> 这些 Patch 用于修改 DPAI 的 Glyph 数组长度
         // NavyFish.BitmapFont
         // yahei4096.dat - 27807
         //                          32768
         // 用 id 的值作为索引，我说怎么长度 32768 也不够
-        public static IEnumerable<CodeInstruction> Bitmap_FontbuildGlyphs_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> Bitmap_FontbuildGlyphs_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -78,7 +76,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
         // nmd 还有高手
-        public static IEnumerable<CodeInstruction> Bitmap_getGlyphFromID_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> Bitmap_getGlyphFromID_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -86,8 +84,9 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance(GlyphMaxLength);
             return matcher.InstructionEnumeration();
         }
+
         #endregion
-        public static IEnumerable<CodeInstruction> DPAI_createBlizzyButton_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> DPAI_createBlizzyButton_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -95,7 +94,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("显示/隐藏对接口对齐指示器");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> DPAI_determineTargetPortName_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> DPAI_determineTargetPortName_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -108,7 +107,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> DPAI_drawRenderedGaugeTexture_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> DPAI_drawRenderedGaugeTexture_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -117,7 +116,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> DPAI_drawRPMText_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> DPAI_drawRPMText_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -128,8 +127,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-
-        public static IEnumerable<CodeInstruction> DPAI_drawSettingsWindowContents_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> DPAI_drawSettingsWindowContents_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -161,8 +159,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("总是使用原版图标栏");
             return matcher.InstructionEnumeration();
         }
-
-        public static IEnumerable<CodeInstruction> DPAI_getReferencePortName_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> DPAI_getReferencePortName_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -170,7 +167,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("无");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> DPAI_onGaugeDraw_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> DPAI_onGaugeDraw_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -178,8 +175,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("DPAI设置");
             return matcher.InstructionEnumeration();
         }
-
-        public static IEnumerable<CodeInstruction> ModuleDockingNodeNamed_OnAwake_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModuleDockingNodeNamed_OnAwake_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher.InsertAndAdvance(
@@ -201,7 +197,7 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseEvent), nameof(BaseEvent.guiName))));
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> ModuleDockingNodeNamed_DisplayForNode_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModuleDockingNodeNamed_DisplayForNode_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -209,7 +205,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("重命名对接口");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> ModuleDockingNodeNamed_onRenameDialogDraw_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModuleDockingNodeNamed_onRenameDialogDraw_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher
@@ -232,7 +228,7 @@ namespace KSP_Chinese_Patches
                 return true;
             }
         }
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {

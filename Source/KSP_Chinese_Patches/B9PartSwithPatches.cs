@@ -15,7 +15,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "B9PartSwitch";
 
-        public static IEnumerable<CodeInstruction> ModuleB9PartInfo_SetupGUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ModuleB9PartInfo_SetupGUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -48,7 +48,7 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {
