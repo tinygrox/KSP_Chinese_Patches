@@ -12,7 +12,6 @@ namespace KSP_Chinese_Patches
 {
     public static class StaticMethods
     {
-        //public static int PatchedModCount = 0;
         public static Dictionary<string, Version> AssemblyVersionMap => AssemblyLoader.loadedAssemblies.ToDictionary(a => a.dllName.ToLowerInvariant(), a => new Version(a.versionMajor, a.versionMinor, a.versionRevision));
 
         public static StringBuilder sb = new StringBuilder();

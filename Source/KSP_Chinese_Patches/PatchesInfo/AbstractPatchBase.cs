@@ -82,7 +82,7 @@ namespace KSP_Chinese_Patches.PatchesInfo
             }
             instanceCount++;
             watch.Stop();
-            sb.AppendLine($"执行总计{watch.Elapsed.TotalSeconds:F2}秒");
+            sb.AppendLine($"'{PatchName}' 共计 {Patches.Count} 个Patch。执行总计{watch.Elapsed.TotalSeconds:F2}秒");
             UnityEngine.Debug.Log(sb.ToStringAndRelease());
         }
     }

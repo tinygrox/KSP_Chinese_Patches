@@ -16,7 +16,8 @@ namespace KSP_Chinese_Patches
         public override string PatchName => "Planetside Exploration Technologies";
 
         public override string PatchDLLName => "PlanetsideExplorationTechnologies";
-
+        // 万一系统没有微软雅黑，就用宋体，两个都没有应该要考虑升级电脑了。Linux 用户不提供技术支持，哥们只有一个人，没有那个精力
+        private static readonly Font ChineseFont = Font.CreateDynamicFontFromOSFont(new[] { "Microsoft YaHei", "SimSun" }, 60);
         private static IEnumerable<CodeInstruction> ModulePETAnimation_OnStart_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -95,7 +96,7 @@ namespace KSP_Chinese_Patches
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
             matcher
-                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("isActive", "开关风轮")) // Toggle Turbine
+                .InsertAndAdvance(StaticMethods.Field_GuiName_Instructions("isActive", "风轮")) // Toggle Turbine
                 .InsertAndAdvance(StaticMethods.Field_groupDisplayName_Instructions("isActive", "风力发电")) // Wind Turbine
                 .InsertAndAdvance(StaticMethods.Field_UIToggle_Instructions("isActive", "关", "开", flightOnly: true))
 
@@ -176,6 +177,33 @@ namespace KSP_Chinese_Patches
                 ;
             return matcher.InstructionEnumeration();
         }
+        private static IEnumerable<CodeInstruction> ModulePETTurbine_Start_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        {
+            CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
+
+            matcher
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Current Wind Direction"))
+                .SetOperandAndAdvance("当前风向")
+                .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Current Orientation"))
+                .SetOperandAndAdvance("当前朝向")
+                ;
+            return matcher.InstructionEnumeration();
+        }
+        private static IEnumerable<CodeInstruction> Vector3Renderer_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        {
+            CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
+
+            matcher
+                .MatchEndForward(
+                    new CodeMatch(OpCodes.Ldarg_0),
+                    new CodeMatch(OpCodes.Ldfld, AccessTools.Field(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Extensions.Vector3Renderer"), "label")),
+                    new CodeMatch(OpCodes.Ldtoken, typeof(Font))
+                )
+                .RemoveInstructions(4)
+                .SetAndAdvance(OpCodes.Ldsfld, AccessTools.Field(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ChineseFont)))
+                ;
+            return matcher.InstructionEnumeration();
+        }
 
         protected override void LoadAllPatchInfo()
         {
@@ -225,6 +253,12 @@ namespace KSP_Chinese_Patches
                 ),
                 new HarPatchInfo
                 (
+                    AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "Start"),
+                    new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_Start_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "UpdateTurbine"),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_UpdateTurbine_Patch)),
                     PatchType.Transpiler
@@ -239,6 +273,12 @@ namespace KSP_Chinese_Patches
                 (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "GetModuleDisplayName"),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_GetModuleDisplayName_Patch)),
+                    PatchType.Transpiler
+                ),
+                new HarPatchInfo
+                (
+                    AccessTools.Constructor(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Extensions.Vector3Renderer"), new[]{ typeof(Part), typeof(string), typeof(string), typeof(Color)}),
+                    new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.Vector3Renderer_Patch)),
                     PatchType.Transpiler
                 )
             };
