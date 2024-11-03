@@ -1,17 +1,11 @@
 using HarmonyLib;
-using KSP.Localization;
 using KSP_Chinese_Patches.PatchesInfo;
 using System;
-using System.CodeDom;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-namespace KSP_Chinese_Patches
+namespace KSP_Chinese_Patches.ModPatches
 {
     public class RealAntennasPatches : AbstractPatchBase
     {
@@ -455,7 +449,7 @@ namespace KSP_Chinese_Patches
             {
                 if (!StaticMethods.IsAssemblyLoaded(PatchDLLName, new Version(2, 6, 0)))
                 {
-                    Debug.Log($"[KSPCNPatches] [{PatchName}] 的版本不是 2.6.0 已跳过\n");
+                    Debug.Log($"[KSPCNPatches] 未安装 [{PatchName}] 或版本不是 2.6.0 已跳过\n");
                     return false;
                 }
                 return true;

@@ -1,15 +1,11 @@
 using HarmonyLib;
 using KSP.Localization;
 using KSP_Chinese_Patches.PatchesInfo;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 
-namespace KSP_Chinese_Patches
+namespace KSP_Chinese_Patches.ModPatches
 {
     public class ELPatches : AbstractPatchBase
     {
