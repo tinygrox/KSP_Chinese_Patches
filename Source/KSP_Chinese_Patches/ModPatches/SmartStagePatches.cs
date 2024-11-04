@@ -3,21 +3,16 @@ using KSP.Localization;
 using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using static PartModule;
 
-namespace KSP_Chinese_Patches
+namespace KSP_Chinese_Patches.ModPatches
 {
     public class SmartStagePatches : AbstractPatchBase
     {
         public override string PatchName => "SmartStage";
-
         public override string PatchDLLName => "SmartStage";
 
-        public static IEnumerable<CodeInstruction> AscentPlotLocPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> AscentPlotLocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher.MatchStartForward(new CodeMatch(OpCodes.Ldstr, "acceleration")).SetOperandAndAdvance(Localizer.Format("#CNPatches_SmartStage_PlotAcceleration"));
@@ -26,7 +21,7 @@ namespace KSP_Chinese_Patches
             matcher.MatchStartForward(new CodeMatch(OpCodes.Ldstr, "throttle")).SetOperandAndAdvance(Localizer.Format("#CNPatches_SmartStage_PlotThrottle"));
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> MainWindow_OnGUILocPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> MainWindow_OnGUILocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher.MatchStartForward(new CodeMatch(OpCodes.Ldstr, "SmartStage Stages")).SetOperandAndAdvance(Localizer.Format("#CNPatches_SmartStage_WindowTitle"));
@@ -34,7 +29,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> MainWindow_PlanetDisplayNamePatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> MainWindow_PlanetDisplayNamePatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher.MatchStartForward(new CodeMatch(OpCodes.Callvirt, AccessTools.Method(typeof(CelestialBody), nameof(CelestialBody.GetName))))
@@ -42,7 +37,7 @@ namespace KSP_Chinese_Patches
                 .InsertAndAdvance(new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(LingoonaGrammarExtensions), nameof(LingoonaGrammarExtensions.LocalizeRemoveGender))));
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> MainWindow_drawStagesWindowLocPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> MainWindow_drawStagesWindowLocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher.MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Stage: ")).SetOperandAndAdvance(Localizer.Format("#CNPatches_SmartStage_Stage") + ": ");
@@ -51,7 +46,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> MainWindow_drawWindowLocPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> MainWindow_drawWindowLocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher.MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Compute stages")).SetOperandAndAdvance(Localizer.Format("#CNPatches_SmartStage_ComputeStages"));
@@ -63,7 +58,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Type SmartStageType = AccessTools.TypeByName("SmartStage.MainWindow");
             Patches = new HashSet<HarPatchInfo>

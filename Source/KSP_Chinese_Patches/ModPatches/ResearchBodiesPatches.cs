@@ -1,13 +1,9 @@
 using HarmonyLib;
 using KSP_Chinese_Patches.PatchesInfo;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace KSP_Chinese_Patches
+namespace KSP_Chinese_Patches.ModPatches
 {
     public class ResearchBodiesPatches : AbstractPatchBase
     {
@@ -15,7 +11,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "ResearchBodies";
 
-        public static IEnumerable<CodeInstruction> ResearchBodies_FoundBody_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ResearchBodies_FoundBody_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -28,7 +24,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {

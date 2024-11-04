@@ -1,17 +1,11 @@
 using HarmonyLib;
-using KSP.Localization;
 using KSP_Chinese_Patches.PatchesInfo;
 using System;
-using System.CodeDom;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-namespace KSP_Chinese_Patches
+namespace KSP_Chinese_Patches.ModPatches
 {
     public class RealAntennasPatches : AbstractPatchBase
     {
@@ -21,7 +15,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "RealAntennas";
 
-        public static IEnumerable<CodeInstruction> NetUIConfigurationWindow_WindowGUIPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> NetUIConfigurationWindow_WindowGUIPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -46,7 +40,7 @@ namespace KSP_Chinese_Patches
 
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> OnAwakePatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> OnAwakePatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -74,13 +68,13 @@ namespace KSP_Chinese_Patches
 
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> RecalculateFieldsLocPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> RecalculateFieldsLocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             matcher.MatchStartForward(new CodeMatch(OpCodes.Ldstr, "{0:F2} Watts")).SetOperandAndAdvance("{0:F2} 瓦特").MatchStartForward(new CodeMatch(OpCodes.Ldstr, "{0:F2} Watts")).SetOperandAndAdvance("{0:F2} 瓦特");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> PermanentShutdownEventLocPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> PermanentShutdownEventLocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -95,7 +89,7 @@ namespace KSP_Chinese_Patches
 
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> ApplyTLColoringLocPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ApplyTLColoringLocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -106,7 +100,7 @@ namespace KSP_Chinese_Patches
 
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> GetInfoLocPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> GetInfoLocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -117,7 +111,7 @@ namespace KSP_Chinese_Patches
 
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> PlannerGUI_OnGUILocPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> PlannerGUI_OnGUILocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -125,7 +119,7 @@ namespace KSP_Chinese_Patches
 
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> PlannerGUI_GUIDisplayLocPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> PlannerGUI_GUIDisplayLocPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -164,7 +158,7 @@ namespace KSP_Chinese_Patches
 
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> PlannerGUI_GetDisplayNamePatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> PlannerGUI_GetDisplayNamePatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -173,7 +167,7 @@ namespace KSP_Chinese_Patches
                 .InsertAndAdvance(new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(LingoonaGrammarExtensions), nameof(LingoonaGrammarExtensions.LocalizeRemoveGender))));
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> PlannerGUI_RenderPanelPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> PlannerGUI_RenderPanelPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -181,7 +175,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("<color=orange>[最佳站点]</color>: ");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> PlannerGUI_FireOncePatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> PlannerGUI_FireOncePatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -197,7 +191,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("<color=orange><b>(无连接)</b></color>");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> PlannerGUI_NotifyDisabledPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> PlannerGUI_NotifyDisabledPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -207,7 +201,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("RealAntennas: 通信链路功能已开启, 切换场景后生效");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> RealAntennasUI_WindowGUIPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> RealAntennasUI_WindowGUIPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -235,7 +229,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("关闭控制控制台");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> TechLevelInfo_ToStringPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> TechLevelInfo_ToStringPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -243,7 +237,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("{0} 等级:{1} 最大功率:{2:N0}dBm 最大速率:{3} 效率:{4:F4}");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> UpdateList_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> UpdateList_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -252,7 +246,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ConnectionDebugger_OnGUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ConnectionDebugger_OnGUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -261,7 +255,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ConnectionDebugger_GUIDisplay_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ConnectionDebugger_GUIDisplay_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -348,7 +342,7 @@ namespace KSP_Chinese_Patches
         }
 
 
-        public static IEnumerable<CodeInstruction> AntennaTargetGUI_OnGUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> AntennaTargetGUI_OnGUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -356,7 +350,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("天线指向");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> AntennaTargetGUI_GUIDisplay_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> AntennaTargetGUI_GUIDisplay_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -403,7 +397,7 @@ namespace KSP_Chinese_Patches
         }
 
 
-        public static IEnumerable<CodeInstruction> RemoteAntennaControlUI_OnGUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> RemoteAntennaControlUI_OnGUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -412,7 +406,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> RemoteAntennaControlUI_GUIDisplay_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> RemoteAntennaControlUI_GUIDisplay_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -429,7 +423,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> Encoder_ToStringPatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> Encoder_ToStringPatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -439,7 +433,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> RA_SettingTitlePatch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> RA_SettingTitlePatch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -455,14 +449,14 @@ namespace KSP_Chinese_Patches
             {
                 if (!StaticMethods.IsAssemblyLoaded(PatchDLLName, new Version(2, 6, 0)))
                 {
-                    Debug.Log($"[KSPCNPatches] [{PatchName}] 的版本不是 2.6.0 已跳过\n");
+                    Debug.Log($"[KSPCNPatches] 未安装 [{PatchName}] 或版本不是 2.6.0 已跳过\n");
                     return false;
                 }
                 return true;
             }
         }
 
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {

@@ -114,6 +114,11 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **OrbitPOInts(需要Harmony)** - 一个能在地图界面可视化星球的引力范围、大气高度等信息的Mod
 - **Resource Overview(需要Harmony)** - 轻量型资源显示器。
 - **Near Future Electrical** - 补充新增的部件翻译
+- **Kiwi Tech Tree Overhaul** - 科技树 Mod
+- **Shuttle Orbiter Construction Kit** - 仿 NASA 航天飞机的 Mod，部件翻译，目前涉及 B9PartSwitch 的文本尚未翻译
+- **System Heat** - 主Mod的翻译补全
+- **VAB Organizer** - 很好的部件分类 Mod，添加了主 Mod 翻译以及同作者 如 NF 系列 Mod 的与其相关的翻译
+- **Cryo Tanks** - 对自带翻译的修正，特别是“氢气”的修正，以及若干错误修正。
 
 ## 许可协议 | License
 

@@ -1,14 +1,9 @@
 using HarmonyLib;
 using KSP_Chinese_Patches.PatchesInfo;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 
-namespace KSP_Chinese_Patches
+namespace KSP_Chinese_Patches.ModPatches
 {
     public class AvionicsSystemsPatches : AbstractPatchBase
     {
@@ -16,7 +11,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "AvionicsSystems";
 
-        public static IEnumerable<CodeInstruction> MASFlightComputerProxy_BodyBiome_Patch(IEnumerable<CodeInstruction> codeInstructions, ILGenerator generator)
+        private static IEnumerable<CodeInstruction> MASFlightComputerProxy_BodyBiome_Patch(IEnumerable<CodeInstruction> codeInstructions, ILGenerator generator)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
             Label label1 = generator.DefineLabel();
@@ -39,7 +34,7 @@ namespace KSP_Chinese_Patches
             //.SetOperandAndAdvance(AccessTools.Method(typeof(ScienceUtil), nameof(ScienceUtil.GetExperimentBiomeLocalized)));
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> MASFlightComputerProxy_BodyName_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> MASFlightComputerProxy_BodyName_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -49,7 +44,7 @@ namespace KSP_Chinese_Patches
                 .InsertAndAdvance(new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(LingoonaGrammarExtensions), nameof(LingoonaGrammarExtensions.LocalizeRemoveGender), new[] { typeof(string) })));
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> MASVesselComputer_UpdateTarget_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> MASVesselComputer_UpdateTarget_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -61,7 +56,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {

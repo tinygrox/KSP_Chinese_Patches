@@ -1,14 +1,10 @@
 using HarmonyLib;
 using KSP.Localization;
 using KSP_Chinese_Patches.PatchesInfo;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace KSP_Chinese_Patches
+namespace KSP_Chinese_Patches.ModPatches
 {
     public class OrbitPOIntsPatches : AbstractPatchBase
     {
@@ -16,7 +12,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "OrbitPOInts";
 
-        public static IEnumerable<CodeInstruction> ToolbarUI_DrawUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ToolbarUI_DrawUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             // 原文太傻逼，只能先做个接口以防改来改去
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -58,7 +54,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> OptionsPopup_DrawUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> OptionsPopup_DrawUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -85,7 +81,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> ToolbarUI_FixState_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> ToolbarUI_FixState_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -99,7 +95,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> SimpleColorPicker_DrawUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> SimpleColorPicker_DrawUI_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -131,7 +127,7 @@ namespace KSP_Chinese_Patches
             //__result = __result == Localizer.Format($"#OrbitPOInts_{__result}") ? __result : Localizer.Format($"#OrbitPOInts_{__result}");
         }
 
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {

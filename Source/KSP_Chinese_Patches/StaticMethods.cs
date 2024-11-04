@@ -1,18 +1,14 @@
 using HarmonyLib;
-using KSP.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 
 namespace KSP_Chinese_Patches
 {
     public static class StaticMethods
     {
-        public static int PatchedModCount = 0;
         public static Dictionary<string, Version> AssemblyVersionMap => AssemblyLoader.loadedAssemblies.ToDictionary(a => a.dllName.ToLowerInvariant(), a => new Version(a.versionMajor, a.versionMinor, a.versionRevision));
 
         public static StringBuilder sb = new StringBuilder();

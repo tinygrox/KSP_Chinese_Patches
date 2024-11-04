@@ -1,5 +1,20 @@
 # 更新日志 | Changelog
 
+## [1.4.0]
+
+### 新增
+
+- **VAB Organizer** - 很好的部件分类 Mod，添加了主 Mod 翻译以及同作者 如 NF 系列 Mod 的与其相关的翻译
+- **Cryo Tanks** - 对自带翻译的修正，特别是“氢气”的修正，以及若干错误修正。
+- **System Heat** - 主Mod的翻译补全
+- **Shuttle Orbiter Construction Kit** - 仿 NASA 航天飞机的 Mod，部件翻译，涉及 B9PartSwitch 的文本尚未翻译
+- **Kiwi Tech Tree Overhaul** - 科技树 Mod 的第一版翻译
+
+### 修改
+
+- **Squad** - 几处原版翻译的修正
+
+
 ## [1.3.1]
 
 该版本是一次紧急修复

@@ -1,13 +1,9 @@
 using HarmonyLib;
 using KSP_Chinese_Patches.PatchesInfo;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace KSP_Chinese_Patches
+namespace KSP_Chinese_Patches.ModPatches
 {
     public class PhysicsRangeExtenderPatches : AbstractPatchBase
     {
@@ -15,7 +11,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "PhysicsRangeExtender";
 
-        public static IEnumerable<CodeInstruction> Gui_DisableMod_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> Gui_DisableMod_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -26,7 +22,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("启用Mod");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> Gui_DrawCamFixMultiplier_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> Gui_DrawCamFixMultiplier_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -35,7 +31,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("镜头修复系数:");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> Gui_DrawGlobalVesselRange_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> Gui_DrawGlobalVesselRange_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -44,7 +40,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("全局范围设置:");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> Gui_DrawSaveButton_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> Gui_DrawSaveButton_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -54,7 +50,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> Gui_DrawTitle_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> Gui_DrawTitle_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -63,7 +59,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("物理范围扩展");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> PhysicsRangeExtender_UpdateNearClipPlane_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> PhysicsRangeExtender_UpdateNearClipPlane_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -72,7 +68,7 @@ namespace KSP_Chinese_Patches
                 .SetOperandAndAdvance("[PhysicsRangeExtender] 闪烁/摆动修正程序已激活，正在调整镜头近裁剪面。");
             return matcher.InstructionEnumeration();
         }
-        public static IEnumerable<CodeInstruction> PhysicsRangeExtender_UnloadLandedVessels_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> PhysicsRangeExtender_UnloadLandedVessels_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -82,7 +78,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public static IEnumerable<CodeInstruction> TerrainExtender_ShowMessageTerrainStatus_Patch(IEnumerable<CodeInstruction> codeInstructions)
+        private static IEnumerable<CodeInstruction> TerrainExtender_ShowMessageTerrainStatus_Patch(IEnumerable<CodeInstruction> codeInstructions)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -101,7 +97,7 @@ namespace KSP_Chinese_Patches
             return matcher.InstructionEnumeration();
         }
 
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {

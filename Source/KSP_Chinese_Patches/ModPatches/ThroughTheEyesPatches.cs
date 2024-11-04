@@ -2,12 +2,9 @@ using HarmonyLib;
 using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace KSP_Chinese_Patches
+namespace KSP_Chinese_Patches.ModPatches
 {
     public class ThroughTheEyesPatches : AbstractPatchBase
     {
@@ -15,7 +12,7 @@ namespace KSP_Chinese_Patches
 
         public override string PatchDLLName => "ThroughTheEyes";
 
-        public static IEnumerable<CodeInstruction> EVABoundFix_Hook_Patch(IEnumerable<CodeInstruction> codeInstructions, ILGenerator generator)
+        private static IEnumerable<CodeInstruction> EVABoundFix_Hook_Patch(IEnumerable<CodeInstruction> codeInstructions, ILGenerator generator)
         {
             CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
 
@@ -51,7 +48,7 @@ namespace KSP_Chinese_Patches
             }
         }
 
-        public override void LoadAllPatchInfo()
+        protected override void LoadAllPatchInfo()
         {
             Patches = new HashSet<HarPatchInfo>
             {

@@ -5,15 +5,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using TMPro;
 using UnityEngine;
 
 namespace KSP_Chinese_Patches
 {
     [KSPAddon(KSPAddon.Startup.Instantly, once: true)]
-    public class CNPatchInit : MonoBehaviour
+    public class HarmonyInitialise : MonoBehaviour
     {
         public void Start()
         {
@@ -52,7 +49,7 @@ namespace KSP_Chinese_Patches
 
 
             Clock.Stop();
-            UnityEngine.Debug.Log($"[KSPCNPatches] Patch 全部运行完毕！共翻译了 {StaticMethods.PatchedModCount} 个 Mod，跳过了 {Patches.Count - StaticMethods.PatchedModCount} 个 Mod。总耗时：{Clock.Elapsed.TotalSeconds:F2}秒");
+            UnityEngine.Debug.Log($"[KSPCNPatches] Patch 全部运行完毕！共翻译了 {AbstractPatchBase.GetCount} 个 Mod，跳过了 {Patches.Count - AbstractPatchBase.GetCount} 个 Mod。总耗时：{Clock.Elapsed.TotalSeconds:F2}秒");
             Destroy(this);
         }
     }
