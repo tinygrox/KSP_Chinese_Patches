@@ -12,6 +12,9 @@ namespace KSP_Chinese_Patches.PatchesInfo
         public abstract string PatchName { get; }
         public abstract string PatchDLLName { get; }
         protected virtual HashSet<HarPatchInfo> Patches { get; set; }
+
+        private static Harmony thisHarmony;
+        protected static Harmony GetHarmony { get { return thisHarmony; } }
         protected virtual void PatchApply(in Harmony harmony, in HarPatchInfo patchInfo)
         {
             switch (patchInfo.PatchType)
@@ -33,6 +36,12 @@ namespace KSP_Chinese_Patches.PatchesInfo
                         original: patchInfo.TargetMethod,
                         transpiler: patchInfo.PatchMethod
                      );
+                    break;
+                case PatchType.Finalizer:
+                    harmony.Patch(
+                        original: patchInfo.TargetMethod,
+                        finalizer: patchInfo.PatchMethod
+                    );
                     break;
                 default:
                     return;
@@ -58,7 +67,7 @@ namespace KSP_Chinese_Patches.PatchesInfo
         public virtual void ApplyPatches(in Harmony harmony)
         {
             if (!IsModLoaded) return;
-
+            thisHarmony ??= harmony;
             Stopwatch watch = Stopwatch.StartNew();
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"\n[KSPCNPatches] 已找到 [{PatchName}]! 应用翻译...");
