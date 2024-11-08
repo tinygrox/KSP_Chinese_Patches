@@ -1,4 +1,5 @@
 using HarmonyLib;
+using System;
 using System.Reflection;
 
 namespace KSP_Chinese_Patches
@@ -7,7 +8,8 @@ namespace KSP_Chinese_Patches
     {
         Prefix,
         Postfix,
-        Transpiler
+        Transpiler,
+        Finalizer
     }
     public class HarPatchInfo
     {
@@ -17,8 +19,8 @@ namespace KSP_Chinese_Patches
         public PatchType PatchType { get; }
         public HarPatchInfo(MethodBase methodBase, HarmonyMethod patchMethod, PatchType patchType)
         {
-            TargetMethod = methodBase;
-            PatchMethod = patchMethod;
+            TargetMethod = methodBase ?? throw new ArgumentNullException(nameof(methodBase), "Target method cannot be null.");
+            PatchMethod = patchMethod ?? throw new ArgumentNullException(nameof(patchMethod), "Patch method cannot be null.");
             PatchType = patchType;
         }
 
