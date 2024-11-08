@@ -443,18 +443,18 @@ namespace KSP_Chinese_Patches.ModPatches
             return matcher.InstructionEnumeration();
         }
 
-        public override bool IsModLoaded
-        {
-            get
-            {
-                if (!StaticMethods.IsAssemblyLoaded(PatchDLLName, new Version(2, 6, 0)))
-                {
-                    Debug.Log($"[KSPCNPatches] 未安装 [{PatchName}] 或版本不是 2.6.0 已跳过\n");
-                    return false;
-                }
-                return true;
-            }
-        }
+        //public override bool IsModLoaded
+        //{
+        //    get
+        //    {
+        //        if (!StaticMethods.IsAssemblyLoaded(PatchDLLName, new Version(2, 7, 0)))
+        //        {
+        //            Debug.Log($"[KSPCNPatches] 未安装 [{PatchName}] 或版本不是 2.7.0 已跳过\n");
+        //            return false;
+        //        }
+        //        return true;
+        //    }
+        //}
 
         protected override void LoadAllPatchInfo()
         {
