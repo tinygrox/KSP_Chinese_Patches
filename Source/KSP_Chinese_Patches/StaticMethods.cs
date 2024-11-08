@@ -48,6 +48,12 @@ namespace KSP_Chinese_Patches
             return AssemblyVersionMap.TryGetValue(assemblyName.ToLowerInvariant(), out Version v) && v.Equals(_version);
         }
 
+        /// <summary>
+        /// 插入 base.Fields["targetField"].guiName = guiName 语句的 IL 指令集合
+        /// </summary>
+        /// <param name="targetField">KSPField的字段名</param>
+        /// <param name="guiName">翻译后的guiName</param>
+        /// <returns>对应的 IL 指令集合(CodeInstruction[])</returns>
         public static CodeInstruction[] Field_GuiName_Instructions(string targetField, string guiName)
         {
             return new CodeInstruction[]
@@ -60,7 +66,13 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseField<KSPField>), nameof(BaseField<KSPField>.guiName))),
             };
         }
-        public static CodeInstruction[] Field_groupDisplayName_Instructions(string targetField, string guiName)
+        /// <summary>
+        /// 插入 base.Fields["targetField"].group.displayName = guiName 语句的 IL 指令集合
+        /// </summary>
+        /// <param name="targetField">KSPField的字段名</param>
+        /// <param name="displayName">groupdisplayName的翻译</param><param>
+        /// <returns>对应的 IL 指令集合(CodeInstruction[])</returns>
+        public static CodeInstruction[] Field_groupDisplayName_Instructions(string targetField, string displayName)
         {
             return new CodeInstruction[]
             {
@@ -69,7 +81,7 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Ldstr, targetField),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(BaseFieldList<BaseField, KSPField>), "get_Item", new[] { typeof(string) })),
                 new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(BaseField), nameof(BaseField.group))),
-                new CodeInstruction(OpCodes.Ldstr, guiName),
+                new CodeInstruction(OpCodes.Ldstr, displayName),
                 new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(BasePAWGroup), nameof(BasePAWGroup.displayName))),
             };
         }
