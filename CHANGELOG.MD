@@ -1,5 +1,23 @@
 # 更新日志 | Changelog
 
+## [1.5.0]
+
+### 新增
+
+- **Kerballoons** - 为游戏添加 气球 部件的 Mod。部件和硬编码翻译，部分信息写死在.csv文件中，但又不想弄，就先这样将就着吧。
+- **IndicatorLights** - 补全了之前缺少的 DLL 硬编码翻译
+- **Kerbalism** - 补充了部分 DLL 硬编码翻译，比如监视面板资源的显示
+
+### 修正
+
+- **Squad** - 将研发中心的解锁的部件下方的 `所有` 改成更直白的`已解锁`(原文`owned`)
+
+### 其他
+
+去除了 RealAntenna 翻译的版本限制，出问题再说吧。
+
+上传了一系列个人自用的 MM Patch，用于解决部分 Mod 之间的兼容性问题，同时为玩家提供 Patch 范本和思路。具体可查看 https://github.com/tinygrox/KSP_Chinese_Patches/tree/main/SomeMMPatches 
+
 ## [1.4.1]
 
 ### 修正
