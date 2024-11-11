@@ -1,4 +1,5 @@
 using HarmonyLib;
+using KSP.UI.TooltipTypes;
 using KSP_Chinese_Patches.PatchesInfo;
 using System;
 using System.Collections.Generic;
@@ -213,6 +214,16 @@ namespace KSP_Chinese_Patches.ModPatches
                 ;
             return matcher.InstructionEnumeration();
         }
+        public static IEnumerable<CodeInstruction> TooltipController_CrewAC_SetTooltip_PostfixPatch(IEnumerable<CodeInstruction> codeInstructions)
+        {
+            CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
+
+            matcher
+                .MatchEndForward(new CodeMatch(OpCodes.Ldstr, "<b>Career "))
+                .SetOperandAndAdvance("<b>职业生涯")
+                ;
+            return matcher.InstructionEnumeration();
+        }
 
         private static void ApplyKerbalismPatches()
         {
@@ -231,6 +242,8 @@ namespace KSP_Chinese_Patches.ModPatches
             GetHarmony.Patch(original: AccessTools.Method(AccessTools.TypeByName("KERBALISM.DevManager"), "Devman", new[] { AccessTools.TypeByName("KERBALISM.Panel"), typeof(Vessel) }), transpiler: new HarmonyMethod(typeof(KerbalismPatches), nameof(KerbalismPatches.DevManager_Devman_Patch)));
 
             GetHarmony.Patch(original: AccessTools.PropertyGetter(AccessTools.TypeByName("KERBALISM.ProcessDevice"), "Tooltip"), transpiler: new HarmonyMethod(typeof(KerbalismPatches), nameof(KerbalismPatches.ProcessDevice_Tooltip_Patch)));
+
+            GetHarmony.Patch(original: AccessTools.Method(AccessTools.TypeByName("KERBALISM.TooltipController_CrewAC_SetTooltip"), "Postfix", new[] { typeof(TooltipController_CrewAC), typeof(ProtoCrewMember) }), transpiler: new HarmonyMethod(typeof(KerbalismPatches), nameof(KerbalismPatches.TooltipController_CrewAC_SetTooltip_PostfixPatch)));
         }
         // 我知道很硬，那没办法了，为了性能
         private static Dictionary<string, string> LocDict = new Dictionary<string, string>()
