@@ -1,5 +1,22 @@
 # 更新日志 | Changelog
 
+## [1.6.0]
+
+### 新增
+
+- **B9 Aerospace Procedural Wings - Fork** - 大名鼎鼎的 B9 自定义机翼。补充了中文翻译。
+- **Kerbal GPS** - 增加代入感的 GPS 卫星 Mod，至少需要 4 颗可见 GPS 卫星才能生效。
+- **ASET Consolidated Props Pack** - 继续补充翻译了一些舱内视角下的 prop 文本。
+
+### 修正
+
+- **Squad** - 修正了当移动处理实验室无法分析数据时，其弹出的报错信息文本的错译：原文：`无法以<<1>>分析数据` - `Cannot analyze data as <<1>>` 现修正为 `无法分析数据因为<<1>>`
+- **Kerbalism** - 翻译了生涯模式中，启用辐射功能的情况下，在宇航员中心处小绿人信息下方的 `Carrer 辐射: xx%` 文本，现显示为 `职业生涯辐射: xx%`
+
+### 问题修复
+
+- 修复了因强行添加 `Extend`、`Retract` 等本地化键，从而导致的 [#53](https://github.com/tinygrox/KSP_Chinese_Patches/issues/53) 问题。
+
 ## [1.5.0]
 
 ### 新增
