@@ -120,6 +120,8 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **VAB Organizer** - 很好的部件分类 Mod，添加了主 Mod 翻译以及同作者 如 NF 系列 Mod 的与其相关的翻译
 - **Cryo Tanks** - 对自带翻译的修正，特别是“氢气”的修正，以及若干错误修正。
 - **Kerballoons** - 为游戏添加 气球 部件的 Mod。部件和硬编码翻译，部分信息写死在.csv文件中，但又不想弄，就先这样将就着吧。
+- **B9 Aerospace Procedural Wings - Fork** - 大名鼎鼎的 B9 自定义机翼。补充了中文翻译。
+- **Kerbal GPS** - 增加代入感的 GPS 卫星 Mod，至少需要 4 颗可见 GPS 卫星才能生效。
 
 ## 许可协议 | License
 
