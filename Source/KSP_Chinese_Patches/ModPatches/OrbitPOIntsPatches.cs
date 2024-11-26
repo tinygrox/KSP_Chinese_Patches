@@ -135,31 +135,31 @@ namespace KSP_Chinese_Patches.ModPatches
                 (
                     AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.ToolbarUI"), "DrawUI", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.ToolbarUI_DrawUI_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.ToolbarUI"), "FixState"),
                     new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.ToolbarUI_FixState_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.Data.POI.POI"), "_resolveLabel"),
                     new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.POILabelPosfix)),
-                    PatchType.Postfix
+                    HarmonyPatchType.Postfix
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.OptionsPopup"), "DrawUI", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.OptionsPopup_DrawUI_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("OrbitPOInts.UI.SimpleColorPicker"), "DrawUI", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(OrbitPOIntsPatches), nameof(OrbitPOIntsPatches.SimpleColorPicker_DrawUI_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 )
             };
         }

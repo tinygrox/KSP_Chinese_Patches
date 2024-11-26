@@ -115,31 +115,31 @@ namespace KSP_Chinese_Patches.ModPatches
                 (
                     AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterBlackAndWhiteFilm"), "OptionControls"),
                     new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterBlackAndWhiteFilm_OptionControls_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterColorFilm"), "OptionControls"),
                     new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterColorFilm_OptionControls_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterColorHiResTV"), "OptionControls"),
                     new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterColorHiResTV_OptionControls_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterColorLoResTV"), "OptionControls"),
                     new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterColorLoResTV_OptionControls_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("HullcamVDS.CameraFilterNightVision"), "OptionControls"),
                     new HarmonyMethod(typeof(HullcamVDSContinuedPatches), nameof(HullcamVDSContinuedPatches.CameraFilterNightVision_OptionControls_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
             };
         }

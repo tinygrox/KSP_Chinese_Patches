@@ -92,19 +92,19 @@ namespace KSP_Chinese_Patches.ModPatches
                 (
                     AccessTools.Constructor(AccessTools.TypeByName("ResourceOverview.ResourceOverview")),
                     new HarmonyMethod(typeof(ResourceOverviewPatches), nameof(ResourceOverviewPatches.ResourceOverview_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ResourceOverview.ResourceOverview"), "drawGui", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(ResourceOverviewPatches), nameof(ResourceOverviewPatches.ResourceOverview_drawGui_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ResourceOverview.SettingsWindow"), "drawGui", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(ResourceOverviewPatches), nameof(ResourceOverviewPatches.SettingWindow_drawGui_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 )
             };
         }

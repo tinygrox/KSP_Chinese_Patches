@@ -210,73 +210,73 @@ namespace KSP_Chinese_Patches.ModPatches
                 (
                     AccessTools.Constructor(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation")),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "OnStart", new[] { typeof(PartModule.StartState) }),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_OnStart_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "UpdateFSM"),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_UpdateFSM_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "Repair"),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_Repair_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "OnCollisionEnter", new[] { typeof(Collision) }),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_OnCollisionEnter_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETAnimation"), "Destroy"),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETAnimation_Destroy_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "OnAwake"),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_OnAwake_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "Start"),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_Start_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "UpdateTurbine"),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_UpdateTurbine_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "GetInfo"),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_GetInfo_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Modules.ModulePETTurbine"), "GetModuleDisplayName"),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.ModulePETTurbine_GetModuleDisplayName_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Constructor(AccessTools.TypeByName("PlanetsideExplorationTechnologies.Extensions.Vector3Renderer"), new[]{ typeof(Part), typeof(string), typeof(string), typeof(Color)}),
                     new HarmonyMethod(typeof(PlanetsideExplorationTechnologiesPatches), nameof(PlanetsideExplorationTechnologiesPatches.Vector3Renderer_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 )
             };
         }
