@@ -464,139 +464,139 @@ namespace KSP_Chinese_Patches.ModPatches
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.ModuleRealAntenna"), "OnAwake"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.OnAwakePatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.ModuleRealAntenna"), "RecalculateFields"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.RecalculateFieldsLocPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.ModuleRealAntenna"), "PermanentShutdownEvent"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PermanentShutdownEventLocPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.ModuleRealAntenna"), "ApplyTLColoring"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.ApplyTLColoringLocPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.ModuleRealAntenna"), "GetInfo"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.GetInfoLocPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "OnGUI"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_OnGUILocPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "GUIDisplay", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_GUIDisplayLocPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI+<>c"), "<GUIDisplay>b__44_0", new[] { typeof(CelestialBody) }),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_GetDisplayNamePatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "RenderPanel"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_RenderPanelPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "FireOnce"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_FireOncePatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.RACommNetScenario+<NotifyDisabled>d__35"), "MoveNext"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_NotifyDisabledPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.RealAntennasUI"), "WindowGUI", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.RealAntennasUI_WindowGUIPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.TechLevelInfo"), "ToString"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.TechLevelInfo_ToStringPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.MapUI.NetUIConfigurationWindow"), "WindowGUI", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.NetUIConfigurationWindow_WindowGUIPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.MapUI.SignalToolTipController"), "UpdateList"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.UpdateList_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.Network.ConnectionDebugger"), "OnGUI"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.ConnectionDebugger_OnGUI_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.Network.ConnectionDebugger"), "GUIDisplay", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.ConnectionDebugger_GUIDisplay_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.Targeting.AntennaTargetGUI"), "OnGUI"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.AntennaTargetGUI_OnGUI_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.Targeting.AntennaTargetGUI"), "GUIDisplay", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.AntennaTargetGUI_GUIDisplay_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.Targeting.RemoteAntennaControlUI"), "OnGUI"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.RemoteAntennaControlUI_OnGUI_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.Targeting.RemoteAntennaControlUI"), "GUIDisplay", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.RemoteAntennaControlUI_GUIDisplay_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("RealAntennas.Antenna.Encoder"), "ToString"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.Encoder_ToStringPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.PropertyGetter(AccessTools.TypeByName("RealAntennas.RAParameters"), "Title"),
                     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.RA_SettingTitlePatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
             };
         }

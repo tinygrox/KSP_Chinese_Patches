@@ -51,7 +51,7 @@ namespace KSP_Chinese_Patches.ModPatches
                 new HarPatchInfo(
                     AccessTools.Method(AccessTools.TypeByName("B9PartSwitch.ModuleB9PartInfo"), "SetupGUI"),
                     new HarmonyMethod(typeof(B9PartSwithPatches), nameof(B9PartSwithPatches.ModuleB9PartInfo_SetupGUI_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                  )
             };
         }

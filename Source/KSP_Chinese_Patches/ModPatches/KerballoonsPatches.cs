@@ -101,31 +101,31 @@ namespace KSP_Chinese_Patches.ModPatches
                 (
                     AccessTools.Method(AccessTools.TypeByName("KerBalloons.KBModuleDataRecorder"),"OnAwake"),
                     new HarmonyMethod(typeof(KerballoonsPatches), nameof(this.KBModuleDataRecorder_OnAwake_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("KerBalloons.KBModuleEnviroSensor"),"OnAwake"),
                     new HarmonyMethod(typeof(KerballoonsPatches), nameof(this.KBModuleEnviroSensor_OnAwake_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("KerBalloons.ModuleKerBalloon"),"OnStart", new[]{ typeof(PartModule.StartState)}),
                     new HarmonyMethod(typeof(KerballoonsPatches), nameof(this.ModuleKerBalloon_OnStart_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("KerBalloons.ModuleKerBalloon"),"InfoBalloonWin", new[]{ typeof(int)}),
                     new HarmonyMethod(typeof(KerballoonsPatches), nameof(this.ModuleKerBalloon_InfoBalloonWin_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("KerBalloons.ModuleKerBalloon"),"GetInfo"),
                     new HarmonyMethod(typeof(KerballoonsPatches), nameof(this.ModuleKerBalloon_GetInfo_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
             };
         }

@@ -32,7 +32,7 @@ namespace KSP_Chinese_Patches.ModPatches
                 (
                     AccessTools.Method(AccessTools.TypeByName("ResearchBodies.ResearchBodiesController"), "FoundBody", new[] { typeof(int), typeof(CelestialBody), typeof(bool).MakeByRefType(), typeof(CelestialBody).MakeByRefType() }),
                     new HarmonyMethod(typeof(ResearchBodiesPatches), nameof(ResearchBodiesPatches.ResearchBodies_FoundBody_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 )
             };
         }

@@ -30,7 +30,7 @@ namespace KSP_Chinese_Patches.ModPatches
                 (
                     AccessTools.Method(AccessTools.TypeByName("JSI.JSIExternalCameraSelector"), "OnAwake"),
                     new HarmonyMethod(typeof(RasterPropMonitorPatches), nameof(RasterPropMonitorPatches.JSIExternalCameraSelector_OnAwake_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 )
             };
         }

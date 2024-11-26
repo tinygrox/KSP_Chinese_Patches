@@ -73,27 +73,27 @@ namespace KSP_Chinese_Patches.ModPatches
                                 typeof(int)
                             }),
                     new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.AscentPlotLocPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                  ),
                 new HarPatchInfo(
                     AccessTools.Method(SmartStageType, "OnGUI"),
                     new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_OnGUILocPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo(
                     AccessTools.Method(SmartStageType, "drawStagesWindow", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_drawStagesWindowLocPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo(
                     AccessTools.Method(SmartStageType, "drawWindow", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_drawWindowLocPatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo(
                     AccessTools.Method(SmartStageType, "<planets>m__0", new[] { typeof(CelestialBody) }),
                     new HarmonyMethod(typeof(SmartStagePatches), nameof(SmartStagePatches.MainWindow_PlanetDisplayNamePatch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 )
             };
         }

@@ -543,235 +543,235 @@ namespace KSP_Chinese_Patches.ModPatches
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELResourceLine"), "Resource", new[] { AccessTools.TypeByName("ExtraplanetaryLaunchpads.IResourceLine") }),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELResourceLine_Resource_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELControlReference"), "OnStart"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELControlReference_OnStart_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELConverter"), "OnStart"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELConverter_OnStart_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELConverter"), "GetInfo"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELConverter_GetInfo_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELConverter"), "GetModuleDisplayName"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.GetModuleDisplayNamePostfixPatch)),
-                    PatchType.Postfix
+                    HarmonyPatchType.Postfix
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELConverter"), "PostProcess", new[] { typeof(ConverterResults), typeof(double) }),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELConverter_PostProcess_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELDisposablePad"), "OnAwake"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELDisposablePad_OnAwake_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELConstructionSkill"), "GetDescription"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELConstructionSkill_GetDescription_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELExtendingLaunchClamp"), "OnAwake"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELExtendingLaunchClamp_OnAwake_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELExtractor"), "GetInfo"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELExtractor_GetInfo_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELExtractor"), "PostProcess", new[] { typeof(ConverterResults), typeof(double) }),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELExtractor_PostProcess_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELExtractor"), "PrepareRecipe", new[] { typeof(double) }),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELExtractor_PrepareRecipe_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELLaunchpad"), "OnAwake"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELLaunchpad_OnAwake_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELLaunchpad"), "GetModuleTitle"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELLaunchpad_GetModuleTitle_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELLaunchpad"), "GetInfo"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELLaunchpad_GetInfo_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELRecycler"), "GetInfo"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELRecycler_GetInfo_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELRecycler"), "GetPrimaryField"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELRecycler_GetPrimaryField_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELRecycler"), "OnStart", new[] { typeof(PartModule.StartState) }),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELRecycler_OnStart_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELRecycler"), "Activate"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELRecycler_Activate_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELRecycler"), "Deactivate"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELRecycler_Deactivate_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELSurveySkill"), "GetDescription"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELSurveySkill_GetDescription_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.EL_Utils"), "PrintResource", new[] { typeof(StringBuilder), typeof(ResourceRatio), typeof(string) }),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.EL_Utils_PrintResource_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.EL_Utils"), "TimeSpanString", new[] { typeof(double) }),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.EL_Utils_TimeSpanString_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELSurveyStake"), "GetInfo"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELSurveyStake_GetInfo_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELSurveyStake"), "GetModuleTitle"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELSurveyStake_GetModuleTitle_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELSurveyStake"), "OnStart", new[] { typeof(PartModule.StartState) }),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELSurveyStake_OnStart_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELSurveyStation"), "OnAwake"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELSurveyStation_OnAwake_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELSurveyStation"), "GetInfo"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELSurveyStation_GetInfo_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELSurveyStation"), "GetModuleTitle"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELSurveyStation_GetModuleTitle_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELTarget"), "OnStart", new[] { typeof(PartModule.StartState) }),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELTarget_OnStart_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELTarget"), "GetInfo"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELTarget_GetInfo_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELTarget"), "GetModuleTitle"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELTarget_GetModuleTitle_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELWorkshop"), "OnStart", new[] { typeof(PartModule.StartState) }),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELWorkshop_OnStart_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELWorkshop"), "GetInfo"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELWorkshop_GetInfo_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELWorkshop"), "GetPrimaryField"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELWorkshop_GetInfoGetPrimaryField_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELWorkshop"), "GetModuleTitle"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELWorkshop_GetModuleTitle_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Constructor(AccessTools.TypeByName("RecyclerFSM"), new[]{ AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELRecycler") }),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.RecyclerFSM_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.PropertyGetter(AccessTools.TypeByName("RecyclerFSM"), "CurrentState"),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.RecyclerFSM_get_CurrentState_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELShipInfoWindow"), "SetResource",new[] { AccessTools.TypeByName("ExtraplanetaryLaunchpads.ELTextInfoLine"), AccessTools.TypeByName("ExtraplanetaryLaunchpads.BuildResource") }),
                     new HarmonyMethod(typeof(ELPatches), nameof(ELPatches.ELShipInfoWindow_SetResource_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
             };
         }

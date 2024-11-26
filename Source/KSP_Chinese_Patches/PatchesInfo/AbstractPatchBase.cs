@@ -19,25 +19,25 @@ namespace KSP_Chinese_Patches.PatchesInfo
         {
             switch (patchInfo.PatchType)
             {
-                case PatchType.Prefix:
+                case HarmonyPatchType.Prefix:
                     harmony.Patch(
                         original: patchInfo.TargetMethod,
                         prefix: patchInfo.PatchMethod
                      );
                     break;
-                case PatchType.Postfix:
+                case HarmonyPatchType.Postfix:
                     harmony.Patch(
                         original: patchInfo.TargetMethod,
                         postfix: patchInfo.PatchMethod
                      );
                     break;
-                case PatchType.Transpiler:
+                case HarmonyPatchType.Transpiler:
                     harmony.Patch(
                         original: patchInfo.TargetMethod,
                         transpiler: patchInfo.PatchMethod
                      );
                     break;
-                case PatchType.Finalizer:
+                case HarmonyPatchType.Finalizer:
                     harmony.Patch(
                         original: patchInfo.TargetMethod,
                         finalizer: patchInfo.PatchMethod

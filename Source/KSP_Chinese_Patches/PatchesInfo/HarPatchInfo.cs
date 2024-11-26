@@ -4,20 +4,13 @@ using System.Reflection;
 
 namespace KSP_Chinese_Patches
 {
-    public enum PatchType
-    {
-        Prefix,
-        Postfix,
-        Transpiler,
-        Finalizer
-    }
     public class HarPatchInfo
     {
         public MethodBase TargetMethod { get; }
         public HarmonyMethod PatchMethod { get; }
 
-        public PatchType PatchType { get; }
-        public HarPatchInfo(MethodBase methodBase, HarmonyMethod patchMethod, PatchType patchType)
+        public HarmonyPatchType PatchType { get; }
+        public HarPatchInfo(MethodBase methodBase, HarmonyMethod patchMethod, HarmonyPatchType patchType)
         {
             TargetMethod = methodBase ?? throw new ArgumentNullException(nameof(methodBase), "Target method cannot be null.");
             PatchMethod = patchMethod ?? throw new ArgumentNullException(nameof(patchMethod), "Patch method cannot be null.");

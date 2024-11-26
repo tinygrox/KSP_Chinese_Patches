@@ -122,43 +122,43 @@ namespace KSP_Chinese_Patches.ModPatches
                 (
                     AccessTools.Method(AccessTools.TypeByName("IndicatorLights.ModuleCrewIndicatorToggle"), "OnStart", new[]{ typeof(PartModule.StartState)}),
                     new HarmonyMethod(typeof(IndicatorLightsPatches), nameof(ModuleCrewIndicatorToggle_OnStart_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("IndicatorLights.ModuleCustomBlink"), "OnStart", new[]{ typeof(PartModule.StartState)}),
                     new HarmonyMethod(typeof(IndicatorLightsPatches), nameof(this.ModuleCustomBlink_OnStart_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("IndicatorLights.ModuleCustomColoredEmissive"), "OnStart", new[]{ typeof(PartModule.StartState)}),
                     new HarmonyMethod(typeof(IndicatorLightsPatches), nameof(this.ModuleCustomColoredEmissive_OnStart_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("IndicatorLights.ModuleIndicatorToggle"), "OnStart", new[]{ typeof(PartModule.StartState)}),
                     new HarmonyMethod(typeof(IndicatorLightsPatches), nameof(this.ModuleIndicatorToggle_OnStart_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Constructor(AccessTools.TypeByName("IndicatorLights.ModuleIndicatorToggle")),
                     new HarmonyMethod(typeof(IndicatorLightsPatches), nameof(this.ModuleIndicatorToggle_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Constructor(AccessTools.TypeByName("IndicatorLights.ModuleToggleLED")),
                     new HarmonyMethod(typeof(IndicatorLightsPatches), nameof(this.ModuleToggleLED_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("IndicatorLights.ModuleToggleLED"), "OnAwake"),
                     new HarmonyMethod(typeof(IndicatorLightsPatches), nameof(this.ModuleToggleLED_OnAwake_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
             };
         }
