@@ -250,7 +250,7 @@ namespace KSP_Chinese_Patches.ModPatches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Right click [x] icon"))
                 .SetOperandAndAdvance("右键[x]图标行为")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Mute music"))
-                .SetOperandAndAdvance("静音")
+                .SetOperandAndAdvance("无动作") // 静音
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Here & Now window gets its own icon"))
                 .SetOperandAndAdvance("\"此时此地\"窗口有独立按钮图标")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Opens Here & Now window"))
