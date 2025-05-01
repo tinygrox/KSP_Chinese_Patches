@@ -1,5 +1,16 @@
 # 更新日志 | Changelog
 
+## [1.7.0]
+
+
+
+### 新增
+
+- **Coatl-Aerospace** - 此 Mod 尚未登录 CKAN，详情请见 https://github.com/raveloda/Coatl-Aerospace/，翻译由 **[@BirghtUniverse](https://github.com/BirghtUniverse)** 提供
+- **DMagic Orbital Science** - DMagic 系列的科学部件，由 **[@BirghtUniverse](https://github.com/BirghtUniverse)** 提供
+- **QuizTech Aero Pack** - 由 **[@ZIYUXUAN201011](https://github.com/ZIYUXUAN201011)** 提供。
+- **Refurbished Armory** - 由 **[@ZIYUXUAN201011](https://github.com/ZIYUXUAN201011)** 提供。
+
 ## [1.6.0]
 
 ### 新增

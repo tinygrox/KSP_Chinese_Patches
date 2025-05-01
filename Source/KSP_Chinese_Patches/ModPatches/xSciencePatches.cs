@@ -250,7 +250,7 @@ namespace KSP_Chinese_Patches.ModPatches
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Right click [x] icon"))
                 .SetOperandAndAdvance("右键[x]图标行为")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Mute music"))
-                .SetOperandAndAdvance("静音")
+                .SetOperandAndAdvance("无动作") // 静音
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Here & Now window gets its own icon"))
                 .SetOperandAndAdvance("\"此时此地\"窗口有独立按钮图标")
                 .MatchStartForward(new CodeMatch(OpCodes.Ldstr, "Opens Here & Now window"))
@@ -471,121 +471,121 @@ namespace KSP_Chinese_Patches.ModPatches
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.Body"), "FigureOutType"),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.Body_FigureOutType_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.HelpWindow"), new[] { AccessTools.TypeByName("ScienceChecklist.ScienceChecklistAddon") }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.HelpWindow_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.HelpWindow"), "DrawWindowContents", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.HelpWindow_DrawWindowContents_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.PropertyGetter(AccessTools.TypeByName("ScienceChecklist.ScienceInstance"), "Description"),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ScienceInstance_Description_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ScienceWindow"), "Draw"),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ScienceWindow_Draw_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ScienceWindow"), "DrawControls", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ScienceWindow_DrawControls_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ScienceWindow"), "DrawTitleBarButtons", new[] { typeof(Rect), typeof(bool) }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ScienceWindow_DrawTitleBarButtons_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.SettingsWindow"), new[] { AccessTools.TypeByName("ScienceChecklist.ScienceChecklistAddon") }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.SettingsWindow_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.SettingsWindow"), "DrawWindowContents", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.SettingsWindow_DrawWindowContents_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.ShipStateWindow"), new[] { AccessTools.TypeByName("ScienceChecklist.ScienceChecklistAddon") }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ShipStateWindow_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ShipStateWindow"), "DrawBody"),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ShipStateWindow_DrawBody_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.ShipStateWindow"), "DrawVessel"),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ShipStateWindow_DrawVessel_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.Situation"), new[] { AccessTools.TypeByName("ScienceChecklist.Body"), typeof(ExperimentSituations), typeof(string), typeof(string) }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.Situation_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.Situation"), "ToString", new[] { typeof(ExperimentSituations) }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.Situation_ToString_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), new[] { AccessTools.TypeByName("ScienceChecklist.ScienceChecklistAddon") }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), "DrawExperiment", new[] { AccessTools.TypeByName("ScienceChecklist.ScienceInstance"), typeof(Rect) }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_DrawExperiment_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), "DrawWindowContents", new[] { typeof(int) }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_DrawWindowContents_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), "MakeSituationToolTip"),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_MakeSituationToolTip_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("ScienceChecklist.StatusWindow"), "UpdateSituation"),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.StatusWindow_UpdateSituation_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 ),
                 new HarPatchInfo
                 (
                     AccessTools.Constructor(AccessTools.TypeByName("ScienceChecklist.xResourceData"), new[] { typeof(string) }),
                     new HarmonyMethod(typeof(xSciencePatches), nameof(xSciencePatches.ResourcesName_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 )
             };
         }

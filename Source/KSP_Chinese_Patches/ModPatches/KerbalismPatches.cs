@@ -283,7 +283,7 @@ namespace KSP_Chinese_Patches.ModPatches
                 (
                     AccessTools.Method(AccessTools.TypeByName("KerbalismBootstrap.Bootstrap"), "Start"),
                     new HarmonyMethod(typeof(KerbalismPatches), nameof(this.Bootstrap_Start_Patch)),
-                    PatchType.Transpiler
+                    HarmonyPatchType.Transpiler
                 )
             };
         }
