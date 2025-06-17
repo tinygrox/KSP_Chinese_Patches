@@ -9,7 +9,13 @@ namespace KSP_Chinese_Patches.PatchesInfo
     public abstract class AbstractPatchBase
     {
         private static int instanceCount = 0;
+        /// <summary>
+        /// 要 Patch 的 Mod 名称，一般以 CKAN 的名字为主
+        /// </summary>
         public abstract string PatchName { get; }
+        /// <summary>
+        /// 要 Patch 的 Mod 的 DLL 文件名，作为 KSP 加载此程序集的名称
+        /// </summary>
         public abstract string PatchDLLName { get; }
         protected virtual HashSet<HarPatchInfo> Patches { get; set; }
 
