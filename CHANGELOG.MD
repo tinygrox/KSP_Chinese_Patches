@@ -1,8 +1,12 @@
 # 更新日志 | Changelog
 
+## [1.7.1]
+
+### 修复
+
+- 修复了一处与 **ASET Consolidated Props Pack** IVA 面板相关的错译
+
 ## [1.7.0]
-
-
 
 ### 新增
 
