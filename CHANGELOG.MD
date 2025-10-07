@@ -1,5 +1,12 @@
 # 更新日志 | Changelog
 
+## [1.7.4]
+
+### 更新
+
+- 由 @**[Star-And-Space](https://github.com/Star-And-Space)** 提供的 KerbalismSimplex 本地化支持 #71
+- 由 @**[tiger55520](https://github.com/tiger55520)** 提供的 SimpleFuelSwitch 本地化支持 #71
+
 ## [1.7.3]
 
 ### 修复 & 更新
