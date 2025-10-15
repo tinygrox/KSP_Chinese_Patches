@@ -162,5 +162,34 @@ namespace KSP_Chinese_Patches
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertySetter(typeof(BaseAction), nameof(BaseEvent.guiName)))
             };
         }
+
+        public static IEnumerable<CodeInstruction> ReplaceLdstr(IEnumerable<CodeInstruction> codeInstructions, string original, string replacement, bool replaceAll = false)
+        {
+            var list = codeInstructions.ToList();
+            bool replaced = false;
+            int count = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                var ins = list[i];
+                if (ins.opcode == OpCodes.Ldstr && ins.operand is string str && str == original)
+                {
+                    list[i] = new CodeInstruction(OpCodes.Ldstr, replacement)
+                    {
+                        labels = ins.labels,
+                        blocks = ins.blocks
+                    };
+                    replaced = true;
+                    count++;
+                    if (!replaceAll) break;
+                }
+            }
+
+            if (!replaced)
+            {
+                UnityEngine.Debug.Log($"未找到字符串 \"{original}\"，未进行替换。");
+            }
+
+            return list.AsEnumerable();
+        }
     }
 }
