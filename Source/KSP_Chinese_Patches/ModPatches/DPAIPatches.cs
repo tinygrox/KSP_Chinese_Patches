@@ -257,60 +257,60 @@ namespace KSP_Chinese_Patches.ModPatches
                     new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_createBlizzyButton_Patch)),
                     HarmonyPatchType.Transpiler
                 ),
-                new HarPatchInfo
-                (
-                    AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "determineTargetPortName"),
-                    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_determineTargetPortName_Patch)),
-                    HarmonyPatchType.Transpiler
-                ),
-                new HarPatchInfo
-                (
-                    AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "drawRenderedGaugeTexture", new[] { typeof(int) }),
-                    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_drawRenderedGaugeTexture_Patch)),
-                    HarmonyPatchType.Transpiler
-                ),
+                //new HarPatchInfo
+                //(
+                //    AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "determineTargetPortName"),
+                //    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_determineTargetPortName_Patch)),
+                //    HarmonyPatchType.Transpiler
+                //),
+                //new HarPatchInfo
+                //(
+                //    AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "drawRenderedGaugeTexture", new[] { typeof(int) }),
+                //    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_drawRenderedGaugeTexture_Patch)),
+                //    HarmonyPatchType.Transpiler
+                //),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "drawRPMText", new[] { typeof(int), typeof(int) }),
                     new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_drawRPMText_Patch)),
                     HarmonyPatchType.Transpiler
                 ),
-                new HarPatchInfo
-                (
-                    AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "drawSettingsWindowContents", new[] { typeof(int) }),
-                    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_drawSettingsWindowContents_Patch)),
-                    HarmonyPatchType.Transpiler
-                ),
-                new HarPatchInfo
-                (
-                    AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "getReferencePortName"),
-                    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_getReferencePortName_Patch)),
-                    HarmonyPatchType.Transpiler
-                ),
-                new HarPatchInfo
-                (
-                    AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "onGaugeDraw"),
-                    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_onGaugeDraw_Patch)),
-                    HarmonyPatchType.Transpiler
-                ),
+                //new HarPatchInfo
+                //(
+                //    AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "drawSettingsWindowContents", new[] { typeof(int) }),
+                //    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_drawSettingsWindowContents_Patch)),
+                //    HarmonyPatchType.Transpiler
+                //),
+                //new HarPatchInfo
+                //(
+                //    AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "getReferencePortName"),
+                //    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_getReferencePortName_Patch)),
+                //    HarmonyPatchType.Transpiler
+                //),
+                //new HarPatchInfo
+                //(
+                //    AccessTools.Method(AccessTools.TypeByName("NavyFish.DockingPortAlignmentIndicator"), "onGaugeDraw"),
+                //    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.DPAI_onGaugeDraw_Patch)),
+                //    HarmonyPatchType.Transpiler
+                //),
                 new HarPatchInfo
                 (
                     AccessTools.Method(AccessTools.TypeByName("NavyFish.ModuleDockingNodeNamed"), "OnAwake"),
                     new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.ModuleDockingNodeNamed_OnAwake_Patch)),
                     HarmonyPatchType.Transpiler
                 ),
-                new HarPatchInfo
-                (
-                    AccessTools.Method(AccessTools.TypeByName("NavyFish.RenameWindow"), "DisplayForNode", new[] { AccessTools.TypeByName("NavyFish.ModuleDockingNodeNamed") }),
-                    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.ModuleDockingNodeNamed_DisplayForNode_Patch)),
-                    HarmonyPatchType.Transpiler
-                ),
-                new HarPatchInfo
-                (
-                    AccessTools.Method(AccessTools.TypeByName("NavyFish.RenameWindow"), "onRenameDialogDraw", new[] { typeof(int) }),
-                    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.ModuleDockingNodeNamed_onRenameDialogDraw_Patch)),
-                    HarmonyPatchType.Transpiler
-                ),
+                //new HarPatchInfo
+                //(
+                //    AccessTools.Method(AccessTools.TypeByName("NavyFish.RenameWindow"), "DisplayForNode", new[] { AccessTools.TypeByName("NavyFish.ModuleDockingNodeNamed") }),
+                //    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.ModuleDockingNodeNamed_DisplayForNode_Patch)),
+                //    HarmonyPatchType.Transpiler
+                //),
+                //new HarPatchInfo
+                //(
+                //    AccessTools.Method(AccessTools.TypeByName("NavyFish.RenameWindow"), "onRenameDialogDraw", new[] { typeof(int) }),
+                //    new HarmonyMethod(typeof(DPAIPatches), nameof(DPAIPatches.ModuleDockingNodeNamed_onRenameDialogDraw_Patch)),
+                //    HarmonyPatchType.Transpiler
+                //),
             };
         }
     }

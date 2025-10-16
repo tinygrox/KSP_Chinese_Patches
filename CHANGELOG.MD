@@ -1,5 +1,11 @@
 # 更新日志 | Changelog
 
+## [1.7.5]
+
+### 修复
+
+- 修复了**DPAI(Docking Port Alignment Indicator)** 因支持本地化导致之前翻译失效的问题。
+
 ## [1.7.4]
 
 ### 更新
