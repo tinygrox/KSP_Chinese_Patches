@@ -1,3 +1,0 @@
-$vref: '#/ckan/ksp-avc'
-depends:
-  - name: Harmony2
