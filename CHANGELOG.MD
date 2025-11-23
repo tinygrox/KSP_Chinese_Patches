@@ -1,5 +1,18 @@
 # 更新日志 | Changelog
 
+## [1.7.6]
+
+### 新增
+
+新增由用户 **[@Iftn1](https://github.com/Iftn1)** 提供的下列 Mod 的中文翻译：
+
+- OPT Reconfig
+- OPT Spaceplane (Legacy)
+- OPT Spaceplane continued
+- Shuttle  Lifting Body
+- Tantares - Soviet Spacecraft
+- Tantares LV - Soviet  Rockets
+
 ## [1.7.5]
 
 ### 修复
