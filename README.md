@@ -129,6 +129,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
   -**OPT Spaceplane Continued** - 来自OPT的“主”包。不再有旧插件捆绑包。
 - **AJE Extended** - 该模组增加了大量的飞机引擎，从EF2000到福克Dr.I的引擎都包含在内。模组由[@Iftn1]([https://github.com/Iftn1]) 翻译
 - **Historian Expanded** - 该模组为你的游戏F1截图添加了一些额外的信息显示。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **Tantares SP - Soviet Space Probes** - 该模组为你的游戏添加了一系列苏联风格（可能？）的组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 
 ## 许可协议 | License
 
