@@ -131,6 +131,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Historian Expanded** - 该模组为你的游戏F1截图添加了一些额外的信息显示。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **Tantares SP - Soviet Space Probes** - 该模组为你的游戏添加了一系列苏联风格（可能？）的组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **AlcoholicAeronautics** - 该模组为你添加了一些早期的酒精燃料的火箭发动机。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **Stockish Project Orion** - 该模组为你添加了美国猎户座计划核脉冲推进发动机。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 
 ## 许可协议 | License
 
