@@ -122,6 +122,12 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Kerballoons** - 为游戏添加 气球 部件的 Mod。部件和硬编码翻译，部分信息写死在.csv文件中，但又不想弄，就先这样将就着吧。
 - **B9 Aerospace Procedural Wings - Fork** - 大名鼎鼎的 B9 自定义机翼。补充了中文翻译。
 - **Kerbal GPS** - 增加代入感的 GPS 卫星 Mod，至少需要 4 颗可见 GPS 卫星才能生效。
+- **Tantares - Soviet Spacecraft** - 苏联航天器mod，基本上全翻译了。 [@Iftn1]([https://github.com/Iftn1]) 
+- **Tantares LV - Soviet Rockets** - 苏联和欧洲的火箭引擎。[@Iftn1]([https://github.com/Iftn1]) 
+- **OPT Spaceplane 系列模组** - 著名的OPT系列模组，为你的游戏添加大量黑科技组件 模组由[@Iftn1]([https://github.com/Iftn1]) 翻译
+  -**OPT Spaceplane (Legacy)** - 退役部件，例如尾翼机身和包含多个机翼和发动机的扩展包
+  -**OPT Spaceplane Continued** - 来自OPT的“主”包。不再有旧插件捆绑包。
+- **AJE Extended** - 该模组增加了大量的飞机引擎，从EF2000到福克Dr.I的引擎都包含在内。模组由[@Iftn1]([https://github.com/Iftn1]) 翻译
 
 ## 许可协议 | License
 
