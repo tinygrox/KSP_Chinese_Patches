@@ -135,6 +135,12 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **InternalRCS** - 本模组的用处是为你的游戏添加了一些流线型RCS组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **FuelTanksPlus** - 本模组为你的游戏添加了大量各种尺寸的自带隔热+加压的燃料箱，在你执行深空机动的时候非常有用。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **AirplanePlus** - 本模组为你的游戏添加了大量的飞机相关的组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RealScaleBoosters** - 本模组为你的游戏添加了一系列真实的燃料箱和推进器。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RN_Salyut** - 本模组为你的游戏添加了苏联的钻石军用空间站和礼炮空间站。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RN_Soviet_Rockets** - 本模组为你的游戏添加了苏联的R7质子号等一系列火箭。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RN_Soyuz** - 本模组为你的游戏添加了苏联的一系列载人航天器，联盟、进步等。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RN_US_Probes** - 本模组为你的游戏添加了大量欧美的无人探测器，如卡西尼、伽利略、麦哲伦、水手等。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RN_US_Rockets** - 本模组为你的游戏添加了大量欧美的运载火箭，如大力神、先锋等火箭。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 
 ## 许可协议 | License
 
