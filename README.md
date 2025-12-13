@@ -134,6 +134,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Stockish Project Orion** - 该模组为你添加了美国猎户座计划核脉冲推进发动机。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **InternalRCS** - 本模组的用处是为你的游戏添加了一些流线型RCS组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **FuelTanksPlus** - 本模组为你的游戏添加了大量各种尺寸的自带隔热+加压的燃料箱，在你执行深空机动的时候非常有用。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **AirplanePlus** - 本模组为你的游戏添加了大量的飞机相关的组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 
 ## 许可协议 | License
 
