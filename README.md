@@ -147,6 +147,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **AviatorArsenal** - 该模组为你的游戏添加了大量的二战时期的机枪和炸弹。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **AIES_Aerospace** - 该模组为你的游戏添加了各种各样的部件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **B9_Aerospace** - 大名鼎鼎的B9航空，添加了巨量的飞机组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **ProceduralFairings** - 程序化整流罩模组,能够自动根据任何附加载荷重新塑形的整流罩。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 
 ## 许可协议 | License
 
