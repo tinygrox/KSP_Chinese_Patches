@@ -143,6 +143,8 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **RN_US_Rockets** - 本模组为你的游戏添加了大量欧美的运载火箭，如大力神、先锋等火箭。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **Kerbal Currency Display** - 你有没有想过，你的游戏内资金（√）换算成真钱值多少钱？这个模组就是解决方案。基于类别的权重设计旨在尽可能贴近现实世界的价值。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **SXTContinued** - 该模组为你的游戏添加了巨量的各类组件（我还翻译到了协和）模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **SMI_MissilesLaunchers** - 该模组为你的游戏添加了大量导弹和核导弹，模组需要去Github下载。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **AviatorArsenal** - 该模组为你的游戏添加了大量的二战时期的机枪和炸弹。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 
 ## 许可协议 | License
 
