@@ -145,6 +145,8 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **SXTContinued** - 该模组为你的游戏添加了巨量的各类组件（我还翻译到了协和）模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **SMI_MissilesLaunchers** - 该模组为你的游戏添加了大量导弹和核导弹，模组需要去Github下载。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **AviatorArsenal** - 该模组为你的游戏添加了大量的二战时期的机枪和炸弹。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **AIES_Aerospace** - 该模组为你的游戏添加了各种各样的部件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **B9_Aerospace** - 大名鼎鼎的B9航空，添加了巨量的飞机组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 
 ## 许可协议 | License
 
