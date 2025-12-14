@@ -148,6 +148,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **AIES_Aerospace** - 该模组为你的游戏添加了各种各样的部件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **B9_Aerospace** - 大名鼎鼎的B9航空，添加了巨量的飞机组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **ProceduralFairings** - 程序化整流罩模组,能够自动根据任何附加载荷重新塑形的整流罩。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **ProceduralParts** - 该模组为你的游戏添加了一系列可完全自定义的部件，油箱、热盾、分离器等。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 
 ## 许可协议 | License
 
