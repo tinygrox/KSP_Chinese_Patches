@@ -1,0 +1,53 @@
+﻿name: Create release (Dev)
+
+on:
+  workflow_dispatch: # 开启手动按钮
+
+permissions:
+  contents: write
+
+jobs:
+  pack_dev:
+    # 关键保护：如果当前运行的分支不是 dev，直接跳过，防止误操作
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 1. 生成临时版本号 (Dev 分支通常没有正式的 Changelog 版本，所以用时间戳)
+      - name: Generate Dev Version
+        id: dev_ver
+        run: |
+          # 生成格式如: dev-20231215-0830
+          VER="dev-$(date +'%Y%m%d-%H%M')"
+          echo "VERSION=$VER" >> $GITHUB_OUTPUT
+          echo "正在构建 Dev 版本: $VER"
+
+      # 2. 打包
+      - name: Create ZIP
+        run: zip -r KSP_Chinese_Patches_${{ steps.dev_ver.outputs.VERSION }}.zip GameData
+
+      # 3. 上传 Artifact (构建产物，保留90天)
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Dev_Build_${{ steps.dev_ver.outputs.VERSION }}
+          path: KSP_Chinese_Patches_${{ steps.dev_ver.outputs.VERSION }}.zip
+
+      # 4. (可选) 创建一个 Pre-release 发布
+      # 如果你只想在 Actions 页面下载 zip，可以删掉这一步
+      - name: Create Pre-release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.dev_ver.outputs.VERSION }}
+          name: Dev Build ${{ steps.dev_ver.outputs.VERSION }}
+          body: |
+            这是 Dev 分支的手动构建版本。
+            触发者: @${{ github.actor }}
+            构建时间: ${{ steps.dev_ver.outputs.VERSION }}
+          files: KSP_Chinese_Patches_${{ steps.dev_ver.outputs.VERSION }}.zip
+          prerelease: true  # 标记为预发布
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
