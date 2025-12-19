@@ -122,6 +122,34 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Kerballoons** - 为游戏添加 气球 部件的 Mod。部件和硬编码翻译，部分信息写死在.csv文件中，但又不想弄，就先这样将就着吧。
 - **B9 Aerospace Procedural Wings - Fork** - 大名鼎鼎的 B9 自定义机翼。补充了中文翻译。
 - **Kerbal GPS** - 增加代入感的 GPS 卫星 Mod，至少需要 4 颗可见 GPS 卫星才能生效。
+- **Tantares - Soviet Spacecraft** - 苏联航天器mod，基本上全翻译了。 模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **Tantares LV - Soviet Rockets** - 苏联和欧洲的火箭引擎。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **OPT Spaceplane 系列模组** - 著名的OPT系列模组，为你的游戏添加大量黑科技组件 模组由[@Iftn1](https://github.com/Iftn1) 翻译
+  - **OPT Spaceplane (Legacy)** - 退役部件，例如尾翼机身和包含多个机翼和发动机的扩展包
+  - **OPT Spaceplane Continued** - 来自OPT的“主”包。不再有旧插件捆绑包。
+- **AJE Extended** - 该模组增加了大量的飞机引擎，从EF2000到福克Dr.I的引擎都包含在内。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **Historian Expanded** - 该模组为你的游戏F1截图添加了一些额外的信息显示。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **Tantares SP - Soviet Space Probes** - 该模组为你的游戏添加了一系列苏联风格（可能？）的组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **AlcoholicAeronautics** - 该模组为你添加了一些早期的酒精燃料的火箭发动机。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **Stockish Project Orion** - 该模组为你添加了美国猎户座计划核脉冲推进发动机。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **InternalRCS** - 本模组的用处是为你的游戏添加了一些流线型RCS组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **FuelTanksPlus** - 本模组为你的游戏添加了大量各种尺寸的自带隔热+加压的燃料箱，在你执行深空机动的时候非常有用。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **AirplanePlus** - 本模组为你的游戏添加了大量的飞机相关的组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RealScaleBoosters** - 本模组为你的游戏添加了一系列真实的燃料箱和推进器。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RN_Salyut** - 本模组为你的游戏添加了苏联的钻石军用空间站和礼炮空间站。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RN_Soviet_Rockets** - 本模组为你的游戏添加了苏联的R7质子号等一系列火箭。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RN_Soyuz** - 本模组为你的游戏添加了苏联的一系列载人航天器，联盟、进步等。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RN_US_Probes** - 本模组为你的游戏添加了大量欧美的无人探测器，如卡西尼、伽利略、麦哲伦、水手等。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RN_US_Rockets** - 本模组为你的游戏添加了大量欧美的运载火箭，如大力神、先锋等火箭。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **Kerbal Currency Display** - 你有没有想过，你的游戏内资金（√）换算成真钱值多少钱？这个模组就是解决方案。基于类别的权重设计旨在尽可能贴近现实世界的价值。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **SXTContinued** - 该模组为你的游戏添加了巨量的各类组件（我还翻译到了协和）模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **SMI_MissilesLaunchers** - 该模组为你的游戏添加了大量导弹和核导弹，模组需要去Github下载。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **AviatorArsenal** - 该模组为你的游戏添加了大量的二战时期的机枪和炸弹。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **AIES_Aerospace** - 该模组为你的游戏添加了各种各样的部件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **B9_Aerospace** - 大名鼎鼎的B9航空，添加了巨量的飞机组件。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **ProceduralFairings** - 程序化整流罩模组,能够自动根据任何附加载荷重新塑形的整流罩。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **ProceduralParts** - 该模组为你的游戏添加了一系列可完全自定义的部件，油箱、热盾、分离器等。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **Bluedog Design Bureau** - 该模组为你添加了一千多个各种部件，以及一些生涯合同。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 
 ## 许可协议 | License
 
