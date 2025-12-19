@@ -1,5 +1,12 @@
 # 更新日志 | Changelog
 
+## [1.7.7]
+
+### 新增
+
+新增由用户 **[@Iftn1](https://github.com/Iftn1)** 提供的大量 Mod 中文翻译。
+具体查看 PR #83
+
 ## [1.7.6]
 
 ### 新增
@@ -86,7 +93,7 @@
 
 去除了 RealAntenna 翻译的版本限制，出问题再说吧。
 
-上传了一系列个人自用的 MM Patch，用于解决部分 Mod 之间的兼容性问题，同时为玩家提供 Patch 范本和思路。具体可查看 https://github.com/tinygrox/KSP_Chinese_Patches/tree/main/SomeMMPatches 
+上传了一系列个人自用的 MM Patch，用于解决部分 Mod 之间的兼容性问题，同时为玩家提供 Patch 范本和思路。具体可查看 https://github.com/tinygrox/KSP_Chinese_Patches/tree/main/SomeMMPatches
 
 ## [1.4.1]
 
@@ -151,7 +158,7 @@
 
 ### 新增
 
-- **Avionics Systems** - 翻译了此Mod包含的舱内显示器的部分页面，注意未全部翻译，只翻译了涉及了 **DE_IVAExtension** 的内容，字体使用**微软雅黑**，请确保系统有此字体，一般来说 Win10 都是自带的。 
+- **Avionics Systems** - 翻译了此Mod包含的舱内显示器的部分页面，注意未全部翻译，只翻译了涉及了 **DE_IVAExtension** 的内容，字体使用**微软雅黑**，请确保系统有此字体，一般来说 Win10 都是自带的。
 - **ASET Consolidated Props Pack** - 翻译了部分 Prop (仪器的按钮文本等)的内容，字体同样设置为**微软雅黑**，请确保系统有安装该字体
 - **HullcamVDS Continued** - 对新的摄像机部件进行翻译，以及 DLL 硬编码的 guiName 的翻译(需要Harmony)
 - **Through The Eyes of a Kerbal** - 并未翻译，而是一个修复Patch，修复了一个因为这个 Mod 而导致的报错
@@ -325,7 +332,7 @@
 新增：
 
 - 新增了对 **Advanced Jet Engine** 的翻译补全
-- 新增了对 **Mk2 Stockalike Expansion** 的支持 
+- 新增了对 **Mk2 Stockalike Expansion** 的支持
 - 新增了对 **Rational Resources** 主 Mod 的支持
 - 新增了对 **Universal Storage II Finalized** 的**不完全**支持（意思是未完全汉化完毕），感谢由百度贴吧用户 @CQC_S ([贴吧原贴](https://tieba.baidu.com/p/8466511187)) 提供的翻译文本。该 Mod 目前尚未在本人的 Mod 使用列表中，发现任何错误、漏翻，建议请直接提交 PR 以改进。
 
