@@ -2,12 +2,15 @@ name: Create release
 run-name: ${{ github.actor }}的自动发布
 on:
   pull_request:
-    # 当 PR 被关闭时触发 
+    # 当 PR 被关闭时触发
     # 详见 https://docs.github.com/zh/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request
-    types: 
+    types:
       - closed
     branches:
       - main
+
+permissions:
+  contents: write
 
 jobs:
   mergedNrelease:
@@ -27,7 +30,7 @@ jobs:
           CHANGELOG=$(awk -v version="${LATEST_VERSION}" '/^## \[/{if ($2 == "["version"]") {flag=1;next} else {flag = 0;}} flag==1 {print;}' CHANGELOG.MD)
           echo "LATEST_VERSION=${LATEST_VERSION}" >> $GITHUB_OUTPUT
           printf "CHANGELOG<<EOF\n%s\nEOF\n" "$CHANGELOG" >> $GITHUB_OUTPUT
-      
+
       # 在工作目录中创建 zip 包
       - name: Create ZIP
         run: zip -r KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.LATEST_VERSION }}.zip GameData
@@ -38,7 +41,7 @@ jobs:
         with:
           name: KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.LATEST_VERSION }}.zip
           path: KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.LATEST_VERSION }}.zip
-      
+
       # 创建发布页面 详见 https://github.com/marketplace/actions/gh-release
       - name: Create release
         uses: softprops/action-gh-release@v2
