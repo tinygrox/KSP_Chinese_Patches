@@ -150,6 +150,9 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **ProceduralFairings** - 程序化整流罩模组,能够自动根据任何附加载荷重新塑形的整流罩。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **ProceduralParts** - 该模组为你的游戏添加了一系列可完全自定义的部件，油箱、热盾、分离器等。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **Bluedog Design Bureau** - 该模组为你添加了一千多个各种部件，以及一些生涯合同。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **WildBlueIndustries** - 这个模组为你添加了一系列未来风格的组件，机翻汉化。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **SupplementaryElectricEngines** - 该模组添加了几个离子推进器，有好几个是用液态铯作为工质的。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RetroFuture** - 该模组添加了一些飞机相关的部件。机翻汉化。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 
 ## 许可协议 | License
 
