@@ -153,6 +153,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **WildBlueIndustries** - 这个模组为你添加了一系列未来风格的组件，机翻汉化。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **SupplementaryElectricEngines** - 该模组添加了几个离子推进器，有好几个是用液态铯作为工质的。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **RetroFuture** - 该模组添加了一些飞机相关的部件。机翻汉化。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **RealismOverhaul** - 大名鼎鼎的真实主义大修模组，为模组修改后的部件增加了汉化，机翻后人工校对。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 
 ## 许可协议 | License
 
