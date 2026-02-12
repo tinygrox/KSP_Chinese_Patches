@@ -1,0 +1,49 @@
+﻿name: Check CFG Format
+
+on: [push, pull_request]
+
+jobs:
+  check-spaces:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Python Check(PowerBy Gemini 3 Pro)
+        shell: python
+        run: |
+          import glob
+          import re
+          import sys
+          import os
+
+          files = glob.glob('**/*.cfg', recursive=True)
+          has_error = False
+
+          pattern = r'(@[^\s\[=]+\[(?:[^\[\]]|\[[^\[\]]*\])*\])'
+
+          print(f"Checking {len(files)} .cfg files...")
+
+          for file_path in files:
+              try:
+                  with open(file_path, 'r', encoding='utf-8') as f:
+                      lines = f.readlines()
+              except UnicodeDecodeError:
+                  continue
+
+              for i, line in enumerate(lines):
+                  code_part = line.split('//')[0]
+
+                  matches = re.finditer(pattern, code_part)
+
+                  for match in matches:
+                      full_match = match.group(1)
+
+                      if ' ' in full_match:
+                          print(f"::error file={file_path},line={i+1},title=Invalid Space::Space not allowed in selector: {full_match}")
+                          has_error = True
+
+          if has_error:
+              sys.exit(1)
+          else:
+              print("All checks passed!")
