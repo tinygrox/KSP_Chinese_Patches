@@ -1,5 +1,15 @@
 # 更新日志 | Changelog
 
+## [1.8.0]
+
+### 修复
+
+修复了 #95 中存在的问题
+
+### 新增
+
+新增由用户 **[@Iftn1](https://github.com/Iftn1)** 提供的 Retrofuture Space Plane Parts Modernized、Supplementary Electric Engines 和 WildBlueIndustries(机翻) 的翻译
+
 ## [1.7.9]
 
 ### 修复
