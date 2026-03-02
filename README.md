@@ -155,6 +155,14 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **RetroFuture** - 该模组添加了一些飞机相关的部件。机翻汉化。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **RealismOverhaul** - 大名鼎鼎的真实主义大修模组，为模组修改后的部件增加了汉化，机翻后人工校对。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **Blueshift** - 蓝移模组，添加了曲速引擎以及一些功能上的汉化，模组文件位于WildBlueIndustries内。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **Sterling系列** - 该系列模组均由[@Iftn1](https://github.com/Iftn1) 翻译。
+  - **Sterling Electrics** - 添加了模组的燃料电池，反应堆，光伏板，电池组。
+  - **Sterling Engines** - 添加了固态、气态核热火箭，聚变引擎，反物质引擎。
+  - **Sterling Systems Agency** - 核心支持库，燃料，科技树等。
+  - **Sterling Tankage** - 多种燃料储罐。
+  - **Sterling Thermals** - 散热板、热盾、屏蔽罩。
+  - **Sterling Utilities** - 精炼组件、3D打印工厂、外星发射台。
+  - **Sterling World Power** - 风力发电机、光伏板、热控系统。
 
 ## 许可协议 | License
 
