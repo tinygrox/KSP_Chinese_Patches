@@ -163,6 +163,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
   - **Sterling Thermals** - 散热板、热盾、屏蔽罩。
   - **Sterling Utilities** - 精炼组件、3D打印工厂、外星发射台。
   - **Sterling World Power** - 风力发电机、光伏板、热控系统。
+- **BoringCrewServices** - 模组添加了一款建模贴图内饰都非常好看的指令舱，包含气囊，热盾和RCS。该模组由[@Iftn1](https://github.com/Iftn1) 翻译。
 
 ## 许可协议 | License
 
