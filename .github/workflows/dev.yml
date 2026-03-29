@@ -3,7 +3,7 @@
 on:
   workflow_dispatch: # 开启手动按钮
 
-  env:
+env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 permissions:
