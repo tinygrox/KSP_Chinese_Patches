@@ -23,7 +23,7 @@ jobs:
     steps:
       # 作用之一——将工作目录设置为当前仓库根目录
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # 读取版本号和更新日志 因为 runs on ubuntu 所以注意保持要读取文件行尾换行符为 LF
       - name: Read version and changelog from CHANGELOG.MD
@@ -40,7 +40,7 @@ jobs:
 
       # 文件准备
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.LATEST_VERSION }}.zip
           path: KSP_Chinese_Patches_${{ steps.get_ver_cl.outputs.LATEST_VERSION }}.zip

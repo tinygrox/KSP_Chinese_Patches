@@ -3,6 +3,9 @@
 on:
   workflow_dispatch: # 开启手动按钮
 
+  env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: write
 
@@ -14,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # 1. 生成临时版本号 (Dev 分支通常没有正式的 Changelog 版本，所以用时间戳)
       - name: Generate Dev Version
@@ -31,7 +34,7 @@ jobs:
 
       # 3. 上传 Artifact (构建产物，保留90天)
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: Dev_Build_${{ steps.dev_ver.outputs.VERSION }}
           path: KSP_Chinese_Patches_${{ steps.dev_ver.outputs.VERSION }}.zip
