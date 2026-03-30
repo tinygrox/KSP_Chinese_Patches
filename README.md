@@ -173,7 +173,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 -**Bumblebee**这个mod加入了nasa的土卫六蜻蜓无人机以及火星机敏号的组件该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
 -**patch manager**这个mod加入了游戏内选择启用或禁用mm补丁的功能,kerbindian dynamic等mod使用了这个mod来管理额外的补丁该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
 -**X-20-Moroz**这个mod加入了原型为dyan-soar计划的航天飞机组件,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
-
+-**OpenCockpit**这个mod加入了一战风格的机翼和mk1尺寸的开放式座椅和挡风玻璃该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
 ## 许可协议 | License
 
 **CC BY 4.0**
