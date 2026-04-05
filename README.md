@@ -174,6 +174,11 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 -**patch manager**这个mod加入了游戏内选择启用或禁用mm补丁的功能,kerbindian dynamic等mod使用了这个mod来管理额外的补丁该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
 -**X-20-Moroz**这个mod加入了原型为dyan-soar计划的航天飞机组件,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
 -**OpenCockpit**这个mod加入了一战风格的机翼和mk1尺寸的开放式座椅和挡风玻璃该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**InlineBallutes**这个mod加入了基于realchute的再入气球,适合大气减速等操作,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**ComfortableLanding**这个mod加入了诸如气囊浮囊反推火箭等一系列道具，该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。为什么智库的mod需要汉化(
+-**Benjee10_stowaway**加入了原型为stowaway的一系列部件,包括一个乘员舱和基于dlc液压杆原理的缆绳,可以拿来做万福玛利亚号的缆绳,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**KOOSE**这个mod加入了比mk1指令舱还小一点的返回舱,设计用于轨道逃生,自带脱离火箭和姿控RCS,并且mod里面还有一个小绿人单兵充气隔热盾,可以用来单兵再入大气层,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+
 ## 许可协议 | License
 
 **CC BY 4.0**
