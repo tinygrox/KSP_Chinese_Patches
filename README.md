@@ -179,6 +179,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 -**Benjee10_stowaway**加入了原型为stowaway的一系列部件,包括一个乘员舱和基于dlc液压杆原理的缆绳,可以拿来做万福玛利亚号的缆绳,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
 -**KOOSE**这个mod加入了比mk1指令舱还小一点的返回舱,设计用于轨道逃生,自带脱离火箭和姿控RCS,并且mod里面还有一个小绿人单兵充气隔热盾,可以用来单兵再入大气层,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
 -**EVA Parachutes & Ejection Seats**这个mod加入了小绿人弹射座椅,在装备一栏能找到弹射模块,贴到指令舱之后按紧急终止键就能将小绿人从可用舱口直接弹射(注意方向不要弹射到地上了)该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**ConformalDecals**无需多言的贴画mod,比原版旗子好用多了,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
 
 ## 许可协议 | License
 
