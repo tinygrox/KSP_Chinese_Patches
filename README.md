@@ -150,7 +150,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **ProceduralFairings** - 程序化整流罩模组,能够自动根据任何附加载荷重新塑形的整流罩。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **ProceduralParts** - 该模组为你的游戏添加了一系列可完全自定义的部件，油箱、热盾、分离器等。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **Bluedog Design Bureau** - 该模组为你添加了一千多个各种部件，以及一些生涯合同。模组由[@Iftn1](https://github.com/Iftn1) 翻译
-- **WildBlueIndustries** - 这个模组为你添加了一系列未来风格的组件，机翻汉化。模组由[@Iftn1](https://github.com/Iftn1) 翻译
+- **WildBlueIndustries** - 这个模组为你添加了一系列未来风格的组件，机翻汉化。模组由[@Iftn1](https://github.com/Iftn1) 翻译(这里的wildblue是DSEV这个mod的汉化)
 - **SupplementaryElectricEngines** - 该模组添加了几个离子推进器，有好几个是用液态铯作为工质的。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **RetroFuture** - 该模组添加了一些飞机相关的部件。机翻汉化。模组由[@Iftn1](https://github.com/Iftn1) 翻译
 - **RealismOverhaul** - 大名鼎鼎的真实主义大修模组，为模组修改后的部件增加了汉化，机翻后人工校对。模组由[@Iftn1](https://github.com/Iftn1) 翻译
@@ -164,6 +164,23 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
   - **Sterling Utilities** - 精炼组件、3D打印工厂、外星发射台。
   - **Sterling World Power** - 风力发电机、光伏板、热控系统。
 - **BoringCrewServices** - 模组添加了一款建模贴图内饰都非常好看的指令舱，包含气囊，热盾和RCS。该模组由[@Iftn1](https://github.com/Iftn1) 翻译。
+-**Stockalike Mining Extension** -这个mod加入了巨量原版风格的采矿相关部件,包括各种转化炉矿罐钻机还有诸如烧矿的引擎啊,抽海的矿机啊,大气冷凝器啊之类的,现在SuicidalInsanity的所有mod都有汉化了,好诶!该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**kerbalsports** -https://forum.kerbalspaceprogram.com/topic/216135-112-kerbalsports-returns-everyones-favorite-ksp-fishing-mod/ 这mod我好久以前还在贴吧的愚人节看到过,是小绿人钓鱼的mod,鱼还能卖钱,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**Automated Aerial Refueling System**智库出品的空中加油mod,不知道为什么自带本地化没有启用
+-**Kerbonov** 这个mod加了点什么安2的驾驶舱啊,副油箱啊,小的分离器啊还有重型小绿人座椅之类的该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**HEISENBERG**10m直径的巨大飞艇，还能当空中航母使,有大量飞艇相关部件,属于wildblue系列,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**KAX** 经典螺旋桨和飞机组件mod,加入了一些飞机组件和螺旋桨
+-**Bumblebee**这个mod加入了nasa的土卫六蜻蜓无人机以及火星机敏号的组件该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**patch manager**这个mod加入了游戏内选择启用或禁用mm补丁的功能,kerbindian dynamic等mod使用了这个mod来管理额外的补丁该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**X-20-Moroz**这个mod加入了原型为dyan-soar计划的航天飞机组件,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**OpenCockpit**这个mod加入了一战风格的机翼和mk1尺寸的开放式座椅和挡风玻璃该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**InlineBallutes**这个mod加入了基于realchute的再入气球,适合大气减速等操作,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**ComfortableLanding**这个mod加入了诸如气囊浮囊反推火箭等一系列道具，该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。为什么智库的mod需要汉化(
+-**Benjee10_stowaway**加入了原型为stowaway的一系列部件,包括一个乘员舱和基于dlc液压杆原理的缆绳,可以拿来做万福玛利亚号的缆绳,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**KOOSE**这个mod加入了比mk1指令舱还小一点的返回舱,设计用于轨道逃生,自带脱离火箭和姿控RCS,并且mod里面还有一个小绿人单兵充气隔热盾,可以用来单兵再入大气层,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**EVA Parachutes & Ejection Seats**这个mod加入了小绿人弹射座椅,在装备一栏能找到弹射模块,贴到指令舱之后按紧急终止键就能将小绿人从可用舱口直接弹射(注意方向不要弹射到地上了)该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**ConformalDecals**无需多言的贴画mod,比原版旗子好用多了,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
+-**AtomicAge**一款核引擎mod,加入了rtg核引擎气芯核引擎一个能开加力的核引擎一个核动力喷气式引擎以及三个环绕式散热板,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
 
 ## 许可协议 | License
 
