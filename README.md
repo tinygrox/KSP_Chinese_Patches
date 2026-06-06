@@ -11,7 +11,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 **前置 Mod** | **Required Mod**：
 
 - **Module Manager**：[**下载链接 (Download)**](https://ksp.sarbian.com/jenkins/job/ModuleManager/lastSuccessfulBuild/artifact/)| [**官方论坛发布页(Homepage)**](https://forum.kerbalspaceprogram.com/index.php?/topic/50533-18x-112x-module-manager-422-june-18th-2022-the-heatwave-edition/)  - CKAN 有下载，如已安装可忽略，如未安装请先安装，该前置是否安装决定了本汉化合集是否生效，本项目的发布文件中不包含 MM 本体
-- **Hamony**：[**下载链接 (Download)**](https://github.com/KSPModdingLibs/HarmonyKSP/releases)| [**GitHub发布页面(Homepage)**](https://github.com/KSPModdingLibs/HarmonyKSP)  - CKAN 直接搜索 **Harmony**，如已安装可忽略，如未安装请先安装。*该前置影响 Mod 硬编码文本的汉化
+- **Harmony**：[**下载链接 (Download)**](https://github.com/KSPModdingLibs/HarmonyKSP/releases)| [**GitHub发布页面(Homepage)**](https://github.com/KSPModdingLibs/HarmonyKSP)  - CKAN 直接搜索 **Harmony**，如已安装可忽略，如未安装请先安装。*该前置影响 Mod 硬编码文本的汉化
 
 **安装 | Installation**
 
