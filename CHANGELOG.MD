@@ -1,5 +1,12 @@
 # 更新日志 | Changelog
 
+## [1.8.3]
+
+### 新增
+
+- 新增了由用户 **[@tsingshitao-nuke](https://github.com/tsingshitao-nuke)** 提供的一系列 Mod 的翻译 - [#107](https://github.com/tinygrox/KSP_Chinese_Patches/pull/107)
+- 由用户 **[@gaogzs](https://github.com/gaogzs)** 提供的关于 SSPX 的一条翻译更正 - [#111](https://github.com/tinygrox/KSP_Chinese_Patches/pull/111)
+
 ## [1.8.2]
 
 移除了当下对 RO 的翻译。
