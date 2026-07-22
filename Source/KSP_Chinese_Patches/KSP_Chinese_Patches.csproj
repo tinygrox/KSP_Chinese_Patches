@@ -14,8 +14,8 @@
 
   <!-- KSP Path -->
   <PropertyGroup>
-    <KSPTestDir>path\to\KSP</KSPTestDir>
-    <KSPSteamDir>path\to\KSP</KSPSteamDir>
+    <KSPTestDir>G:/Kerbal Mods/Kerbal Space Program</KSPTestDir>
+    <KSPSteamDir>G:/Steam/steamapps/common/Kerbal Space Program</KSPSteamDir>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -30,7 +30,7 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\GameData\0000Tinygrox_CNPatches\_HarmonyCNPatches\</OutputPath>
+    <OutputPath>../../GameData/0000Tinygrox_CNPatches/_HarmonyCNPatches/</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>5</WarningLevel>
   </PropertyGroup>
@@ -38,24 +38,26 @@
   <ItemGroup>
     <!-- Harmony 2.2.x Path -->
     <Reference Include="0Harmony">
-      <HintPath>$(KSPTestDir)\GameData\000_Harmony\0Harmony.dll</HintPath>
+      <HintPath>$(KSPTestDir)/GameData/000_Harmony/0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
 
     <Reference Include="Assembly-CSharp">
-      <HintPath>$(KSPTestDir)\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>$(KSPTestDir)/KSP_x64_Data/Managed/Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
 
-    <Reference Include="$(KSPTestDir)\KSP_x64_Data\Managed\Unity*" Private="False"/>
+    <Reference Include="$(KSPTestDir)/KSP_x64_Data/Managed/Unity*" Private="False"/>
   </ItemGroup>
 
   <Target Name="CopyToTestInstance" AfterTargets="Build">
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(KSPTestDir)\GameData\0000Tinygrox_CNPatches\_HarmonyCNPatches" SkipUnchangedFiles="true"/>
+    <Message Text="[Copy] $(TargetPath) -> $(KSPTestDir)/GameData/0000Tinygrox_CNPatches/_HarmonyCNPatches" Importance="High"/>
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(KSPTestDir)/GameData/0000Tinygrox_CNPatches/_HarmonyCNPatches" SkipUnchangedFiles="true"/>
   </Target>
 
   <Target Name="CopyToSteamInstance" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(KSPSteamDir)\GameData\0000Tinygrox_CNPatches\_HarmonyCNPatches" SkipUnchangedFiles="true"/>
+    <Message Text="[Copy] $(TargetPath) -> $(KSPSteamDir)/GameData/0000Tinygrox_CNPatches/_HarmonyCNPatches" Importance="High"/>
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(KSPSteamDir)/GameData/0000Tinygrox_CNPatches/_HarmonyCNPatches" SkipUnchangedFiles="true"/>
   </Target>
 
 </Project>
