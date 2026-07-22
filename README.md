@@ -248,7 +248,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
   出力的形式多种多样，你可以选择：
   
   * **捐赠** | 疯狂给我打钱 -> 
-  * **提交一份 PR** | 如果是刚接触 GitHub 不久，不知道如何开始，建议查看 [GitHub官方文档 - Pull requests](https://docs.github.com/en/pull-requests) 和相关内容，主要学会从 `fork` 到 `Create a pull requests` 
+  * **提交一份 PR** | 详细的指南见 [CONTRIBUTING.md](CONTRIBUTING.md)。如果是刚接触 GitHub 不久，也可以查看 [GitHub官方文档 - Pull requests](https://docs.github.com/en/pull-requests) 和相关内容。
   * **问题反馈** | 反馈问题时请**至少**附上自己的 mod 列表，还有位于 `GameData` 下的 `ModuleManager.ConfigCache` 文件，详见[问题反馈](REPORT.md)
 
 ## 已知问题 | Known isuues
