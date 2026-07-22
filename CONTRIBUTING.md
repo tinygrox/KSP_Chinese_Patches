@@ -358,14 +358,14 @@ Source/KSP_Chinese_Patches/
 ├── PatchesInfo/
 │   ├── AbstractPatchBase.cs      ← 所有 patch 类的基类
 │   └── HarPatchInfo.cs           ← 单个 Harmony patch 的信息载体
-└── KSP_Chinese_Patches.csproj    ← 工程文件（注意：被 gitignore，见下文）
+└── KSP_Chinese_Patches.csproj    ← 工程文件
 ```
 
 编译产物输出到 `GameData/0000Tinygrox_CNPatches/_HarmonyCNPatches/KSP_Chinese_Patches.dll`。
 
 ### 重要：`.csproj` 不在仓库中
 
-`.gitignore` 会自动忽略 `*.csproj` 和 `*.sln`（因为工程文件里包含本地的 KSP 安装路径，每个人都不一样），**clone 下来后如果不修改会无法直接编译**。
+因为工程文件里包含本地的 KSP 安装路径，每个人都不一样，**clone 下来后如果不修改会无法直接编译**。
 
 你需要根据自己的实际情况做出修改。在 `Source/KSP_Chinese_Patches/` 下修改 `KSP_Chinese_Patches.csproj`，参考下面内容，**把 `KSPTestDir` 和 `KSPSteamDir` 改成你自己的 KSP 安装路径**：
 
@@ -443,7 +443,7 @@ dotnet new sln -n KSP_Chinese_Patches
 dotnet sln add KSP_Chinese_Patches.csproj
 ```
 
-> 这两个文件是本地构建用的，**不要提交到仓库**（`.gitignore` 会自动忽略它们）。
+> 这两个文件是本地构建用的，**不要提交到仓库**
 
 ### 翻译框架的工作原理
 
@@ -552,7 +552,6 @@ Localization
 发 PR 前请逐项确认：
 
 - [ ] 基于 `dev` 分支新建的工作分支（不是 `main`）
-- [ ] 文件编码 UTF-8、缩进 4 空格、行尾 LF、末尾有空行
 - [ ] MM patch 语法正确
 - [ ] `.cfg` 本地化文件里保留了英文原文注释（`//` 后）
 - [ ] 已在 KSP 中实际加载测试，翻译生效、无报错
@@ -569,20 +568,20 @@ Localization
 你的 fork ──PR──> dev ──PR(维护者)──> main ──CI 自动发布──> Release
 ```
 
-- **`dev`**：日常开发分支，所有贡献者的 PR 都往这里合
-- **`main`**：稳定发布分支，只有维护者能从 `dev` 往 `main` 发 PR
+- **`dev`**：开发分支，PR 都要往这里提
+- **`main`**：稳定发布分支，只有我从 `dev` 往 `main` 发 PR
 
 ### 自动发布机制
 
-当维护者把 `dev` 合并到 `main` 的 PR 被合并时，`.github/workflows/main.yml` 会自动：
+当我把 `dev` 到 `main` 的 PR 合并时，`.github/workflows/main.yml` 会自动：
 
 1. 从 `CHANGELOG.MD` 读取最新版本号和更新日志
 2. 打包 `GameData/` 为 zip
 3. 创建 GitHub Release 并发布
 
-所以**发版完全由维护者控制**，贡献者无需关心发布流程，只需要：
+所以**发行完全由我控制**，你无需关心发布流程，只需要：
 
-- PR 往 `dev` 发
+- PR 往 `dev` 提
 - 如果你的改动值得记录，在 `CHANGELOG.MD` 顶部加一条（格式见下）
 
 ### CHANGELOG 格式
@@ -602,7 +601,7 @@ Localization
 - 版本号遵循 `主.次.修订`（如 `1.8.4`）
 - 分类用 `### 新增` / `### 修复` / `### 变更` 等
 - 大的改动建议带上贡献者署名和 PR 链接
-- 不确定怎么升版本号就留给维护者，在 PR 说明里写清改动即可
+- 不确定怎么升版本号就留给我，在 PR 说明里写清改动即可
 
 ---
 
