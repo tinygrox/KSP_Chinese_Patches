@@ -33,7 +33,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 列表采用 CKAN 内的显示名称
 
 <details>
-  <summary>Mod 列表</summary>
+  <summary>Mod 支持列表</summary>
 
 - **CommunityResourcePack** - 补充了 ResourceLode 、 Aerozine50 、avGas 和 Hydyne 的中文翻译；修复了将 氮气（ Nitrogen）翻译成液态氮的错误；将Hydrazine的原翻译【联氨】更为【联氨(肼)】
 - **Benjee10 Suits\*** - 部件翻译和 2 个航天服的名称翻译
@@ -230,7 +230,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 - **Q：性能问题？**
 
-  A：~~因为翻译的主要实现是通过 Patch，所以关于性能问题，理论上只会增加游戏开始时的加载时间（且这是由 MM 决定的），一旦加载完毕，进入游戏后**理应**不会产生任何性能问题。~~自 1.0.0 版本本项目加入了 DLL 翻译功能(需要配合Harmony)，所以一定会增加游戏开始加载时间，且 DLL mod 安装的越多，时间越长，至于进入游戏后的性能问题，视 Mod 的代码情况而定，不能保证未来绝对不会出现性能问题，会尽可能避免性能问题。
+  A：~~因为翻译的主要实现是通过 Patch，所以关于性能问题，理论上只会增加游戏开始时的加载时间（且这是由 MM 决定的），一旦加载完毕，进入游戏后**理应**不会产生任何性能问题。~~ 自 1.0.0 版本本项目加入了 DLL 翻译功能(需要配合Harmony)，所以一定会增加游戏开始加载时间，且 DLL mod 安装的越多，时间越长，至于进入游戏后的性能问题，视 Mod 的代码情况而定，不能保证未来绝对不会出现性能问题，会尽可能避免性能问题。
 
 - **Q：如何保证 MM patch 语法的正确度？**
 
@@ -267,7 +267,8 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 ## 一些预览 | Previews
 
-一些部件 Mod 的翻译：
+<details>
+<summary>某些部件 Mod 的翻译</summary>
 
 <img src="./assets/image-20230513195343073.png" alt="image-20230513195343073" style="zoom: 80%;" /><img src="./assets/image-20230513195400514.png" alt="image-20230513195400514" style="zoom:80%;" />
 
@@ -275,8 +276,13 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 <img src="./assets/image-20230513195633652.png" alt="image-20230513195633652" style="zoom:80%;" /><img src="./assets/image-20230513195655359.png" alt="image-20230513195655359" style="zoom:80%;" />
 
-**RSS + RealAntennas 下的地面站翻译**
+</details>
+
+<details>
+<summary><strong>RSS + RealAntennas 下的地面站翻译</strong></summary>
 
 ![image-20230513204501300](./assets/image-20230513204501300.png)
 
 ![image-20230513204606879](./assets/image-20230513204606879.png)
+
+</details>
