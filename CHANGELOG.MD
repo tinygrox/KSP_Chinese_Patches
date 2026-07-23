@@ -1,5 +1,14 @@
 # 更新日志 | Changelog
 
+## [1.8.4]
+
+- 修复了 Kerbalisim 的一些 Patch 不生效的问题
+- 移除了对 Kerbalism Sickbay 的修复 Patch (官方已修复)
+- 修复了因 Docking Port Alignment Indicator 更新命名空间而导致 Patch 不生效的问题
+- 更新了 Docking Port Alignment Indicator 的本地化翻译
+- 移除了原来的 Bluedog DB 翻译
+- 将项目迁移到 SDK-style 格式，简化构建配置
+
 ## [1.8.3]
 
 ### 新增
