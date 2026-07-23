@@ -32,9 +32,10 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 列表采用 CKAN 内的显示名称
 
----
+<details>
+  <summary>Mod 支持列表</summary>
 
-- **CommunityResourcePack** - 补充了 ResourceLode 、 Aerozine50 、avGas 和 Hydyne 的中文翻译；修复了将 氮气（ Nitrogen）翻译成液态氮的错误；将Hydrazine的原翻译【联氨】更为【联氨(肼)】 
+- **CommunityResourcePack** - 补充了 ResourceLode 、 Aerozine50 、avGas 和 Hydyne 的中文翻译；修复了将 氮气（ Nitrogen）翻译成液态氮的错误；将Hydrazine的原翻译【联氨】更为【联氨(肼)】
 - **Benjee10 Suits\*** - 部件翻译和 2 个航天服的名称翻译
 - **Benjee10 sharedAssets** - 部件翻译
 - **ht Robotics** - 部件翻译
@@ -65,7 +66,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **DeepFreeze Continued** - 翻译修正。
 - **Kerbalism** - 翻译补充，能翻译的应该都翻译了，强迫症使我这样做，目前仅翻译了原版内容，和极少量的联动 Mod 文本。0.6.0 版本开始提供了一个能翻译 Kerbalism 中的那些 Telemetry Report、Pod 等文本的 patch 文件，默认未开启，如果要体验完整的翻译请到本 mod 目录下\Kerbalism 找到 ZH_ConfiguresLoc.cfg.disable 文件，然后将后缀改为 .cfg 即可，但是开启会对旧存档的已有载具产生影响，建议**开启后新开存档**，具体说明在该文件中上方的注释处。具体翻译内容请进游戏体验，**未完全翻译**跟其他 Mod 联动的内容。
 - **\*Ferram Aerospace Research Continued(FAR)** - 2 年前自用的翻译，现加入进本项目，分享给大众，仍有部分文本未翻译，说实话就是纯粹凑数用。
-- **RemoteTech** - 由 [@yuanze31](https://github.com/yuanze31) 提供的翻译改进。 
+- **RemoteTech** - 由 [@yuanze31](https://github.com/yuanze31) 提供的翻译改进。
 - **RasterPropMonitor Core** - 2 个部件 JSI External Radial-mount Camera 和 JSI External Radial-mount Camera。
 - **Kerbal Foundries2** - 部件翻译，车轮部件存在的英文来源于依赖 KSPWheel
 - **Better Early Tree** - 一款科技树 Mod，在用，不能评价怎么样。
@@ -78,7 +79,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **JNSQ** - 星球包翻译 感谢来自玩家 [@zhangyuesai](https://github.com/zhangyuesai) 提供的翻译
 - **JNSQ Real Date** - JNSQ + Kronometer 配套使用的日期格式显示 Mod，默认使用为 日月年 格式
 - **Kronometer** - 用来修改日期显示格式的 Mod。
-- **Tarsier Space Technology** - 太空望远镜 Mod 的翻译 由玩家 [@zhangyuesai](https://github.com/zhangyuesai) 分享提供。 
+- **Tarsier Space Technology** - 太空望远镜 Mod 的翻译 由玩家 [@zhangyuesai](https://github.com/zhangyuesai) 分享提供。
 - **Quick 系列** - 该系列 Mod 的翻译均由玩家 [@zhangyuesai](https://github.com/zhangyuesai) 提供 。
   - **QuickBrake** - 发射时自动启用刹车
   - **QuickContracts** - 用键盘快捷键来接受/拒绝合同
@@ -91,9 +92,9 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
   - **QuickSAS** - 使用数字小键盘切换SAS模式（稳定、机动、顺向/逆向等）
   - **QuickSearch** - 原版搜索功能改进 mod，支持科技树内按部件名搜索，这个很好用。
   - **QuickStart** - KSP启动并加载完成后自动进入上次游玩的存档
-- **Astrogator** - 一个轨道窗口计算器  [@zhangyuesai](https://github.com/zhangyuesai) 
-- **SpaceY 系列** - SpaceYCorp、SpaceYLifters 和 SpaceYExpanded 的支持 - [@zhangyuesai](https://github.com/zhangyuesai) 
-- **Speed Unit Annex** - 一个增强了速度指示的 Mod [@zhangyuesai](https://github.com/zhangyuesai) 
+- **Astrogator** - 一个轨道窗口计算器  [@zhangyuesai](https://github.com/zhangyuesai)
+- **SpaceY 系列** - SpaceYCorp、SpaceYLifters 和 SpaceYExpanded 的支持 - [@zhangyuesai](https://github.com/zhangyuesai)
+- **Speed Unit Annex** - 一个增强了速度指示的 Mod [@zhangyuesai](https://github.com/zhangyuesai)
 - **FASA** - 一个部件包，一些仿 NASA 历代任务的航天部件，比如水星计划、探索者系列、双子座、阿波罗系列等。
 - **Where Can I Go(需要Harmony)** - 一个很简单的小 Mod，会读当前载具的dv，然后告诉你当前载具可以去到哪些地方，能不能入轨、飞掠等等。
 - **SmartStage(需要Harmony)** - 这个 Mod 可以自动帮你整理分级。示例场景：原版场景下，你创建了运载火箭 A 和载荷 B，分别设置好了分级，但是当你想要合并两者时，发现两者的分级顺序也自动合并了，但是合并后的分级并非以增加的方法进行，这导致了合并后分级顺序紊乱，当分级较多时，排列分级顺序将会成为一个折磨人的过程，而 SmartStage 就是为了处理了这一点，虽然不算很完美。
@@ -105,7 +106,7 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Docking Port Alignment Indicator(需要Harmony)** - 手动对接辅助，鉴定为不如 MechJeb2 一根
 - **Physics Range Extender(需要Harmony)** - 物理距离扩展
 - **B9 Part Switch(需要Harmony)** - 燃料箱上的硬编码 PartInfo 等文本
-- **Avionics Systems** - 翻译了此Mod包含的舱内显示器的部分页面，注意未全部翻译，只翻译了涉及了 **DE_IVAExtension** 的内容，字体使用**微软雅黑**，请确保系统有此字体，一般来说 Win10 都是自带的。 
+- **Avionics Systems** - 翻译了此Mod包含的舱内显示器的部分页面，注意未全部翻译，只翻译了涉及了 **DE_IVAExtension** 的内容，字体使用**微软雅黑**，请确保系统有此字体，一般来说 Win10 都是自带的。
 - **ASET Consolidated Props Pack** - 翻译了部分 Prop (仪器的按钮文本等)的内容，字体同样设置为**微软雅黑**，请确保系统有安装该字体
 - **HullcamVDS Continued** - 对新的摄像机部件进行翻译，以及 DLL 硬编码的 guiName 的翻译(需要Harmony)
 - **Through The Eyes of a Kerbal** - 并未翻译，而是一个修复Patch，修复了一个因为这个 Mod 而导致的报错
@@ -182,6 +183,8 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **ConformalDecals** 无需多言的贴画mod,比原版旗子好用多了,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
 - **AtomicAge** 一款核引擎mod,加入了rtg核引擎气芯核引擎一个能开加力的核引擎一个核动力喷气式引擎以及三个环绕式散热板,该模组由[@tsingshitao-nuke](https://github.com/tsingshitao-nuke) 翻译。
 
+</details>
+
 ## 许可协议 | License
 
 **CC BY 4.0**
@@ -224,19 +227,19 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **Q：这个 Mod 会不会有兼容性的问题？**
 
   A：理应无。但如果你发现了任何由于安装了本翻译补丁而产生的兼容性问题，请提出。
-  
+
 - **Q：性能问题？**
 
-  A：~~因为翻译的主要实现是通过 Patch，所以关于性能问题，理论上只会增加游戏开始时的加载时间（且这是由 MM 决定的），一旦加载完毕，进入游戏后**理应**不会产生任何性能问题。~~自 1.0.0 版本本项目加入了 DLL 翻译功能(需要配合Harmony)，所以一定会增加游戏开始加载时间，且 DLL mod 安装的越多，时间越长，至于进入游戏后的性能问题，视 Mod 的代码情况而定，不能保证未来绝对不会出现性能问题，会尽可能避免性能问题。
-  
+  A：~~因为翻译的主要实现是通过 Patch，所以关于性能问题，理论上只会增加游戏开始时的加载时间（且这是由 MM 决定的），一旦加载完毕，进入游戏后**理应**不会产生任何性能问题。~~ 自 1.0.0 版本本项目加入了 DLL 翻译功能(需要配合Harmony)，所以一定会增加游戏开始加载时间，且 DLL mod 安装的越多，时间越长，至于进入游戏后的性能问题，视 Mod 的代码情况而定，不能保证未来绝对不会出现性能问题，会尽可能避免性能问题。
+
 - **Q：如何保证 MM patch 语法的正确度？**
 
   A：本 mod 大多数 Patch 都使用了工具自动生成，只有少数 Patch 是手动编写，虽然工具功能尚未成熟，但正确率应该……可以吧。在采用手动方式编写的 Patch 中，我通常利用 VS Code 的 KSPCFG 插件和正则表达式搜索来排错，例如，可以在 VS Code 搜索框输入`^[ ]*[^@][a-z]+`来匹配任意未以`@`操作符开头的字符串，定位到问题节点。
-  
+
 - **Q：为什么有些 Mod 不能完全翻译？**
 
   A：有些 Mod 需要更改代码重新编译才能完全翻译，如强迫症需完整翻译，请到相应 Mod 的文件夹内查看说明文件，在`Tinygrox_CNPatches`文件夹内，对应的 Mod 名称按 CKAN 中的显示名称命名。
-  
+
 - **Q：你这里的翻译好像不对啊？**
 
   A：那我只能说个人能力有限，有很多地方实在是不知道怎么翻译，考虑到中英文化差异，再综合个人的当前水平，只能如此。如能提供更好更地道的翻译，欢迎来提 PR
@@ -246,9 +249,9 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 - **如何为本项目出一份力？**
 
   出力的形式多种多样，你可以选择：
-  
-  * **捐赠** | 疯狂给我打钱 -> 
-  * **提交一份 PR** | 如果是刚接触 GitHub 不久，不知道如何开始，建议查看 [GitHub官方文档 - Pull requests](https://docs.github.com/en/pull-requests) 和相关内容，主要学会从 `fork` 到 `Create a pull requests` 
+
+  * **捐赠** | 疯狂给我打钱 ->
+  * **提交一份 PR** | 详细的指南见 [CONTRIBUTING.md](CONTRIBUTING.md)。如果是刚接触 GitHub 不久，也可以查看 [GitHub官方文档 - Pull requests](https://docs.github.com/en/pull-requests) 和相关内容。
   * **问题反馈** | 反馈问题时请**至少**附上自己的 mod 列表，还有位于 `GameData` 下的 `ModuleManager.ConfigCache` 文件，详见[问题反馈](REPORT.md)
 
 ## 已知问题 | Known isuues
@@ -264,7 +267,8 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 ## 一些预览 | Previews
 
-一些部件 Mod 的翻译：
+<details>
+<summary>某些部件 Mod 的翻译</summary>
 
 <img src="./assets/image-20230513195343073.png" alt="image-20230513195343073" style="zoom: 80%;" /><img src="./assets/image-20230513195400514.png" alt="image-20230513195400514" style="zoom:80%;" />
 
@@ -272,8 +276,13 @@ A collection of Module Manager patches for translating KSP Mods (Part mods mostl
 
 <img src="./assets/image-20230513195633652.png" alt="image-20230513195633652" style="zoom:80%;" /><img src="./assets/image-20230513195655359.png" alt="image-20230513195655359" style="zoom:80%;" />
 
-**RSS + RealAntennas 下的地面站翻译**
+</details>
+
+<details>
+<summary><strong>RSS + RealAntennas 下的地面站翻译</strong></summary>
 
 ![image-20230513204501300](./assets/image-20230513204501300.png)
 
 ![image-20230513204606879](./assets/image-20230513204606879.png)
+
+</details>
