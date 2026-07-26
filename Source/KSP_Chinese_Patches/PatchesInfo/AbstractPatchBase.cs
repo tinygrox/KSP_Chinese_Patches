@@ -8,6 +8,7 @@ namespace KSP_Chinese_Patches.PatchesInfo;
 
 public abstract class AbstractPatchBase
 {
+    public virtual KSPAddon.Startup ApplyTiming => KSPAddon.Startup.Instantly;
     private static int instanceCount = 0;
     /// <summary>
     /// 要 Patch 的 Mod 名称，一般以 CKAN 的名字为主

@@ -167,14 +167,14 @@ public class RealAntennasPatches : AbstractPatchBase
             .InsertAndAdvance(new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(LingoonaGrammarExtensions), nameof(LingoonaGrammarExtensions.LocalizeRemoveGender))));
         return matcher.InstructionEnumeration();
     }
-    private static IEnumerable<CodeInstruction> PlannerGUI_RenderPanelPatch(IEnumerable<CodeInstruction> codeInstructions)
-    {
-        CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
-
-        matcher.MatchStartForward(new CodeMatch(OpCodes.Ldstr, "<color=orange>[Best Station]</color>: "))
-            .SetOperandAndAdvance("<color=orange>[最佳站点]</color>: ");
-        return matcher.InstructionEnumeration();
-    }
+    // private static IEnumerable<CodeInstruction> PlannerGUI_RenderPanelPatch(IEnumerable<CodeInstruction> codeInstructions)
+    // {
+    //     CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
+    //
+    //     matcher.MatchStartForward(new CodeMatch(OpCodes.Ldstr, "<color=orange>[Best Station]</color>: "))
+    //         .SetOperandAndAdvance("<color=orange>[最佳站点]</color>: ");
+    //     return matcher.InstructionEnumeration();
+    // }
     private static IEnumerable<CodeInstruction> PlannerGUI_FireOncePatch(IEnumerable<CodeInstruction> codeInstructions)
     {
         CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
@@ -504,16 +504,16 @@ public class RealAntennasPatches : AbstractPatchBase
             ),
             new HarPatchInfo
             (
-                AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI+<>c"), "<GUIDisplay>b__44_0", new[] { typeof(CelestialBody) }),
+                AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI+<>c"), "<GUIDisplay>b__48_1", new[] { typeof(CelestialBody) }),
                 new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_GetDisplayNamePatch)),
                 HarmonyPatchType.Transpiler
             ),
-            new HarPatchInfo
-            (
-                AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "RenderPanel"),
-                new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_RenderPanelPatch)),
-                HarmonyPatchType.Transpiler
-            ),
+            // new HarPatchInfo
+            // (
+            //     AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "RenderPanel"),
+            //     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_RenderPanelPatch)),
+            //     HarmonyPatchType.Transpiler
+            // ),
             new HarPatchInfo
             (
                 AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "FireOnce"),
