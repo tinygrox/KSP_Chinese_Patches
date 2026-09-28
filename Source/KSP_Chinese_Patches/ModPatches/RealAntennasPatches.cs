@@ -504,16 +504,10 @@ public class RealAntennasPatches : AbstractPatchBase
             ),
             new HarPatchInfo
             (
-                AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI+<>c"), "<GUIDisplay>b__48_1", new[] { typeof(CelestialBody) }),
+                AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI+<>c"), "<GUIDisplay>b__48_2", new[] { typeof(CelestialBody) }),
                 new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_GetDisplayNamePatch)),
                 HarmonyPatchType.Transpiler
             ),
-            // new HarPatchInfo
-            // (
-            //     AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "RenderPanel"),
-            //     new HarmonyMethod(typeof(RealAntennasPatches), nameof(RealAntennasPatches.PlannerGUI_RenderPanelPatch)),
-            //     HarmonyPatchType.Transpiler
-            // ),
             new HarPatchInfo
             (
                 AccessTools.Method(AccessTools.TypeByName("RealAntennas.PlannerGUI"), "FireOnce"),
