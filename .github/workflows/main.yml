@@ -12,7 +12,7 @@ on:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
-  permissions:
+permissions:
   contents: write
 
 jobs:

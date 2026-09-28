@@ -1,5 +1,14 @@
 # 更新日志 | Changelog
 
+## [1.8.5]
+
+- 适配 Kerbalisim 的更新
+- 适配 RealAntenna 的更新
+- 更新了 QuickStart 的翻译键值
+- 修复了 KOOSE 的中文翻译不生效的问题
+- 新增由 **[@123ggbod](https://github.com/123ggbod)** 提供的 Probes Before Crew 合同包汉化
+- 新增了对 CorrectCoL 的硬编码翻译
+
 ## [1.8.4]
 
 - 修复了 Kerbalisim 的一些 Patch 不生效的问题

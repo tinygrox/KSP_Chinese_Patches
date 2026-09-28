@@ -17,7 +17,7 @@ public class DPAIPatches : AbstractPatchBase
 
     private static IEnumerable<CodeInstruction> DPAI_loadTexturesPatches_Patch(IEnumerable<CodeInstruction> codeInstructions)
     {
-        //CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
+        // CodeMatcher matcher = new CodeMatcher(codeInstructions).Start();
         CodeMatcher matcher = new CodeMatcher(codeInstructions);
 
         matcher.MatchStartForward(

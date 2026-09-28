@@ -56,7 +56,6 @@ nunit-*.xml
 *.bat
 *.zip
 .vs/
-*.sln
-/.vscode
-/Source/KSP_Chinese_Patches/.idea
+.vscode/
+.idea/
 *.DotSettings.user
