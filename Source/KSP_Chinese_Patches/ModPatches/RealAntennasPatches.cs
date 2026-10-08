@@ -1,16 +1,12 @@
 using HarmonyLib;
 using KSP_Chinese_Patches.PatchesInfo;
-using System;
 using System.Collections.Generic;
 using System.Reflection.Emit;
-using UnityEngine;
 
 namespace KSP_Chinese_Patches.ModPatches;
 
 public class RealAntennasPatches : AbstractPatchBase
 {
-    static Type ty = AccessTools.TypeByName("RealAntennas.ModuleRealAntenna");
-
     public override string PatchName => "Real Antennas";
 
     public override string PatchDLLName => "RealAntennas";
